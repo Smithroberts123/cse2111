@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 6 study guide | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-study-6">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 6 study guide</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="practice-study-6">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 6 study guide</div>
+  <div class="pagehead">
+    <h1>Quiz 6 study guide: IF Functions</h1>
+    <p>The core Chapter 6 ideas in one place. Read this, then <a href="practice-quiz-6.html">try the practice set</a>. Your course notes are still the official source.</p>
+  </div>
+
+  <h2>How IF works</h2>
+  <p><code>=IF(logical_test, value_if_true, value_if_false)</code></p>
+  <div class="tablewrap"><table>
+    <tr><th>Argument</th><th>What it is</th><th>Examples</th></tr>
+    <tr><td>logical_test</td><td>Anything that reduces to TRUE or FALSE</td><td><code>B2&gt;=60</code>, <code>AND(D2, B2&gt;40)</code>, or just <code>D2</code> if it holds TRUE/FALSE</td></tr>
+    <tr><td>value_if_true</td><td>What to return if the test is TRUE</td><td><code>"Pass"</code>, <code>10</code>, <code>C2*1.1</code>, <code>TRUE</code></td></tr>
+    <tr><td>value_if_false</td><td>What to return if the test is FALSE</td><td><code>"Fail"</code>, <code>0</code>, <code>B2*C2</code>, <code>""</code></td></tr>
+  </table></div>
+  <p>Unlike AND, OR, and NOT, which only return TRUE or FALSE, IF can return text, numbers, calculations, or Boolean values.</p>
+
+  <h2>Quotes, TRUE, and blanks</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Formula</th><th>What happens</th></tr>
+    <tr><td><code>=IF(A1&gt;0, "approved", "denied")</code></td><td>Correct: text results in quotes</td></tr>
+    <tr><td><code>=IF(A1&gt;0, approved, denied)</code></td><td>Excel looks for ranges named approved/denied, and shows #NAME? if they don’t exist</td></tr>
+    <tr><td><code>=IF(D2="TRUE", …)</code></td><td>Compares to the <em>text</em> “TRUE,” so it’s FALSE even when D2 holds TRUE</td></tr>
+    <tr><td><code>=IF(D2, …)</code> or <code>=IF(D2=TRUE, …)</code></td><td>Correct ways to test a TRUE/FALSE cell</td></tr>
+    <tr><td><code>=IF(5&gt;9, "Yes")</code></td><td>value_if_false left out, so it returns FALSE</td></tr>
+    <tr><td><code>=IF(B2&gt;100, "", B2*2)</code></td><td><code>""</code> makes the cell look blank</td></tr>
+  </table></div>
+
+  <h2>Nested IFs</h2>
+  <p>To choose between more than two results, put another IF in the value_if_false spot. The course notes allow up to <b>64</b> levels.</p>
+  <p><code>=IF(C4&lt;50, "Low", IF(C4&lt;80, "Medium", "High"))</code></p>
+  <p>Excel stops at the <b>first</b> TRUE test. That makes order critical:</p>
+  <div class="note"><b>Order trap:</b> <code>=IF(G2&gt;=60, "D", IF(G2&gt;=70, "C", …))</code> gives a 95 a “D,” because 95&gt;=60 is TRUE first. With <code>&gt;=</code>, test the <b>highest</b> cutoff first. With <code>&lt;</code>, test the <b>lowest</b> first.</div>
+
+  <h2>IF with AND, OR, NOT</h2>
+  <p>Use a Boolean function as the logical_test when several conditions matter: <code>=IF(AND(D2, B2&gt;40), "Review", "")</code> or <code>=IF(OR(1&gt;5, 3=3), 10, A1*2)</code>.</p>
+
+  <h2>IF inside a calculation</h2>
+  <p>IF can be one piece of a bigger formula. Base pay plus a commission only when the target is hit:</p>
+  <p><code>=B4+IF(B2&gt;=10000, B5, 0)</code> gives the same result as <code>=IF(B2&gt;=10000, B4+B5, B4)</code>.</p>
+  <p>A nested IF can pick a rate that’s then multiplied: <code>=IF(C4&lt;1000, 0, IF(C4&lt;2000, 0.02, 0.05))*C$1</code>.</p>
+
+  <h2>Worked example: overtime pay</h2>
+  <div class="minitable"><table><tr><th></th><th>A<br>Name</th><th>B<br>Hours</th><th>C<br>Rate</th><th></th><th>F<br>Inputs</th></tr><tr><th>1</th><td></td><td></td><td></td><td>OT multiplier</td><td>1.5</td></tr><tr><th>2</th><td>Kai</td><td>45</td><td>$20</td><td>OT threshold</td><td>40</td></tr></table></div>
+  <p><code>=IF(B2&gt;$F$2, $F$2*C2+(B2-$F$2)*C2*$F$1, B2*C2)</code></p>
+  <p>Kai worked more than 40 hours, so: 40 × 20 = 800 regular, plus 5 × 20 × 1.5 = 150 overtime, for <b>950</b>. The inputs use <code>$F$2</code> and <code>$F$1</code> so the formula can be copied down the list.</p>
+
+  <h2>Videos</h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+IF+function+tutorial+beginners" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>The IF function</b><small>Syntax and basic examples.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+nested+IF+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Nested IF statements</b><small>Choosing between more than two results.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+IF+AND+OR+function+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>IF with AND and OR</b><small>Testing several conditions at once.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+IF+function+overtime+pay+calculation" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>IF for overtime pay</b><small>A classic worked example.</small><em>Search YouTube</em></span></a>
+  </div>
+  <p class="meanwhile"><a href="practice-quiz-6.html">Start the Quiz 6 practice set</a></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

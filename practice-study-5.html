@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 5 study guide | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-study-5">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 5 study guide</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="practice-study-5">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 5 study guide</div>
+  <div class="pagehead">
+    <h1>Quiz 5 study guide: Boolean Functions</h1>
+    <p>The core Chapter 5 ideas in one place. Read this, then <a href="practice-quiz-5.html">try the practice set</a>. Your course notes are still the official source.</p>
+  </div>
+
+  <h2>Relational operators</h2>
+  <p>A relational expression compares two values and returns <b>TRUE</b> or <b>FALSE</b>. These operators are evaluated <b>last</b>, after all the math on each side.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr>
+    <tr><td><code>=</code></td><td>Equal to</td><td><code>=6*2=3*4</code></td><td>TRUE</td></tr>
+    <tr><td><code>&lt;&gt;</code></td><td>Not equal to</td><td><code>=10-4*2&lt;&gt;2</code></td><td>FALSE</td></tr>
+    <tr><td><code>&gt;</code> / <code>&lt;</code></td><td>Greater / less than</td><td><code>=12&gt;10</code></td><td>TRUE</td></tr>
+    <tr><td><code>&gt;=</code> / <code>&lt;=</code></td><td>Or equal to</td><td><code>=7&gt;=7</code></td><td>TRUE</td></tr>
+  </table></div>
+
+  <h2>Comparing text and logical values</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Formula</th><th>Result</th><th>Why</th></tr>
+    <tr><td><code>="Ohio"="OHIO"</code></td><td>TRUE</td><td>Text comparisons ignore case</td></tr>
+    <tr><td><code>="apple"&lt;"banana"</code></td><td>TRUE</td><td>Text compares alphabetically</td></tr>
+    <tr><td><code>="TRUE"=TRUE</code></td><td>FALSE</td><td>Text “TRUE” is not the logical value TRUE</td></tr>
+    <tr><td><code>="10"=10</code></td><td>FALSE</td><td>Text “10” is not the number 10</td></tr>
+  </table></div>
+
+  <h2>AND, OR, NOT</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Function</th><th>Returns TRUE when</th><th>Example</th><th>Result</th></tr>
+    <tr><td><code>AND(…)</code></td><td><b>Every</b> argument is TRUE</td><td><code>=AND(TRUE, 3&gt;1, 5&lt;&gt;5)</code></td><td>FALSE</td></tr>
+    <tr><td><code>OR(…)</code></td><td><b>At least one</b> argument is TRUE</td><td><code>=OR(FALSE, 2+2=5, "a"="A")</code></td><td>TRUE</td></tr>
+    <tr><td><code>NOT(x)</code></td><td>Its <b>one</b> argument is FALSE</td><td><code>=NOT(4*3&gt;10)</code></td><td>FALSE</td></tr>
+  </table></div>
+  <p>AND and OR arguments can be any mix of cell references, comparisons, and ranges, as long as each piece reduces to TRUE or FALSE: <code>=OR(A2, B2&gt;50, C2:C4)</code>. NOT takes exactly one argument, so to negate several conditions, wrap them: <code>=NOT(OR(B3, C3))</code>.</p>
+
+  <h2>Turning words into formulas</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Wording</th><th>Use</th></tr>
+    <tr><td>all, both, every, and</td><td><code>AND(…)</code></td></tr>
+    <tr><td>any, either, at least one, or</td><td><code>OR(…)</code></td></tr>
+    <tr><td>not, isn’t</td><td><code>NOT(…)</code></td></tr>
+    <tr><td>none, neither…nor</td><td><code>NOT(OR(…))</code></td></tr>
+    <tr><td>not both, not all</td><td><code>NOT(AND(…))</code></td></tr>
+    <tr><td>at least 50</td><td><code>&gt;=50</code> (not <code>&gt;50</code>)</td></tr>
+  </table></div>
+
+  <h2>Worked example</h2>
+  <div class="minitable"><table><tr><th></th><th>A<br>Name</th><th>B<br>Age</th><th>C<br>Member</th><th>D<br>Points</th></tr><tr><th>5</th><td>Dee</td><td>25</td><td>TRUE</td><td>200</td></tr></table></div>
+  <p><code>=AND(C5, OR(B5&lt;21, D5&gt;150))</code>: work from the inside out. B5&lt;21 is FALSE and D5&gt;150 is TRUE, so the OR is TRUE. C5 is TRUE, so the AND is <b>TRUE</b>.</p>
+
+  <h2>Videos</h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+AND+OR+NOT+functions+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>AND, OR, and NOT functions</b><small>How Excel’s logical functions work.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+comparison+operators+true+false" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Comparison operators</b><small>Formulas that return TRUE or FALSE.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+nested+AND+OR+functions" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Nesting AND inside OR</b><small>Combining conditions in one formula.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=boolean+logic+AND+OR+NOT+explained" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Boolean logic basics</b><small>AND, OR, NOT explained with truth tables.</small><em>Search YouTube</em></span></a>
+  </div>
+  <p class="meanwhile"><a href="practice-quiz-5.html">Start the Quiz 5 practice set</a></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

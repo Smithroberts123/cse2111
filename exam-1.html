@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exam help / Exam 1 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="exam-1">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Exam help / Exam 1</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="exam-1">
+  <div class="crumbs"><a href="index.html">Home</a> / Exam help / Exam 1</div>
+  <div class="pagehead">
+    <h1>Exam 1 help: Excel through IF</h1>
+    <p>What’s on the exam, how to work each question, a one-page syntax sheet, the mistakes that cost the most points, and an original exam-style practice set. Your lecture slides and the Practice Exam on Carmen are still the official source.</p>
+  </div>
+  <div class="jump"><button type="button" data-go="e1-format">Format</button><button type="button" data-go="e1-topics">What’s covered</button><button type="button" data-go="e1-approach">How to approach it</button><button type="button" data-go="e1-sheet">Syntax sheet</button><button type="button" data-go="e1-mistakes">Common mistakes</button><button type="button" data-go="e1-practice">Practice set</button></div>
+
+  <h2 id="e1-format">Exam format</h2>
+  <ul class="plan">
+    <li><span class="dot"></span><div><b>Taken in Carmen</b><span>Multiple choice and fill-in questions. The Practice Exam on Carmen shows what the real one looks like.</span></div></li>
+    <li><span class="dot"></span><div><b>One workbook, many questions</b><span>You get an image of an Excel workbook plus a problem description, then answer questions about formulas for specific cells.</span></div></li>
+    <li><span class="dot"></span><div><b>Function syntax sheet provided</b><span>You don’t need to memorize argument order, but you do need to know which function fits and where the $ signs go.</span></div></li>
+  </ul>
+
+  <h2 id="e1-topics">What’s covered</h2>
+  <p>Every function covered so far <b>except reference and financial functions</b> (those are on Exam 2). The main focus is everything up through the IF function, especially embedded IFs and IFs that use Boolean functions and relational operators with several conditions. Use cell references whenever you can.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Chapter</th><th>Topic</th><th>Review</th></tr>
+    <tr><td>1</td><td>Spreadsheet basics, order of operations, sheet references</td><td><a href="practice-study-1.html">Study guide</a> · <a href="practice-quiz-1.html">Practice</a></td></tr>
+    <tr><td>2</td><td>Basic functions, ROUND, relative/absolute/mixed references</td><td><a href="practice-study-2.html">Study guide</a> · <a href="practice-quiz-2.html">Practice</a></td></tr>
+    <tr><td>3</td><td>Spreadsheet design</td><td><a href="practice-study-3.html">Study guide</a> · <a href="practice-quiz-3.html">Practice</a></td></tr>
+    <tr><td>4</td><td>COUNTIF(S), SUMIF(S), AVERAGEIF(S), LARGE, SMALL, RANK.EQ</td><td><a href="practice-study-4.html">Study guide</a> · <a href="practice-quiz-4.html">Practice</a></td></tr>
+    <tr><td>5</td><td>Boolean functions: AND, OR, NOT, “none” and “only”</td><td><a href="practice-study-5.html">Study guide</a> · <a href="practice-quiz-5.html">Practice</a></td></tr>
+    <tr><td>6</td><td>IF, nested and embedded IF</td><td><a href="practice-study-6.html">Study guide</a> · <a href="practice-quiz-6.html">Practice</a></td></tr>
+  </table></div>
+  <div class="note"><b>Not on Exam 1:</b> VLOOKUP and the other reference functions (Chapter 7), and PMT and the other financial functions (Chapter 8).</div>
+
+  <h2 id="e1-approach">How to approach each question</h2>
+  <ol class="how">
+    <li><b>Skim the problem first</b><span>Get the big picture of the workbook. Come back for details only when a question needs them.</span></li>
+    <li><b>Do the easy ones first</b><span>Don’t lose points on a question you know because you ran out of time on a hard one.</span></li>
+    <li><b>Say it in English, then translate</b><span>Break the question into small pieces (“lost means out before the cutoff AND not returned”), then write each piece in Excel syntax.</span></li>
+  </ol>
+  <p><b>Then check your $ signs.</b> Ask which way the formula gets copied:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Copied…</th><th>Only worry about</th><th>Example for a fixed cell</th></tr>
+    <tr><td>Down a column</td><td>$ before the <b>row number</b></td><td><code>Units!B$3</code></td></tr>
+    <tr><td>Across a row</td><td>$ before the <b>column letter</b></td><td><code>$B3</code></td></tr>
+    <tr><td>Both ways</td><td>Think about each part separately</td><td><code>AVERAGEIF($C$3:$C$12, $A3, D$3:D$12)</code></td></tr>
+  </table></div>
+
+  <h2 id="e1-sheet">Syntax sheet</h2>
+  <h3>Criteria in COUNTIF(S), SUMIF(S), AVERAGEIF(S)</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Criterion is…</th><th>How to write it</th><th>Example</th></tr>
+    <tr><td>A number</td><td>Type it</td><td><code>=COUNTIF(C1:C10,5)</code></td></tr>
+    <tr><td>Text</td><td>In quotes</td><td><code>=COUNTIF(E1:E10,"USA")</code></td></tr>
+    <tr><td>A cell</td><td>Type the reference</td><td><code>=COUNTIF(G1:G10,A2)</code></td></tr>
+    <tr><td>A typed-in comparison</td><td>Whole thing in quotes</td><td><code>=COUNTIF(I1:I10,"&gt;=5")</code></td></tr>
+    <tr><td>A comparison to a cell</td><td>Operator in quotes, then &amp; and the cell</td><td><code>=COUNTIF(K1:K10,"&gt;="&amp;A2)</code></td></tr>
+    <tr><td>Wildcard</td><td>* inside quotes</td><td><code>=COUNTIF(M1:M10,"USA*")</code></td></tr>
+  </table></div>
+  <p>TRUE, FALSE, AND, OR, and NOT never go in quotes. In a regular formula (not a criterion), comparisons have no quotes: <code>=A2&gt;=B2</code>.</p>
+
+  <h3>Conditional functions: argument order</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Function</th><th>Order</th></tr>
+    <tr><td><code>COUNTIF</code> / <code>SUMIF</code> / <code>AVERAGEIF</code></td><td>(range to check, criterion, [range to add or average])</td></tr>
+    <tr><td><code>COUNTIFS</code></td><td>(range1, criterion1, range2, criterion2, …)</td></tr>
+    <tr><td><code>SUMIFS</code> / <code>AVERAGEIFS</code></td><td>(range to add or average <b>first</b>, then range1, criterion1, range2, criterion2, …)</td></tr>
+  </table></div>
+  <p>The -IFS versions require <b>every</b> condition (AND). For “this <b>or</b> that” in the same column, add two single-condition functions: <code>=SUMIF(C:C,"DRA",H:H)+SUMIF(C:C,"COM",H:H)</code>.</p>
+
+  <h3>Other functions</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Function</th><th>Key point</th><th>Example</th></tr>
+    <tr><td><code>ROUND</code></td><td>2 = hundredths, 1 = tenths (ten cents), 0 = whole, −1 = tens, −2 = hundreds. ROUND goes on the outside.</td><td><code>=ROUND(AVERAGE(A2:A9),1)</code></td></tr>
+    <tr><td><code>COUNT</code> / <code>COUNTA</code></td><td>COUNT counts numbers. COUNTA counts anything not empty.</td><td><code>=COUNTA(A2:A9)</code></td></tr>
+    <tr><td><code>LARGE</code> / <code>SMALL</code></td><td>(range, k): the k-th largest or smallest</td><td><code>=LARGE(H$3:H$19,2)</code></td></tr>
+    <tr><td><code>RANK.EQ</code></td><td>(number, list, order). 0 or blank = highest is 1. 1 = lowest is 1.</td><td><code>=RANK.EQ(D3,D$3:D$19,0)</code></td></tr>
+    <tr><td><code>SUMPRODUCT</code></td><td>Multiplies matching items, then adds. Ranges must be the same size.</td><td><code>=SUMPRODUCT(B2:B5,C2:C5)</code></td></tr>
+  </table></div>
+
+  <h3>Boolean patterns</h3>
+  <div class="tablewrap"><table>
+    <tr><th>In words</th><th>Pattern</th></tr>
+    <tr><td>All / both / every</td><td><code>AND(…)</code></td></tr>
+    <tr><td>Any / either / at least one</td><td><code>OR(…)</code></td></tr>
+    <tr><td>None / neither</td><td><code>NOT(OR(…))</code> or <code>AND(NOT(a),NOT(b),…)</code></td></tr>
+    <tr><td>Only this one</td><td><code>AND(this, NOT(OR(all the others)))</code></td></tr>
+    <tr><td>Between 50 and 80</td><td><code>AND(E2&gt;=50,E2&lt;=80)</code> (never <code>50&lt;=E2&lt;=80</code>)</td></tr>
+  </table></div>
+
+  <h3>IF and embedded IF</h3>
+  <p><code>=IF(logical test, value if true, value if false)</code>. The logical test must come out TRUE or FALSE: a relational comparison, a Boolean function, or a cell that already holds TRUE/FALSE (just write <code>IF(H4,…)</code>).</p>
+  <p>For tiers, go in order. With <code>&gt;=</code> start at the <b>highest</b> cutoff. With <code>&lt;</code> start at the <b>lowest</b>:</p>
+  <p><code>=IF(B7&gt;=B$5,C$5,IF(B7&gt;=B$4,C$4,IF(B7&gt;=B$3,C$3,C$2)))</code></p>
+
+  <h2 id="e1-mistakes">Common mistakes</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Mistake</th><th>Fix</th></tr>
+    <tr><td>Using IF just to show TRUE or FALSE: <code>=IF(A2&gt;5,TRUE,FALSE)</code></td><td>Write the test itself: <code>=A2&gt;5</code></td></tr>
+    <tr><td>Writing <code>IF(H4=TRUE,…)</code></td><td><code>IF(H4,…)</code></td></tr>
+    <tr><td>Comparing a whole range: <code>=B2:B9&gt;50</code></td><td>Compare cells one at a time, or count with <code>COUNTIF(B2:B9,"&gt;50")</code></td></tr>
+    <tr><td>Cell reference inside the quotes: <code>"&gt;=A2"</code></td><td><code>"&gt;="&amp;A2</code></td></tr>
+    <tr><td>COUNTIFS for “or” in one column</td><td>Two COUNTIFs added together</td></tr>
+    <tr><td>Missing $ on a fixed cell (a rate or cutoff on another sheet)</td><td>Lock the row when copying down, the column when copying across</td></tr>
+    <tr><td>Typing a value that’s in a cell, like <code>*20</code></td><td>Point to the cell: <code>*Units!B$5</code></td></tr>
+    <tr><td>Embedded IF tested in the wrong order</td><td>Biggest cutoff first with &gt;=</td></tr>
+    <tr><td>NOT(AND(…)) for “none”</td><td>NOT(OR(…)). NOT(AND) means “not all.”</td></tr>
+    <tr><td>Sheet name with a space, not quoted</td><td><code>='Sales Data'!B4</code></td></tr>
+  </table></div>
+
+  <h2 id="e1-practice">Exam-style practice: Oval Outfitters</h2>
+  <p class="quiznote">An original scenario, not the real exam or the Carmen practice exam. It’s set up the same way: read the workbook, then pick the formula for each cell. Your answers are saved in this browser.</p>
+  <p><b>Oval Outfitters</b> rents camping, water, and bike gear to students. Each row in <b>Rentals</b> is one item rented. A blank Date Back means the item hasn’t been returned. Gear rented before the lost-gear cutoff in <b>Units</b> and still not returned counts as lost and is charged the replacement fee. Gear returned late is charged the daily late fee for each day past the days allowed. Formulas must keep working if the data changes, so use cell references.</p>
+  <h3>Gear</h3><div class="minitable"><table><tr><th></th><th>A<br>GearID</th><th>B<br>Item</th><th>C<br>Type</th><th>D<br>Stars</th><th>E<br>Daily Price</th><th>F<br>Weight (oz)</th><th>G<br>Staff Pick</th></tr><tr><th>3</th><td>G101</td><td>Two-person tent</td><td>CAMP</td><td>4</td><td>$12.00</td><td>80</td><td></td></tr><tr><th>4</th><td>G102</td><td>Sleeping bag</td><td>CAMP</td><td>5</td><td>$8.00</td><td>48</td><td></td></tr><tr><th>5</th><td>G103</td><td>Kayak</td><td>WATER</td><td>3</td><td>$35.00</td><td>560</td><td></td></tr><tr><th>6</th><td>G104</td><td>Mountain bike</td><td>BIKE</td><td>4</td><td>$25.00</td><td>448</td><td></td></tr><tr><th>7</th><td>G105</td><td>Paddleboard</td><td>WATER</td><td>5</td><td>$30.00</td><td>400</td><td></td></tr><tr><th>8</th><td>G106</td><td>Camp stove</td><td>CAMP</td><td>2</td><td>$6.00</td><td>40</td><td></td></tr><tr><th>9</th><td>G107</td><td>Road bike</td><td>BIKE</td><td>3</td><td>$28.00</td><td>352</td><td></td></tr><tr><th>10</th><td>G108</td><td>Life jacket</td><td>WATER</td><td>4</td><td>$5.00</td><td>32</td><td></td></tr><tr><th>11</th><td>G109</td><td>Lantern</td><td>CAMP</td><td>3</td><td>$4.00</td><td>24</td><td></td></tr><tr><th>12</th><td>G110</td><td>Hybrid bike</td><td>BIKE</td><td>5</td><td>$22.00</td><td>416</td><td></td></tr></table></div>
+  <h3>Rentals</h3><div class="minitable"><table><tr><th></th><th>A<br>Customer</th><th>B<br>GearID</th><th>C<br>Type</th><th>D<br>Date Out</th><th>E<br>Date Back</th><th>F<br>Days Allowed</th><th>G<br>Rental Charge</th><th>H<br>Lost?</th><th>I<br>Late Fee</th><th>J<br>Total</th><th>K<br>Reward</th></tr><tr><th>4</th><td>Ana</td><td>G103</td><td>WATER</td><td>9/20/2026</td><td>9/24/2026</td><td>2</td><td>$70.00</td><td></td><td></td><td></td></tr><tr><th>5</th><td>Ben</td><td>G101</td><td>CAMP</td><td>9/22/2026</td><td>9/25/2026</td><td>3</td><td>$36.00</td><td></td><td></td><td></td></tr><tr><th>6</th><td>Cho</td><td>G104</td><td>BIKE</td><td>9/25/2026</td><td></td><td>2</td><td>$50.00</td><td></td><td></td><td></td></tr><tr><th>7</th><td>Dev</td><td>G109</td><td>CAMP</td><td>10/2/2026</td><td></td><td>3</td><td>$12.00</td><td></td><td></td><td></td></tr><tr><th>8</th><td>Eli</td><td>G110</td><td>BIKE</td><td>10/3/2026</td><td>10/8/2026</td><td>2</td><td>$44.00</td><td></td><td></td><td></td></tr><tr><th>9</th><td>Fay</td><td>G105</td><td>WATER</td><td>10/5/2026</td><td>10/6/2026</td><td>1</td><td>$30.00</td><td></td><td></td><td></td></tr></table></div>
+  <h3>Units</h3><div class="minitable"><table><tr><th></th><th>A<br>Setting</th><th>B<br>Value</th><th>C<br></th><th>D<br>Min Total</th><th>E<br>Reward Tier</th></tr><tr><th>2</th><td>Late fee per day</td><td>$5.00</td><td></td><td>0</td><td>None</td></tr><tr><th>3</th><td>Lost-gear cutoff date</td><td>10/1/2026</td><td></td><td>25</td><td>Bronze</td></tr><tr><th>4</th><td>Ounces per pound</td><td>16</td><td></td><td>50</td><td>Silver</td></tr><tr><th>5</th><td>Replacement fee</td><td>$75.00</td><td></td><td>100</td><td>Gold</td></tr></table></div>
+  <h3>Summary</h3><div class="minitable"><table><tr><th></th><th>A<br>Type</th><th>B<br>Avg Stars</th><th>C<br>Avg Price</th><th>D<br>Price, 4+ stars</th></tr><tr><th>3</th><td>CAMP</td><td></td><td></td><td></td></tr><tr><th>4</th><td>WATER</td><td></td><td></td><td></td></tr><tr><th>5</th><td>BIKE</td><td></td><td></td><td></td></tr><tr><th>8</th><td>Star cutoff →</td><td>4</td><td></td><td></td></tr></table></div>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="e1done">0 / 18</b><span>Answered</span></div>
+    <div class="stat"><b id="e1right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="e1pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="e1retry">Retry missed</button><button type="button" class="btn" id="e1reset">Start over</button></div>
+    <div class="sbbar"><span id="e1bar"></span></div>
+  </div>
+  <div id="e1list"></div>
+  <div class="finish" id="e1finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions. Next, take the Practice Exam on Carmen under timed conditions.</p>
+    <button type="button" class="btn primary" id="e1retry2">Retry missed questions</button>
+  </div>
+  <p class="meanwhile">Want more practice on one topic? Go to the <a href="practice-quizzes.html">practice quizzes and study guides</a>.</p>
+</div>
+<script>
+(function(){
+var Q=[{"p": "In <b>Rentals!H4<\/b>, write a formula to copy down that shows (T/F) whether the gear is lost. Gear counts as lost if it went out <i>before<\/i> the cutoff date in <b>Units<\/b> and hasn’t come back (use <code>=\"\"<\/code> for not returned).", "o": ["=AND(D4&lt;Units!B3,E4=&quot;&quot;)", "=AND(D4&lt;Units!B$3,E4=&quot;&quot;)", "=OR(D4&lt;Units!B$3,E4=&quot;&quot;)", "=IF(AND(D4&lt;Units!B$3,E4=&quot;&quot;),TRUE,FALSE)"], "a": 1, "e": "Both conditions must be true, so it’s AND. The cutoff is one fixed cell and the formula is copied <b>down<\/b>, so lock the row: <code>Units!B$3<\/code>. Without the $ the next row would point at B4. The IF version gives the right answer but is the habit your course says not to use: when the result is TRUE/FALSE, the Boolean function <i>is<\/i> the answer."}, {"p": "In <b>Rentals!I4<\/b> (copied down), the late fee is the replacement fee from <b>Units<\/b> if the gear is lost. Otherwise, if the days out (Date Back − Date Out) are more than the days allowed, charge the daily late fee for each extra day. Otherwise 0. Which formula works?", "o": ["=IF(H4,Units!B$5,IF(E4-D4&gt;F4,Units!B$2*(E4-D4-F4),0))", "=IF(H4,Units!B$5,IF(E4-D4&gt;F4,Units!B$2*(E4-D4),0))", "=IF(E4-D4&gt;F4,Units!B$2*(E4-D4-F4),IF(H4,Units!B$5,0))", "=IF(H4,Units!B5,IF(E4-D4&gt;F4,Units!B2*(E4-D4-F4),0))"], "a": 0, "e": "H4 already holds TRUE/FALSE, so it can be the logical test by itself (no <code>=TRUE<\/code> needed). Check lost <b>first<\/b>: for lost gear E4 is blank, so E4−D4 is negative and the late-fee test would return 0 before ever reaching the lost check. Only the <i>extra<\/i> days are charged (E4−D4−F4), and Units cells need the row locked when copying down."}, {"p": "Using the correct formula from the last question, what does <b>Rentals!I8<\/b> (Eli) show?", "o": ["$0.00", "$10.00", "$15.00", "$25.00"], "a": 2, "e": "Eli isn’t lost (he returned it). He had it 10/8 − 10/3 = 5 days with 2 allowed, so 3 extra days × $5.00 = $15.00. $25.00 is what you get if you charge all 5 days."}, {"p": "What does <b>Rentals!I7<\/b> (Dev) show?", "o": ["$0.00", "$5.00", "$75.00", "#VALUE!"], "a": 0, "e": "Dev took the lantern out on 10/2, which is <i>after<\/i> the 10/1 cutoff, so H7 is FALSE. E7 is blank, so E7−D7 is a big negative number, which isn’t more than 3. The result is $0.00. Not returned isn’t the same as lost."}, {"p": "In <b>Rentals!I11<\/b>, a formula copied across to J11 should show the average late fee rounded to the nearest <b>ten cents<\/b> (and, in J11, the average total). Which works?", "o": ["=ROUND(AVERAGE($I4:$I9),1)", "=ROUND(AVERAGE(I4:I9),-1)", "=ROUND(AVERAGE(I4:I9),1)", "=AVERAGE(ROUND(I4:I9,1))"], "a": 2, "e": "Ten cents is one decimal place (0.1), so num_digits is 1. −1 would round to the nearest $10. Copying <b>across<\/b> needs the column to move, so no $ in front of I. For this data the late fees are 10, 0, 75, 0, 15, 0, so the average is 16.666… → $16.70."}, {"p": "In <b>Gear!G3<\/b> (copied down), rank each item for “Staff Pick” by stars, with the most stars ranked 1.", "o": ["=RANK.EQ(D3,D3:D12,0)", "=RANK.EQ(D3,D$3:D$12,1)", "=RANK.EQ(D$3,D$3:D$12,0)", "=RANK.EQ(D3,D$3:D$12,0)"], "a": 3, "e": "The number being ranked changes on each row (D3, D4…), but the list it’s ranked against must stay put, so lock its rows: <code>D$3:D$12<\/code>. Order 0 (or omitted) means descending, so the highest value is 1. Order 1 would make the <i>fewest<\/i> stars rank 1."}, {"p": "In <b>Summary!B3<\/b>, find the average stars for the type in A3. It must work copied <b>down<\/b> (other types) and <b>across<\/b> to C3 (average daily price).", "o": ["=AVERAGEIF(Gear!$C$3:$C$12,$A3,Gear!D$3:D$12)", "=AVERAGEIF(Gear!$C$3:$C$12,A$3,Gear!D$3:D$12)", "=AVERAGEIF(Gear!$D$3:$D$12,$A3,Gear!C$3:C$12)", "=AVERAGEIFS(Gear!$C$3:$C$12,$A3,Gear!D$3:D$12)"], "a": 0, "e": "Range to check (Type column) never moves: fully absolute. The criterion A3 must move down but never across: <code>$A3<\/code>. The averaged column must move across (D → E) but not down: <code>D$3:D$12<\/code>. AVERAGEIFS puts the average range <i>first<\/i>, so the last option has its arguments in the wrong order. CAMP’s answer is (4+5+2+3)/4 = 3.5."}, {"p": "In <b>Gear!I14<\/b>, show (T/F) whether there are more CAMP items than WATER items. It must still work if types change.", "o": ["=COUNTIFS(C3:C12,&quot;CAMP&quot;,C3:C12,&quot;WATER&quot;)", "=COUNTIF(C3:C12,&quot;CAMP&quot;)&gt;COUNTIF(C3:C12,&quot;WATER&quot;)", "=COUNTIF(C3:C12,CAMP)&gt;COUNTIF(C3:C12,WATER)", "=COUNTIF(C3:C12,&quot;CAMP&quot;&gt;&quot;WATER&quot;)"], "a": 1, "e": "Count each type with its own COUNTIF, then compare the two counts. COUNTIFS counts cells that meet <i>every<\/i> condition, and a cell can’t be both CAMP and WATER, so that returns 0. Text criteria need quotes. Here 4 > 3, so TRUE."}, {"p": "In <b>Gear!I15<\/b>, show (T/F) whether <b>none<\/b> of the rentals in <b>Rentals<\/b> is lost.", "o": ["=NOT(AND(Rentals!H4:H9))", "=COUNTIF(Rentals!H4:H9,FALSE)&gt;0", "=NOT(OR(Rentals!H4:H9))", "=OR(NOT(Rentals!H4:H9))"], "a": 2, "e": "“None” means “it’s not true that any of them is TRUE,” which is <code>NOT(OR(…))<\/code>. NOT(AND(…)) means “not all of them,” which is different. Here Cho is lost, so the answer is FALSE."}, {"p": "In <b>Gear!I16<\/b>, find the total weight in <b>pounds<\/b> of all BIKE or WATER gear. It must work if types change.", "o": ["=SUMIFS(F3:F12,C3:C12,&quot;BIKE&quot;,C3:C12,&quot;WATER&quot;)/Units!B4", "=(SUMIF(C3:C12,&quot;BIKE&quot;,F3:F12)+SUMIF(C3:C12,&quot;WATER&quot;,F3:F12))*Units!B4", "=(SUMIF(F3:F12,&quot;BIKE&quot;,C3:C12)+SUMIF(F3:F12,&quot;WATER&quot;,C3:C12))/Units!B4", "=(SUMIF(C3:C12,&quot;BIKE&quot;,F3:F12)+SUMIF(C3:C12,&quot;WATER&quot;,F3:F12))/Units!B4"], "a": 3, "e": "“Or” across two values in the same column means two SUMIFs added together. SUMIFS joins conditions with AND, and nothing is both BIKE and WATER, so it returns 0. SUMIF’s order is (range to check, criteria, range to add). Ounces ÷ 16 = pounds: (1,216 + 992) ÷ 16 = 138 lb."}, {"p": "In <b>Gear!I18<\/b>, show the heaviest item’s weight in pounds, rounded to the nearest tenth. Copied down to I19, it shows the 2nd heaviest. The positions 1 and 2 are typed in H18 and H19.", "o": ["=ROUND(LARGE(F$3:F$12,H18)/Units!B$4,1)", "=ROUND(LARGE(F$3:F$12,H$18)/Units!B$4,1)", "=ROUND(SMALL(F$3:F$12,H18)/Units!B$4,1)", "=ROUND(LARGE(F$3:F$12,H18)/Units!B$4,-1)"], "a": 0, "e": "LARGE(range, k) returns the k-th largest. k must move down to H19, so it stays relative. The data range and Units!B4 are locked by row. A tenth is 1 decimal place. Results: 560 ÷ 16 = 35.0 and 448 ÷ 16 = 28.0."}, {"p": "In <b>Gear!I20<\/b>, show (T/F) whether <b>Cho<\/b> (row 6) is the <b>only<\/b> customer with lost gear.", "o": ["=AND(Rentals!H6,NOT(AND(Rentals!H4:H5,Rentals!H7:H9)))", "=AND(Rentals!H6,NOT(OR(Rentals!H4:H5,Rentals!H7:H9)))", "=OR(Rentals!H6,NOT(OR(Rentals!H4:H5,Rentals!H7:H9)))", "=AND(Rentals!H6,OR(Rentals!H4:H5,Rentals!H7:H9))"], "a": 1, "e": "“Only Cho” = Cho is lost AND none of the others is. “None of the others” is NOT(OR(others)). List the other cells around H6 so it isn’t included in the “others.” Here it’s TRUE."}, {"p": "In <b>Summary!D3<\/b> (copied down), total the daily price of items of the type in A3 that have <b>at least<\/b> the number of stars in <b>Summary!B8<\/b>.", "o": ["=SUMIFS(Gear!$E$3:$E$12,Gear!$C$3:$C$12,$A3,Gear!$D$3:$D$12,&quot;&gt;=$B$8&quot;)", "=SUMIFS(Gear!$C$3:$C$12,$A3,Gear!$D$3:$D$12,&quot;&gt;=&quot;&amp;$B$8,Gear!$E$3:$E$12)", "=SUMIFS(Gear!$E$3:$E$12,Gear!$C$3:$C$12,$A3,Gear!$D$3:$D$12,&quot;&gt;=&quot;&amp;$B$8)", "=SUMIFS(Gear!$E$3:$E$12,Gear!$C$3:$C$12,$A3,Gear!$D$3:$D$12,&gt;=$B$8)"], "a": 2, "e": "When a comparison uses a <b>cell reference<\/b>, put the operator in quotes and join the cell with &amp;: <code>&quot;&gt;=&quot;&amp;$B$8<\/code>. Inside quotes, $B$8 is just text, so Excel would look for stars equal to the letters “$B$8.” SUMIFS starts with the range to add. For CAMP with 4+ stars: $12 + $8 = $20."}, {"p": "In <b>Gear!I21<\/b>, show (T/F) whether <b>at least two<\/b> BIKE items have 4 or more stars.", "o": ["=COUNTIFS(C3:C12,&quot;BIKE&quot;,D3:D12,&quot;&gt;=4&quot;)&gt;2", "=COUNTIF(C3:C12,&quot;BIKE&quot;,D3:D12,&quot;&gt;=4&quot;)&gt;=2", "=AND(COUNTIF(C3:C12,&quot;BIKE&quot;),COUNTIF(D3:D12,&quot;&gt;=4&quot;))&gt;=2", "=COUNTIFS(C3:C12,&quot;BIKE&quot;,D3:D12,&quot;&gt;=4&quot;)&gt;=2"], "a": 3, "e": "Two conditions on the same row → COUNTIFS (COUNTIF takes only one range and one criterion). “At least two” is >=2, not >2. The bikes have 4, 3, and 5 stars, so the count is 2 → TRUE."}, {"p": "In <b>Gear!I22<\/b>, count the items whose name <b>starts with<\/b> “Camp.”", "o": ["=COUNTIF(B3:B12,&quot;Camp&quot;)", "=COUNTIF(B3:B12,&quot;Camp*&quot;)", "=COUNTIF(B3:B12,&quot;*Camp&quot;)", "=COUNTIF(B3:B12,Camp*)"], "a": 1, "e": "The asterisk stands for “any characters,” so <code>&quot;Camp*&quot;<\/code> means Camp followed by anything. \"Camp\" alone needs an exact match, and \"*Camp\" means it <i>ends<\/i> with Camp. Wildcards still go inside quotes. Result: 1 (Camp stove)."}, {"p": "In <b>Rentals!L4<\/b> (copied down), show “Available” if the gear is <b>not lost and has been returned<\/b>, otherwise “Not Available.”", "o": ["=IF(OR(NOT(H4),E4&lt;&gt;&quot;&quot;),&quot;Available&quot;,&quot;Not Available&quot;)", "=IF(AND(H4,E4&lt;&gt;&quot;&quot;),&quot;Available&quot;,&quot;Not Available&quot;)", "=IF(AND(NOT(H4),E4&lt;&gt;&quot;&quot;),&quot;Available&quot;,&quot;Not Available&quot;)", "=IF(AND(H4=&quot;FALSE&quot;,E4&lt;&gt;&quot;&quot;),&quot;Available&quot;,&quot;Not Available&quot;)"], "a": 2, "e": "Both conditions are required, so AND. “Not lost” is NOT(H4). <code>&lt;&gt;&quot;&quot;<\/code> means “isn’t blank.” <code>H4=&quot;FALSE&quot;<\/code> compares to the <i>text<\/i> FALSE, which never matches the logical value FALSE."}, {"p": "In <b>Rentals!K4<\/b> (copied down), show the reward tier from <b>Units!D2:E5<\/b> based on the total in J4 (a total of at least the Min Total earns that tier).", "o": ["=IF(J4&gt;=Units!D2,Units!E2,IF(J4&gt;=Units!D3,Units!E3,IF(J4&gt;=Units!D4,Units!E4,Units!E5)))", "=IF(J4&gt;=Units!D$5,Units!E$5,IF(J4&gt;=Units!D$4,Units!E$4,IF(J4&gt;=Units!D$3,Units!E$3,Units!E$2)))", "=IF(J4&gt;=Units!D$2,Units!E$2,IF(J4&gt;=Units!D$3,Units!E$3,IF(J4&gt;=Units!D$4,Units!E$4,Units!E$5)))", "=IF(J4&gt;=Units!D5,Units!E5,IF(J4&gt;=Units!D4,Units!E4,IF(J4&gt;=Units!D3,Units!E3,Units!E2)))"], "a": 1, "e": "With >=, test from the <b>highest<\/b> threshold down. If you start at the lowest, every total ≥ 0 stops at “None.” The tier table doesn’t move, so lock its rows. Ana’s total is $70 + $10 = $80 → Silver."}, {"p": "In <b>Rentals!M4<\/b>, a formula copied down <b>and<\/b> across shows each customer’s late fee as a percent of all late fees (and, in column N, their total as a percent of all totals).", "o": ["=I4/SUM(I$4:I$9)", "=I4/SUM($I$4:$I$9)", "=$I4/SUM(I$4:I$9)", "=I4/SUM(I4:I9)"], "a": 0, "e": "The top (I4) must move both ways, so it’s relative. The total range must move across (I → J) but not down, so lock only the rows. $I$4:$I$9 would still divide by late fees in column N. Ana’s share: $10 ÷ $100 = 10%."}];
+var KEY='cse2111-exam-1',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('e1list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">Multiple choice</span></div>'+
+    '<div class="qprompt">'+q.p+'</div><div class="opts">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+(o.charAt(0)==='='?'<code>'+o+'</code>':o)+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('e1done').textContent=n+' / '+Q.length;
+  document.getElementById('e1right').textContent=c;
+  document.getElementById('e1pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('e1bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('e1finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('e1retry').addEventListener('click',retry);
+document.getElementById('e1retry2').addEventListener('click',retry);
+document.getElementById('e1reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

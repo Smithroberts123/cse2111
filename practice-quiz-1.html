@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 1 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-1">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 1</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-1">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 1</div>
+  <div class="pagehead">
+    <h1>Quiz 1 practice: Spreadsheet Basics</h1>
+    <p>28 original questions covering the Chapter 1 ideas: what spreadsheets are used for, displayed vs. stored values, order of operations and comparisons, entering formulas, ranges, and references to other sheets.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-1.html">Open the Quiz 1 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q1done">0 / 28</b><span>Answered</span></div>
+    <div class="stat"><b id="q1right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q1pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q1retry">Retry missed</button><button type="button" class="btn" id="q1reset">Start over</button></div>
+    <div class="sbbar"><span id="q1bar"></span></div>
+  </div>
+  <div id="q1list"></div>
+  <div class="finish" id="q1finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q1retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var Q=[
+{p:"A bakery owner wants to see how next month’s ingredient costs change under three different sales forecasts. Which spreadsheet strength is she relying on most?",
+ o:["Changing a few input cells and letting every formula recalculate automatically","Designing a printed menu with custom fonts","Emailing invoices to customers on a schedule","Storing photos of each product"],a:0,
+ e:"Spreadsheets shine at “what-if” analysis: change an input, and every formula that depends on it updates instantly. That’s why they’re used for budgets, forecasts, and cost tracking."},
+{p:"Which of these is <em>not</em> a typical business use of a spreadsheet like Excel?",
+ o:["Tracking employee hours for payroll","Building a quarterly sales forecast","Recording and editing a podcast episode","Comparing quotes from several vendors"],a:2,
+ e:"Payroll, forecasting, and comparing numbers are all classic spreadsheet jobs. Audio editing needs different software entirely."},
+{p:"Spreadsheets are useful in business for organizing data, performing calculations on it, and presenting results with charts.",
+ o:["True","False"],a:0,
+ e:"Organize, calculate, and present is a good one-line summary of what spreadsheets do in business."},
+{p:"Cell A1 contains <code>7.4826</code> and is formatted to show 1 decimal place, so it displays 7.5. Another cell contains <code>=A1*10</code>. That formula calculates using 7.5.",
+ o:["True","False"],a:1,
+ e:"Formatting only changes what you see. Excel still stores 7.4826 and uses it in calculations, so <code>=A1*10</code> gives 74.826 (which may also be displayed rounded)."},
+{p:"Changing a cell’s format from General to Currency changes the number Excel stores in that cell.",
+ o:["True","False"],a:1,
+ e:"Number formats (Currency, Percentage, decimal places, etc.) are display settings only. The stored value stays exactly the same."},
+{p:"Cell C2 is formatted as Percentage with 0 decimal places. It contains <code>=3/8</code>. What is displayed, and what is actually stored?",
+ o:["Displayed: 37.5%, Stored: 0.375","Displayed: 38%, Stored: 0.375","Displayed: 38%, Stored: 0.38","Displayed: 0.375, Stored: 38%"],a:1,
+ e:"3/8 = 0.375, and that’s what Excel stores. Percentage format with 0 decimals shows it as 38% (rounded), but the stored value is still 0.375."},
+{p:"You type <code>1234.5</code> into a cell formatted as Currency with 2 decimal places. What does the cell display?",
+ o:["1234.5","$1,234.50","$1,235","$1234.5"],a:1,
+ e:"Currency format adds the dollar sign, the thousands comma, and two decimal places to the display. The stored value is still just 1234.5."},
+{p:"B1 and B2 each contain <code>2.6</code>. B3 contains <code>=B1+B2</code>. All three cells are formatted to show 0 decimal places. What do B1, B2, and B3 display?",
+ o:["3, 3, 6","2, 2, 5","3, 3, 5","2.6, 2.6, 5.2"],a:2,
+ e:"B1 and B2 each display as 3, but B3 adds the stored values: 2.6 + 2.6 = 5.2, which displays as 5. So the sheet appears to say 3 + 3 = 5. This is exactly why displayed and stored values matter."},
+{p:"What does <code>=3+4*2</code> return?",
+ o:["14","11","10","24"],a:1,
+ e:"Multiplication happens before addition: 4*2 = 8, then 3 + 8 = 11."},
+{p:"What does <code>=(3+4)*2</code> return?",
+ o:["11","10","14","9"],a:2,
+ e:"Parentheses go first: 3 + 4 = 7, then 7 * 2 = 14. Parentheses are how you override the normal order."},
+{p:"What does <code>=20/2^2</code> return?",
+ o:["100","5","25","10"],a:1,
+ e:"Exponents come before division: 2^2 = 4, then 20 / 4 = 5."},
+{p:"What does <code>=18/3*2</code> return?",
+ o:["3","36","12","6"],a:2,
+ e:"Division and multiplication share the same level, so Excel works left to right: 18 / 3 = 6, then 6 * 2 = 12."},
+{p:"What does <code>=4+8/4-1</code> return?",
+ o:["2","5","6","3"],a:1,
+ e:"Division first: 8 / 4 = 2. Then left to right: 4 + 2 = 6, and 6 − 1 = 5."},
+{p:"What does <code>=-3^2</code> return in Excel?",
+ o:["-9","9","6","-6"],a:1,
+ e:"In Excel, negation (the minus sign in front of a number) happens before exponents. So it’s (−3)^2 = 9. This differs from math class, where −3² usually means −9. Use <code>=-(3^2)</code> if you want −9."},
+{p:"What does <code>=50%*8</code> return?",
+ o:["400","4","0.04","58"],a:1,
+ e:"The % operator turns 50 into 0.5, then 0.5 * 8 = 4."},
+{p:"The formula <code>=9-3*2&gt;=2+1</code> evaluates to TRUE.",
+ o:["True","False"],a:0,
+ e:"Comparison operators go last. Left side: 3*2 = 6, 9 − 6 = 3. Right side: 2 + 1 = 3. Then 3 &gt;= 3 is TRUE."},
+{p:"The formula <code>=5*4/2&lt;3^2</code> evaluates to TRUE.",
+ o:["True","False"],a:1,
+ e:"Left side: 5*4 = 20, 20/2 = 10. Right side: 3^2 = 9. Then 10 &lt; 9 is FALSE."},
+{p:"What does <code>=6*2=3*4</code> return?",
+ o:["TRUE","FALSE","12","An error, because a formula can’t have two equal signs"],a:0,
+ e:"The first = just starts the formula. The second = is a comparison, which Excel does last: 6*2 = 12 and 3*4 = 12, so 12 = 12 is TRUE."},
+{p:"What does <code>=8&lt;&gt;2^3</code> return?",
+ o:["TRUE","FALSE","8","6"],a:1,
+ e:"<code>&lt;&gt;</code> means “not equal to.” 2^3 = 8, so the question is “is 8 not equal to 8?” The answer is FALSE."},
+{p:"Relational (comparison) operators like <code>&gt;</code>, <code>&lt;</code>, and <code>=</code> are evaluated <em>before</em> addition and subtraction in an Excel formula.",
+ o:["True","False"],a:1,
+ e:"It’s the other way around. Comparison operators have the lowest precedence, so all the arithmetic on both sides is finished before the comparison happens."},
+{p:"Which list shows Excel’s order of operations from <em>first</em> to <em>last</em>?",
+ o:["Negation, %, ^, * and /, + and −, &, comparisons","^, negation, * and /, %, + and −, comparisons, &","Comparisons, ^, * and /, + and −, negation, %","+ and −, * and /, ^, %, negation, comparisons"],a:0,
+ e:"Excel goes: negation, percent, exponent, multiply/divide, add/subtract, concatenation (&), then comparisons. Parentheses override all of it, and operators at the same level run left to right."},
+{p:"A cell is formatted as Currency. You want it to multiply $2,500 by 12 months and display $30,000. What should you type?",
+ o:["=$2,500*12","=2500x12","=2500*12","2500*12","=2,500*12"],a:2,
+ e:"Formulas start with <code>=</code>, use <code>*</code> for multiplication, and take plain numbers with no $ or commas. Let the Currency format add the $ and comma to the display."},
+{p:"If you type <code>45*3</code> into a cell (with no equal sign), Excel calculates and displays 135.",
+ o:["True","False"],a:1,
+ e:"Without a leading <code>=</code>, Excel treats the entry as text and just shows “45*3.” Every formula has to start with an equal sign."},
+{p:"Which cells are included in the range <code>A4:B5</code>?",
+ o:["A4 and B5 only","A4, A5, B4, B5","A4, B4 only","A5 and B4 only"],a:1,
+ e:"A range is the whole rectangle between the two corner cells: columns A–B and rows 4–5, which gives four cells."},
+{p:"How many cells are in the range <code>D3:F6</code>?",
+ o:["2","6","9","12"],a:3,
+ e:"Columns D, E, F (3 columns) times rows 3, 4, 5, 6 (4 rows) = 12 cells."},
+{p:"How do you reference cell F12 on a worksheet named Payroll?",
+ o:["Payroll:F12","F12!Payroll","Payroll!F12","Payroll!12F"],a:2,
+ e:"The format is <code>SheetName!CellAddress</code>: sheet name, exclamation point, then the cell with its column letter first."},
+{p:"How do you reference cell B7 on a worksheet named <strong>Q3 Sales</strong> (with a space in the name)?",
+ o:["=Q3 Sales!B7","='Q3 Sales'!B7","=\"Q3 Sales\"!B7","=Q3_Sales:B7"],a:1,
+ e:"When a sheet name contains a space, wrap it in single quotes: <code>'Q3 Sales'!B7</code>. Excel adds them automatically if you click the cell instead of typing."},
+{p:"In the cell address <code>K22</code>, what does the K identify?",
+ o:["The row","The column","The worksheet","The workbook"],a:1,
+ e:"Cell addresses always list the column letter first, then the row number. K22 is column K, row 22."}
+];
+
+var KEY='cse2111-practice-quiz-1',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q1list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<p class="qprompt">'+q.p+'</p><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q1done').textContent=n+' / '+Q.length;
+  document.getElementById('q1right').textContent=c;
+  document.getElementById('q1pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q1bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q1finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q1retry').addEventListener('click',retry);
+document.getElementById('q1retry2').addEventListener('click',retry);
+document.getElementById('q1reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

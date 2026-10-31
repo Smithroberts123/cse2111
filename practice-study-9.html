@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 9 study guide | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-study-9">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 9 study guide</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="practice-study-9">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 9 study guide</div>
+  <div class="pagehead">
+    <h1>Quiz 9 study guide: Database Concepts</h1>
+    <p>The core Chapter 10 ideas in one place, using the Lab 6 Research Papers database as the example. Read this, then <a href="practice-quiz-9.html">try the practice set</a>. Your course notes are still the official source.</p>
+  </div>
+
+  <h2>Building blocks</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Term</th><th>Meaning</th></tr>
+    <tr><td>Database</td><td>A collection of related tables about people, places, or things</td></tr>
+    <tr><td>DBMS</td><td>Software to create, manage, and query databases, like Access</td></tr>
+    <tr><td>Table</td><td>Related records about one subject</td></tr>
+    <tr><td>Record</td><td>One row: everything about one item</td></tr>
+    <tr><td>Field</td><td>One column: a single piece of data</td></tr>
+  </table></div>
+  <p><b>Hierarchy:</b> database, then table, then record, then field. Data is split into related tables so each fact is stored <b>once</b>, which cuts down on duplication and inconsistencies.</p>
+
+  <h2>Primary keys and foreign keys</h2>
+  <div class="tablewrap"><table>
+    <tr><th></th><th>Primary key</th><th>Foreign key</th></tr>
+    <tr><td>Job</td><td>Uniquely identifies each record</td><td>Links a child record to its parent</td></tr>
+    <tr><td>Can repeat?</td><td>Never</td><td>Yes, that’s what makes one-to-many work</td></tr>
+    <tr><td>Can be empty?</td><td>Never</td><td>Can be null</td></tr>
+    <tr><td>Name</td><td>Any</td><td><b>Doesn’t</b> have to match the primary key’s name</td></tr>
+    <tr><td>Data type</td><td>Any</td><td><b>Must</b> match the primary key’s data type and hold the same kind of information</td></tr>
+    <tr><td>Lab 6 example</td><td>Client.ClientID, PaymentMethod.MethodID</td><td>Charges.ClientID, Payments.ClientID, Payments.PaymentType</td></tr>
+  </table></div>
+  <p>A primary key can be more than one field (a composite key). Access indexes it automatically as “Yes (No Duplicates).” Charges and Payments have no primary key in Lab 6 because ClientID repeats there.</p>
+
+  <h2>Relationships</h2>
+  <p>The table with the primary key is the <b>parent</b>; the table with the foreign key is the <b>child</b>. Lab 6 has three one-to-many relationships:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Parent (1)</th><th>Child (∞)</th><th>Linked on</th></tr>
+    <tr><td>Client</td><td>Charges</td><td>ClientID → ClientID</td></tr>
+    <tr><td>Client</td><td>Payments</td><td>ClientID → ClientID</td></tr>
+    <tr><td>PaymentMethod</td><td>Payments</td><td>MethodID → PaymentType</td></tr>
+  </table></div>
+
+  <h2>Referential integrity and cascades</h2>
+  <p>Referential integrity means every child must have a parent, so there are <b>no orphans</b>.</p>
+  <div class="tablewrap"><table>
+    <tr><th>You do this</th><th>RI on, cascade off</th><th>RI on, cascade on</th></tr>
+    <tr><td>Add a child with a nonexistent parent ID</td><td>Blocked</td><td>Blocked</td></tr>
+    <tr><td>Delete a parent that has children</td><td>Blocked</td><td>Parent and all its children deleted (Cascade Delete)</td></tr>
+    <tr><td>Change a parent’s primary key</td><td>Blocked</td><td>Children’s foreign keys update (Cascade Update)</td></tr>
+    <tr><td>Delete one child record</td><td>Only that child is deleted</td><td>Only that child is deleted</td></tr>
+  </table></div>
+  <div class="note"><b>One direction only.</b> Cascades flow from parent to child. Deleting or changing a child never affects the parent.</div>
+
+  <h2>Access objects</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Object</th><th>Used for</th></tr>
+    <tr><td>Table</td><td>Storing the data</td></tr>
+    <tr><td>Query</td><td>Asking questions: sort, filter, select, calculate</td></tr>
+    <tr><td>Form</td><td>On-screen views for viewing and entering data</td></tr>
+    <tr><td>Report</td><td>Formatted, printable output</td></tr>
+    <tr><td>Macro</td><td>Automating actions</td></tr>
+    <tr><td>Module</td><td>Program code (VBA)</td></tr>
+  </table></div>
+  <p><b>Indexing</b> combined with search methods makes finding records much faster, especially in very large databases.</p>
+  <p class="meanwhile">See all of this in action in the <a href="lab-6-pre-lab.html">Lab 6 Pre-Lab walkthrough</a>.</p>
+
+  <h2>Videos</h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/watch?v=ubmwp8kbfPc" target="_blank" rel="noopener noreferrer"><span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></span><span><b>Microsoft Access beginner tutorial</b><small>Tables, forms, queries, and reports in one walkthrough.</small><em>Video by Kevin Stratvert</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=primary+key+foreign+key+explained+database" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Primary and foreign keys</b><small>How tables link together.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=access+referential+integrity+cascade+update+delete" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Referential integrity in Access</b><small>Enforcing it, plus cascade update and delete.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=database+one+to+many+relationship+explained" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>One-to-many relationships</b><small>Parent and child tables explained.</small><em>Search YouTube</em></span></a>
+  </div>
+  <p class="meanwhile"><a href="practice-quiz-9.html">Start the Quiz 9 practice set</a></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

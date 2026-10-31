@@ -1,0 +1,6 @@
+"ET0001","Sporting Event"
+"ET0002","Music Event"
+"ET0003","Art Event"
+"ET0004","Film Event"
+"ET0005","Festival Event"
+"ET0006","Shopping Event"

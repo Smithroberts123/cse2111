@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 2 study guide | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-study-2">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 2 study guide</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="practice-study-2">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 2 study guide</div>
+  <div class="pagehead">
+    <h1>Quiz 2 study guide: Basic Functions &amp; Cell Addressing</h1>
+    <p>The core Chapter 2 ideas in one place. Read this, then <a href="practice-quiz-2.html">try the practice set</a>. Your course notes are still the official source.</p>
+  </div>
+
+  <h2>How functions work</h2>
+  <p>A function is a pre-built formula with an algorithm already programmed into Excel. You write its name and give it arguments in parentheses: <code>=ROUND(B2, 2)</code>. For list-style functions like SUM, argument order doesn’t matter. For functions like ROUND, each position means something specific.</p>
+
+  <h2>The basic functions, and what they skip</h2>
+  <p>Example range A2:A6 holds <code>12</code>, (blank), <code>pending</code>, <code>8</code>, <code>0</code>.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Function</th><th>What it does</th><th>Result for A2:A6</th></tr>
+    <tr><td><code>SUM</code></td><td>Adds the numbers</td><td>20</td></tr>
+    <tr><td><code>AVERAGE</code></td><td>Sum ÷ how many numbers</td><td>6.67 (20 ÷ 3)</td></tr>
+    <tr><td><code>MIN</code> / <code>MAX</code></td><td>Smallest / largest number</td><td>0 / 12</td></tr>
+    <tr><td><code>COUNT</code></td><td>Counts cells with numbers</td><td>3</td></tr>
+    <tr><td><code>COUNTA</code></td><td>Counts non-empty cells (numbers and text)</td><td>4</td></tr>
+    <tr><td><code>COUNTBLANK</code></td><td>Counts empty cells</td><td>1</td></tr>
+  </table></div>
+  <div class="note"><b>Key rule:</b> SUM, AVERAGE, MIN, MAX, and COUNT <b>ignore blanks and text labels</b> in a range. A <b>0 is a real number</b> and counts, so it pulls an average down. If a range has no numbers at all, MIN and MAX return 0 and AVERAGE returns #DIV/0!.</div>
+  <p>Functions are safer than operators here: if A2 contains text, <code>=A1+A2</code> gives #VALUE!, but <code>=SUM(A1:A2)</code> just skips the text.</p>
+
+  <h2>Error values</h2>
+  <div class="tablewrap"><table>
+    <tr><th>You see</th><th>It means</th><th>Typical cause</th></tr>
+    <tr><td><code>#DIV/0!</code></td><td>Dividing by zero</td><td>The bottom of a division is 0 or blank, like <code>=G2/(H2-H3)</code> when H2 = H3</td></tr>
+    <tr><td><code>#REF!</code></td><td>Invalid reference</td><td>The sheet, row, or column a formula pointed to was deleted</td></tr>
+    <tr><td><code>#NAME?</code></td><td>Excel doesn’t recognize a name</td><td>A misspelled function like <code>=AVERGE(...)</code></td></tr>
+    <tr><td><code>#VALUE!</code></td><td>Wrong kind of data</td><td>Doing math on text with an operator, like <code>=5+"ten"</code></td></tr>
+    <tr><td><code>#NUM!</code></td><td>Impossible math</td><td><code>=SQRT(-16)</code></td></tr>
+    <tr><td><code>#####</code></td><td>Not an error</td><td>The column is too narrow. Widen it.</td></tr>
+  </table></div>
+
+  <h2>ROUND</h2>
+  <p><code>=ROUND(number, num_digits)</code> changes the actual value, unlike formatting, which only changes the display. Halfway values round away from zero.</p>
+  <div class="tablewrap"><table>
+    <tr><th>num_digits</th><th>Rounds to</th><th>Example</th><th>Result</th></tr>
+    <tr><td>2</td><td>Hundredths</td><td><code>=ROUND(3.14159, 2)</code></td><td>3.14</td></tr>
+    <tr><td>0</td><td>Whole number</td><td><code>=ROUND(76.5, 0)</code></td><td>77</td></tr>
+    <tr><td>−1</td><td>Tens</td><td><code>=ROUND(845, -1)</code></td><td>850</td></tr>
+    <tr><td>−2</td><td>Hundreds</td><td><code>=ROUND(1234.567, -2)</code></td><td>1200</td></tr>
+  </table></div>
+
+  <h2>Relative, absolute, and mixed references</h2>
+  <p>When you copy a formula, relative parts shift by however far it moved. A <code>$</code> locks whatever comes right after it.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Type</th><th>Looks like</th><th>When copied</th></tr>
+    <tr><td>Relative</td><td><code>A1</code></td><td>Column and row both shift</td></tr>
+    <tr><td>Absolute</td><td><code>$A$1</code></td><td>Never changes</td></tr>
+    <tr><td>Mixed (row locked)</td><td><code>A$1</code></td><td>Column shifts, row stays</td></tr>
+    <tr><td>Mixed (column locked)</td><td><code>$A1</code></td><td>Row shifts, column stays</td></tr>
+  </table></div>
+  <p><b>Worked example:</b> <code>=A$1*$B2</code> in C3 copied to E6 moves 2 columns right and 3 rows down. A$1 becomes C$1 (column moves, row locked) and $B2 becomes $B5 (column locked, row moves), giving <code>=C$1*$B5</code>.</p>
+  <p>Pressing <b>F4</b> on a reference cycles through <code>$A$1</code>, <code>A$1</code>, <code>$A1</code>, then back to <code>A1</code>.</p>
+
+  <h2>Named ranges</h2>
+  <p>A name like <code>TaxRate</code> always points to the same cells, so it acts like an <b>absolute reference</b> when copied. Names can’t contain spaces, can’t start with a number, and can’t look like a cell address such as B12.</p>
+
+  <h2>Videos</h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/watch?v=iDg9s7BJ2m4" target="_blank" rel="noopener noreferrer"><span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></span><span><b>Relative and absolute cell references</b><small>When to use $A$1 and why copied formulas break.</small><em>Video by GCFLearnFree</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+COUNT+COUNTA+COUNTBLANK+difference" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>COUNT vs. COUNTA vs. COUNTBLANK</b><small>Which cells each one counts.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+ROUND+function+negative+digits" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>The ROUND function</b><small>Positive, zero, and negative digits.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+error+values+explained+DIV%2F0+REF+NAME+VALUE" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Excel error values explained</b><small>#DIV/0!, #REF!, #NAME?, #VALUE!, and more.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+named+ranges+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Named ranges</b><small>Creating and using names in formulas.</small><em>Search YouTube</em></span></a>
+  </div>
+  <p class="meanwhile"><a href="practice-quiz-2.html">Start the Quiz 2 practice set</a></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

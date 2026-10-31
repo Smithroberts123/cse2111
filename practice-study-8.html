@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 8 study guide | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-study-8">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 8 study guide</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="practice-study-8">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 8 study guide</div>
+  <div class="pagehead">
+    <h1>Quiz 8 study guide: Financial Functions</h1>
+    <p>The core Chapter 8 ideas in one place. Read this, then <a href="practice-quiz-8.html">try the practice set</a>. Your course notes are still the official source.</p>
+  </div>
+
+  <h2>The five functions</h2>
+  <p>They’re five views of one equation: give Excel four values and it solves for the fifth.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Function</th><th>Answers</th><th>Syntax</th></tr>
+    <tr><td><code>PV</code></td><td>What is it worth at the start / today?</td><td><code>PV(rate, nper, pmt, [fv], [type])</code></td></tr>
+    <tr><td><code>FV</code></td><td>What will it be worth at the end?</td><td><code>FV(rate, nper, pmt, [pv], [type])</code></td></tr>
+    <tr><td><code>PMT</code></td><td>How much is each payment?</td><td><code>PMT(rate, nper, pv, [fv], [type])</code></td></tr>
+    <tr><td><code>RATE</code></td><td>What’s the interest rate per period?</td><td><code>RATE(nper, pmt, pv, [fv], [type])</code></td></tr>
+    <tr><td><code>NPER</code></td><td>How many periods will it take?</td><td><code>NPER(rate, pmt, pv, [fv], [type])</code></td></tr>
+  </table></div>
+
+  <h2>Match the rate and periods to the compounding</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Compounding</th><th>Periods per year</th><th>rate</th><th>nper (for 5 years)</th></tr>
+    <tr><td>Annually</td><td>1</td><td><code>APR</code></td><td>5</td></tr>
+    <tr><td>Semiannually</td><td>2</td><td><code>APR/2</code></td><td>10</td></tr>
+    <tr><td>Quarterly</td><td>4</td><td><code>APR/4</code></td><td>20</td></tr>
+    <tr><td>Monthly</td><td>12</td><td><code>APR/12</code></td><td>60</td></tr>
+  </table></div>
+  <div class="note"><b>Convert results back.</b> NPER returns periods, so divide by periods per year to get years: <code>=NPER(6%/12, -600, 30000)/12</code>. RATE returns a per-period rate, so multiply to get the annual rate: <code>=RATE(36, -300, 9000)*12</code>.</div>
+
+  <h2>Compound interest</h2>
+  <p>Compound interest earns interest on earlier interest. $1,000 at 10% compounded annually is $1,100 after year 1 and $1,210 after year 2. More frequent compounding earns a little more: $1,000 at a 12% APR for one year is $1,120.00 compounded annually but $1,126.83 compounded monthly.</p>
+
+  <h2>Cash-flow signs</h2>
+  <p>Excel tracks the direction money moves: <b>money in is positive, money out is negative</b>.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Situation</th><th>Formula</th><th>Result</th></tr>
+    <tr><td>Borrow $20,000 for 5 years at 6%, monthly</td><td><code>=PMT(6%/12, 60, 20000)</code></td><td>−$386.66 per month</td></tr>
+    <tr><td>Deposit $1,000 once at 5% for 3 years</td><td><code>=FV(5%, 3, 0, -1000)</code></td><td>$1,157.63</td></tr>
+    <tr><td>Need $10,000 in 5 years at 4%</td><td><code>=PV(4%, 5, 0, 10000)</code></td><td>−$8,219.27 to invest today</td></tr>
+    <tr><td>Save $200/month for 10 years at 3%</td><td><code>=FV(3%/12, 120, -200)</code></td><td>$27,948.28</td></tr>
+  </table></div>
+  <p>If the payment and loan have the <em>same</em> sign, NPER and RATE can’t find a solution and return #NUM!.</p>
+
+  <h2>Optional arguments</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Argument</th><th>If left out</th><th>Use it for</th></tr>
+    <tr><td><code>fv</code></td><td>0, meaning fully paid off</td><td>A <b>balloon payment</b> (an extra lump sum due at the end) or a savings goal</td></tr>
+    <tr><td><code>type</code></td><td>0, payments at the <b>end</b> of each period</td><td>1 for payments at the <b>beginning</b> (rent, saving at the start of the month)</td></tr>
+  </table></div>
+  <p>Balloon example: $25,000 for 5 years at 7% monthly with $5,000 due at the end gives <code>=PMT(7%/12, 60, 25000, -5000)</code> ≈ −$425.19 per month.</p>
+
+  <h2>Videos</h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+PMT+function+loan+payment+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>PMT function</b><small>Calculating loan payments.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+FV+PV+function+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>FV and PV functions</b><small>Future and present value of money.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+NPER+RATE+function+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>NPER and RATE functions</b><small>How long, and at what rate.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=compound+interest+explained+simply" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Compound interest explained</b><small>Why compounding frequency matters.</small><em>Search YouTube</em></span></a>
+  </div>
+  <p class="meanwhile"><a href="practice-quiz-8.html">Start the Quiz 8 practice set</a></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

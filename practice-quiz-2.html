@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 2 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-2">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 2</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-2">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 2</div>
+  <div class="pagehead">
+    <h1>Quiz 2 practice: Basic Functions &amp; Cell Addressing</h1>
+    <p>30 original questions on SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, and COUNTBLANK, how blanks and labels are handled, error values, ROUND, copying formulas with relative, absolute, and mixed references, and named ranges.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-2.html">Open the Quiz 2 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q2done">0 / 30</b><span>Answered</span></div>
+    <div class="stat"><b id="q2right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q2pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q2retry">Retry missed</button><button type="button" class="btn" id="q2reset">Start over</button></div>
+    <div class="sbbar"><span id="q2bar"></span></div>
+  </div>
+  <div id="q2list"></div>
+  <div class="finish" id="q2finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q2retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var Q=[
+{p:"Cells A2:A6 contain: <code>12</code>, (blank), <code>pending</code>, <code>8</code>, <code>0</code>. What does <code>=SUM(A2:A6)</code> return?",
+ o:["20","#VALUE!","0","21"],a:0,
+ e:"SUM skips blank cells and text labels in a range, so it adds 12 + 8 + 0 = 20. No error, because labels inside a range are simply ignored."},
+{p:"Same cells A2:A6: <code>12</code>, (blank), <code>pending</code>, <code>8</code>, <code>0</code>. What does <code>=AVERAGE(A2:A6)</code> return (rounded)?",
+ o:["4","6.67","10","5"],a:1,
+ e:"AVERAGE ignores the blank and the label, but the 0 is a real number and counts. That’s (12 + 8 + 0) / 3 = 6.67, not divided by 5."},
+{p:"Same cells A2:A6: <code>12</code>, (blank), <code>pending</code>, <code>8</code>, <code>0</code>. What does <code>=COUNT(A2:A6)</code> return?",
+ o:["2","3","4","5"],a:1,
+ e:"COUNT only counts cells containing numbers: 12, 8, and 0. That’s 3. Blanks and text don’t count."},
+{p:"Same cells A2:A6: <code>12</code>, (blank), <code>pending</code>, <code>8</code>, <code>0</code>. What does <code>=COUNTA(A2:A6)</code> return?",
+ o:["3","5","4","2"],a:2,
+ e:"COUNTA counts every non-empty cell, numbers and text alike: 12, pending, 8, and 0. That’s 4. Only the blank is skipped."},
+{p:"Same cells A2:A6: <code>12</code>, (blank), <code>pending</code>, <code>8</code>, <code>0</code>. What does <code>=COUNTBLANK(A2:A6)</code> return?",
+ o:["0","2","1","5"],a:2,
+ e:"Only one cell is truly empty. The 0 is a value, not a blank, and the label is text."},
+{p:"AVERAGE treats a cell containing 0 the same way it treats an empty cell.",
+ o:["True","False"],a:1,
+ e:"A 0 is a number, so it’s included and pulls the average down. An empty cell is ignored completely."},
+{p:"B1 contains <code>-4</code>, B2 is blank, and B3 contains <code>-9</code>. What does <code>=MAX(B1:B3)</code> return?",
+ o:["0","-4","-9","#NUM!"],a:1,
+ e:"The blank is ignored, not treated as 0. Of −4 and −9, the larger is −4."},
+{p:"Every cell in C1:C4 is blank. What does <code>=MAX(C1:C4)</code> return?",
+ o:["A blank cell","0","#NUM!","#VALUE!"],a:1,
+ e:"When MAX (or MIN) has no numbers to look at, it returns 0 rather than an error."},
+{p:"Every cell in D1:D3 is blank. What does <code>=AVERAGE(D1:D3)</code> return?",
+ o:["0","#DIV/0!","A blank cell","#VALUE!"],a:1,
+ e:"AVERAGE divides the sum by the count of numbers. With no numbers the count is 0, and dividing by 0 gives #DIV/0!."},
+{p:"A1 contains <code>5</code> and A2 contains the text <code>ten</code>. What do <code>=A1+A2</code> and <code>=SUM(A1:A2)</code> return?",
+ o:["15 and 15","#VALUE! and 5","5 and 5","#VALUE! and #VALUE!"],a:1,
+ e:"The + operator tries to do math on the text and fails with #VALUE!. SUM over a range ignores labels, so it just returns 5. That difference is a big reason to use functions."},
+{p:"<code>=MIN(F1:F5)</code> still returns a valid result if F3 contains the label <code>N/A</code> and the other cells contain numbers.",
+ o:["True","False"],a:0,
+ e:"MIN, MAX, SUM, AVERAGE, and COUNT all skip text labels inside a referenced range."},
+{p:"Rearranging the arguments in <code>=SUM(B2, D4, 100)</code> to <code>=SUM(100, D4, B2)</code> changes the result.",
+ o:["True","False"],a:1,
+ e:"For list-style functions like SUM, AVERAGE, MIN, MAX, COUNT, and COUNTA, argument order doesn’t matter. It does matter for functions like ROUND, where each position has a specific meaning."},
+{p:"Built-in Excel functions such as SUM and AVERAGE each run a pre-programmed algorithm. You only supply the arguments.",
+ o:["True","False"],a:0,
+ e:"That’s the point of a predefined function: the steps are already built in, and you just tell it what to work on."},
+{p:"Which formula would display the <code>#NAME?</code> error?",
+ o:["=AVERAGE(B2:B9)","=AVERGE(B2:B9)","=B2/0","=SUM(B2:B9)*2"],a:1,
+ e:"#NAME? means Excel doesn’t recognize something you typed, most often a misspelled function name like AVERGE. <code>=B2/0</code> would give #DIV/0! instead."},
+{p:"A cell contains <code>=G2/(H2-H3)</code> and displays <code>#DIV/0!</code>. What’s a likely cause?",
+ o:["G2 is 0","H2 and H3 contain the same value","G2 is negative","The column is too narrow"],a:1,
+ e:"If H2 and H3 are equal, H2 − H3 = 0, and the formula divides by 0. A 0 on top (G2) is fine, since 0 divided by anything is just 0."},
+{p:"A cell contains <code>=SUM(Budget!B5, 20)</code> and displays <code>#REF!</code>. What’s a likely cause?",
+ o:["20 can’t be used as a SUM argument","The column is too narrow","Budget!B5 is no longer a valid reference, for example the Budget sheet was deleted","SUM can’t add cells from another sheet"],a:2,
+ e:"#REF! means a cell reference is invalid, usually because the sheet, row, or column it pointed to was deleted. Typed numbers like 20 are fine as arguments, and SUM can reference other sheets."},
+{p:"A cell shows <code>########</code>. What’s the most likely explanation?",
+ o:["The formula divides by zero","The column is too narrow to display the number","The formula contains text","The function name is misspelled"],a:1,
+ e:"A row of # signs isn’t really an error. The value is fine, the column just isn’t wide enough to show it. Widen the column and it appears."},
+{p:"What does <code>=SQRT(-16)</code> return?",
+ o:["-4","4","#NUM!","#VALUE!"],a:2,
+ e:"#NUM! means the math itself is impossible. There’s no real square root of a negative number."},
+{p:"What does <code>=ROUND(1234.567, -2)</code> return?",
+ o:["1234.57","1200","1230","1000"],a:1,
+ e:"A negative second argument rounds to the left of the decimal point. −1 rounds to tens, −2 to hundreds, so 1234.567 becomes 1200."},
+{p:"What does <code>=ROUND(3.14159, 2)</code> return?",
+ o:["3.14","3.15","3.1","3"],a:0,
+ e:"A positive second argument keeps that many decimal places. The third decimal is 1, so it rounds down to 3.14."},
+{p:"What does <code>=ROUND(845, -1)</code> return?",
+ o:["840","800","850","845"],a:2,
+ e:"−1 rounds to the nearest ten. 845 is exactly halfway, and Excel’s ROUND rounds halves away from zero, so you get 850."},
+{p:"Using <code>=ROUND(A1,0)</code> and formatting A1 to show 0 decimal places have the same effect on the value that later formulas use.",
+ o:["True","False"],a:1,
+ e:"ROUND actually changes the value it returns. Formatting only changes the display, and later formulas still see every decimal of the stored value."},
+{p:"Cell D2 contains <code>=B2*C2</code>. You copy it to D7. What formula is in D7?",
+ o:["=B2*C2","=B7*C7","=D7*E7","=B5*C5"],a:1,
+ e:"Relative references shift by the same amount the formula moved: 0 columns and 5 rows down. B2 becomes B7 and C2 becomes C7."},
+{p:"Cell C1 contains <code>=A1-B1</code>. You copy it to F4. What formula is in F4?",
+ o:["=A4-B4","=D1-E1","=D4-E4","=F4-G4"],a:2,
+ e:"The formula moved 3 columns right and 3 rows down, so every relative reference does the same: A1 → D4 and B1 → E4."},
+{p:"Cell B1 contains <code>=$A$1+A1</code>. You copy it to D4. What formula is in D4?",
+ o:["=$A$1+A1","=$C$4+C4","=$A$1+C4","=$A$4+C4"],a:2,
+ e:"$A$1 is fully absolute and never changes. A1 is relative, and it shifts 2 columns and 3 rows to become C4."},
+{p:"Cell C3 contains <code>=A$1*$B2</code>. You copy it to E6. What formula is in E6?",
+ o:["=A$1*$B2","=C$4*$D5","=C$1*$B5","=A$4*$B5"],a:2,
+ e:"A $ locks only the part right after it. A$1: the column moves 2 (A → C) and the row stays 1. $B2: the column stays B and the row moves 3 (2 → 5). The result is =C$1*$B5."},
+{p:"When you click on <code>A1</code> in a formula and press F4 repeatedly, what order does Excel cycle through?",
+ o:["$A$1, A$1, $A1, A1","A$1, $A1, $A$1, A1","$A1, A$1, $A$1, A1","$A$1, $A1, A$1, A1"],a:0,
+ e:"F4 goes fully absolute ($A$1), then row locked (A$1), then column locked ($A1), then back to relative (A1)."},
+{p:"A range named <code>TaxRate</code> used in a formula behaves like an absolute reference when the formula is copied.",
+ o:["True","False"],a:0,
+ e:"Named ranges always point to the same cells no matter where you copy the formula, just like $A$1."},
+{p:"Which of these is a valid name for a named range?",
+ o:["Tax Rate","2026Rate","TaxRate","B12"],a:2,
+ e:"Range names can’t contain spaces, can’t start with a number, and can’t look like a cell address such as B12. TaxRate passes all three rules."},
+{p:"In <code>=ROUND(number, num_digits)</code>, what does a <em>negative</em> num_digits do?",
+ o:["Rounds to that many decimal places","Rounds to the left of the decimal point (tens, hundreds, …)","Always rounds down","Returns an error"],a:1,
+ e:"Positive keeps decimal places, 0 rounds to a whole number, and negative rounds to tens (−1), hundreds (−2), and so on."}
+];
+
+var KEY='cse2111-practice-quiz-2',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q2list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<p class="qprompt">'+q.p+'</p><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q2done').textContent=n+' / '+Q.length;
+  document.getElementById('q2right').textContent=c;
+  document.getElementById('q2pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q2bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q2finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q2retry').addEventListener('click',retry);
+document.getElementById('q2retry2').addEventListener('click',retry);
+document.getElementById('q2reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

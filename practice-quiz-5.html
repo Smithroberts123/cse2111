@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 5 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-5">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 5</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-5">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 5</div>
+  <div class="pagehead">
+    <h1>Quiz 5 practice: Boolean Functions</h1>
+    <p>28 original questions on relational operators, comparing text and logical values, AND, OR, NOT, nesting them, and translating words like “both,” “either,” and “neither” into formulas. Several questions share one small data table.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-5.html">Open the Quiz 5 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q5done">0 / 28</b><span>Answered</span></div>
+    <div class="stat"><b id="q5right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q5pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q5retry">Retry missed</button><button type="button" class="btn" id="q5reset">Start over</button></div>
+    <div class="sbbar"><span id="q5bar"></span></div>
+  </div>
+  <div id="q5list"></div>
+  <div class="finish" id="q5finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q5retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var DATA='<div class="minitable"><table><tr><th></th><th>A<br>Name</th><th>B<br>Age</th><th>C<br>Member</th><th>D<br>Points</th></tr><tr><th>2</th><td>Ava</td><td>17</td><td>TRUE</td><td>120</td></tr><tr><th>3</th><td>Ben</td><td>22</td><td>FALSE</td><td>80</td></tr><tr><th>4</th><td>Cy</td><td>19</td><td>TRUE</td><td>45</td></tr><tr><th>5</th><td>Dee</td><td>25</td><td>TRUE</td><td>200</td></tr></table></div>';
+var D=function(t){return '<p>Use this data for the question:</p>'+DATA+'<p>'+t+'</p>';};
+var Q=[
+{p:"The formula <code>=7&gt;=7</code> returns TRUE.",
+ o:["True","False"],a:0,
+ e:">= means “greater than or equal to,” and 7 is equal to 7. A relational operator compares two values and always returns TRUE or FALSE."},
+{p:"Which of these is a relational expression that returns TRUE or FALSE?",
+ o:["=MAX(C4:C9)","=C4&lt;=100","=C4*1.05","=ROUND(C4, 0)"],a:1,
+ e:"Only <code>=C4&lt;=100</code> compares two values. The others calculate a number."},
+{p:"What does <code>=10-4*2&lt;&gt;2</code> return?",
+ o:["TRUE","2","FALSE","#VALUE!"],a:2,
+ e:"Relational operators come last. 4*2 = 8, 10 − 8 = 2, then “2 is not equal to 2” is FALSE."},
+{p:"In <code>=A1+5&gt;B1*2</code>, which operation does Excel perform last?",
+ o:["A1+5","B1*2","The > comparison","It depends on the values"],a:2,
+ e:"Relational operators have the lowest precedence. Excel finishes the math on both sides first, then compares."},
+{p:"What does <code>=\"apple\"&lt;\"banana\"</code> return?",
+ o:["TRUE","FALSE","#VALUE!","#NAME?"],a:0,
+ e:"Text compares alphabetically. “apple” comes before “banana,” so it counts as “less than.”"},
+{p:"The formula <code>=\"Ohio\"=\"OHIO\"</code> returns TRUE.",
+ o:["True","False"],a:0,
+ e:"Excel’s text comparisons aren’t case-sensitive, so “Ohio,” “OHIO,” and “ohio” are all equal."},
+{p:"What does <code>=\"TRUE\"=TRUE</code> return?",
+ o:["TRUE","FALSE","#VALUE!","1"],a:1,
+ e:"The left side is the text “TRUE” (in quotes), and the right side is the logical value TRUE. Text and logical values are different types, so they’re not equal."},
+{p:"The formula <code>=\"10\"=10</code> returns TRUE.",
+ o:["True","False"],a:1,
+ e:"\"10\" in quotes is text, and 10 is a number. Excel doesn’t treat them as equal in a comparison."},
+{p:"What does <code>=AND(TRUE, 3&gt;1, 5&lt;&gt;5)</code> return?",
+ o:["TRUE","FALSE","2","#VALUE!"],a:1,
+ e:"AND needs every argument to be TRUE. 5<>5 (“5 is not equal to 5”) is FALSE, so the whole AND is FALSE."},
+{p:"What does <code>=OR(FALSE, 2+2=5, \"a\"=\"A\")</code> return?",
+ o:["FALSE","TRUE","#VALUE!","1"],a:1,
+ e:"OR needs just one TRUE. 2+2=5 is FALSE, but \"a\"=\"A\" is TRUE because text comparisons ignore case."},
+{p:"What does <code>=NOT(4*3&gt;10)</code> return?",
+ o:["TRUE","FALSE","12","#VALUE!"],a:1,
+ e:"4*3 = 12, and 12>10 is TRUE. NOT flips it to FALSE."},
+{p:"How many arguments does the NOT function take?",
+ o:["Exactly one","Exactly two","Any number","None"],a:0,
+ e:"NOT reverses one logical value. Something like <code>=NOT(B3, C3)</code> is an error. To negate several conditions, wrap them first, as in <code>=NOT(OR(B3, C3))</code>."},
+{p:"B2, B3, and B4 contain TRUE, TRUE, and FALSE. What does <code>=AND(B2:B4)</code> return?",
+ o:["TRUE","FALSE","#VALUE!","2"],a:1,
+ e:"AND accepts a range and checks every logical value in it. One FALSE makes the result FALSE."},
+{p:"<code>=OR(A2, B2&gt;50, C2:C4)</code> is a valid formula, as long as A2 and C2:C4 hold TRUE/FALSE values.",
+ o:["True","False"],a:0,
+ e:"AND and OR arguments can mix cell references, comparisons, and ranges, as long as each piece reduces to TRUE or FALSE."},
+{p:"<code>=OR(FALSE, FALSE, FALSE)</code> returns FALSE.",
+ o:["True","False"],a:0,
+ e:"OR is TRUE if at least one argument is TRUE. With none TRUE, it returns FALSE."},
+{p:"A question asks whether a student passed <em>every one of</em> the three exams. Which function fits?",
+ o:["OR","NOT","AND","SUM"],a:2,
+ e:"Words like “all,” “both,” and “every” point to AND."},
+{p:"Which wording most strongly suggests the OR function?",
+ o:["“…meets both requirements”","“…meets every requirement”","“…meets either requirement”","“…meets none of the requirements”"],a:2,
+ e:"“Either,” “any,” “at least one,” and “or” point to OR. “Both” and “every” mean AND, and “none” means NOT(OR(…))."},
+{p:"A question asks whether a customer has <em>none of</em> the listed warning flags. Which structure fits?",
+ o:["=AND(flags)","=OR(flags)","=NOT(OR(flags))","=NOT(AND(flags))"],a:2,
+ e:"“None” means it’s not true that any flag is set, so it’s NOT around OR. NOT(AND(…)) means “not all of them,” which is different."},
+{p:"Which formula is TRUE when B2 and C2 are <em>not both</em> TRUE?",
+ o:["=AND(NOT(B2), C2)","=NOT(AND(B2, C2))","=NOT(OR(B2, C2))","=OR(B2, C2)"],a:1,
+ e:"“Not both” negates the AND. It’s FALSE only when both are TRUE, and TRUE in every other case."},
+{p:D("What does <code>=AND(B2&gt;=18, C2)</code> return for Ava?"),
+ o:["TRUE","FALSE","17","#VALUE!"],a:1,
+ e:"Ava is a member (C2 is TRUE), but she’s 17, so B2>=18 is FALSE. AND needs both, so the result is FALSE."},
+{p:D("What does <code>=OR(B3&gt;=21, C3)</code> return for Ben?"),
+ o:["TRUE","FALSE","22","#VALUE!"],a:0,
+ e:"Ben isn’t a member, but he’s 22, so B3>=21 is TRUE. OR needs only one, so the result is TRUE."},
+{p:D("Which formula answers: “Is Cy a member <em>and</em> does he have at least 50 points?”"),
+ o:["=OR(C4, D4>=50)","=AND(C4, D4>50)","=AND(C4+D4>=50)","=AND(C4, D4>=50)"],a:3,
+ e:"“And” plus “at least 50” gives <code>AND(C4, D4&gt;=50)</code>. “At least” means >=, not >. (Cy has 45 points, so it returns FALSE.)"},
+{p:D("What does <code>=AND(C5, OR(B5&lt;21, D5&gt;150))</code> return for Dee?"),
+ o:["FALSE","TRUE","#VALUE!","200"],a:1,
+ e:"Work inside out. B5<21 is FALSE (she’s 25), but D5>150 is TRUE (200), so the OR is TRUE. C5 is TRUE too, so the AND is TRUE."},
+{p:D("What does <code>=NOT(OR(C3, D3&gt;100))</code> return for Ben?"),
+ o:["TRUE","FALSE","80","#VALUE!"],a:0,
+ e:"C3 is FALSE and 80>100 is FALSE, so the OR is FALSE. NOT flips it to TRUE: Ben has neither a membership nor over 100 points."},
+{p:D("Which formula answers: “Does Ben have <em>neither</em> a membership <em>nor</em> 100 or more points?”"),
+ o:["=OR(NOT(C3), D3>=100)","=NOT(C3, D3>=100)","=NOT(OR(C3, D3>=100))","=AND(C3, D3&lt;100)"],a:2,
+ e:"“Neither…nor” means none of them, which is NOT around an OR. NOT can only take one argument, so the second option is an error."},
+{p:D("What does <code>=NOT(C2)</code> return for Ava?"),
+ o:["TRUE","FALSE","Ava","#VALUE!"],a:1,
+ e:"C2 is TRUE (she’s a member), and NOT flips it to FALSE."},
+{p:"The logical value TRUE in a cell is treated exactly the same as the text <code>\"TRUE\"</code> typed with quotes.",
+ o:["True","False"],a:1,
+ e:"TRUE (no quotes) is a logical value. \"TRUE\" in quotes is just text that happens to spell the word, and comparing them gives FALSE."},
+{p:"A function has five arguments: four are FALSE and one is TRUE. Which function returns TRUE?",
+ o:["AND","OR","NOT","None of them"],a:1,
+ e:"OR needs at least one TRUE, so one is enough. AND would need all five, and NOT only takes one argument."}
+];
+
+var KEY='cse2111-practice-quiz-5',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q5list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<div class="qprompt">'+q.p+'</div><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q5done').textContent=n+' / '+Q.length;
+  document.getElementById('q5right').textContent=c;
+  document.getElementById('q5pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q5bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q5finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q5retry').addEventListener('click',retry);
+document.getElementById('q5retry2').addEventListener('click',retry);
+document.getElementById('q5reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

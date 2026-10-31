@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lab 6 / Pre-Lab | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="lab-6-pre-lab">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Lab 6 / Pre-Lab</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="lab-6-pre-lab">
+  <div class="crumbs"><a href="index.html">Home</a> / Lab 6 / Pre-Lab</div>
+
+<div class="intro">
+  <h1>CSE 2111 Pre-Lab 6, step by step</h1>
+  <p>The screenshots below come straight from your lab instructions. Tap any screenshot to see it full size, and tick each step as you finish it. Your checkmarks are saved in this browser.</p>
+  <p>You turn in three files, all downloaded from <em>your</em> SimNet session:</p>
+  <ul class="files">
+    <li><b>Research Papers Master.accdb</b>Part 1</li>
+    <li><b>Database Concepts Master.accdb</b>Part 2</li>
+    <li><b>CTC Consulting Master.accdb</b>Part 3</li>
+  </ul>
+</div>
+<div class="jump"><span>Jump to</span><button data-go="pre-part1">Part 1: Research Papers</button><button data-go="pre-part2">Part 2: Concepts</button><button data-go="pre-part3">Part 3: CTC Consulting</button></div>
+
+<section class="part" id="pre-part1" data-part="pre1">
+  <div class="part-head"><div class="num">1</div><div><h2>Research Papers database</h2><p>Build 4 tables, link them, then fill them from Excel.</p></div></div>
+  <div class="bar"><span></span></div>
+
+  <h3>Open and save your copy</h3>
+  <ol class="steps">
+    <li class="step" data-id="1-1"><p>Open <b>Research Papers Master.accdb</b>. If a pink security bar appears, close it with the × on the right.</p></li>
+    <li class="step" data-id="1-2"><p>Click <b>File → Save As</b>, then click the <b>diskette Save As button</b> at the bottom. Don't pick any of the options above it.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/c64291496b41.jpg" alt="Use the diskette button, not the crossed-out options" loading="lazy"></button><figcaption>Use the diskette button, not the crossed-out options</figcaption></figure></li>
+    <li class="step" data-id="1-3"><p>Save it into your Lab 6 folder.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/6848f1a58189.jpg" alt="Pick your Lab 6 folder and click Save" loading="lazy"></button><figcaption>Pick your Lab 6 folder and click Save</figcaption></figure></li>
+  </ol>
+
+  <h3>Table 1: Client</h3>
+  <ol class="steps">
+    <li class="step" data-id="1-4"><p>Go to <b>Create → Table Design</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/c798cf8d4177.jpg" alt="Create tab, then Table Design" loading="lazy"></button><figcaption>Create tab, then Table Design</figcaption></figure></li>
+    <li class="step" data-id="1-5"><p>Click the <b>Save</b> icon in the top-left corner and name the table <code>Client</code>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/998489aeaa5c.jpg" alt="The save icon is the small disk at top left" loading="lazy"></button><figcaption>The save icon is the small disk at top left</figcaption></figure>
+      <figure class="narrow"><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/dd7482cdcd01.jpg" alt="Name it Client and click OK" loading="lazy"></button><figcaption>Name it Client and click OK</figcaption></figure></li>
+    <li class="step" data-id="1-6"><p>Type <code>ClientID</code> as the first field name, then click the <b>Primary Key</b> button so a key appears beside it.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/2517c6d0d2fb.jpg" alt="Select ClientID, then click Primary Key" loading="lazy"></button><figcaption>Select ClientID, then click Primary Key</figcaption></figure></li>
+    <li class="step" data-id="1-7"><p>With ClientID selected, set <b>Field Size</b> to <code>5</code> in the properties at the bottom.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/aca631a666d8.jpg" alt="Field Size is in the lower properties pane" loading="lazy"></button><figcaption>Field Size is in the lower properties pane</figcaption></figure></li>
+    <li class="step" data-id="1-8"><p>Add the rest of the fields. Spelling and capitalization must match exactly, with no spaces, or the Excel import breaks later.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Field Size / extra</th></tr>
+        <tr><td>ClientID</td><td>Short Text</td><td>5, primary key</td></tr>
+        <tr><td>FirstName</td><td>Short Text</td><td>25</td></tr>
+        <tr><td>LastName</td><td>Short Text</td><td>50</td></tr>
+        <tr><td>Address</td><td>Short Text</td><td>60</td></tr>
+        <tr><td>City</td><td>Short Text</td><td>25</td></tr>
+        <tr><td>State</td><td>Short Text</td><td>2, Default Value OH (next step)</td></tr>
+        <tr><td>ZipCode</td><td>Short Text</td><td>5</td></tr>
+        <tr><td>HomePhone</td><td>Short Text</td><td>10, Input Mask (step after next)</td></tr>
+      </table></div>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/61750ba7293e.jpg" alt="What the finished field list looks like" loading="lazy"></button><figcaption>What the finished field list looks like</figcaption></figure></li>
+    <li class="step" data-id="1-9"><p>Click the <b>State</b> field and set <b>Default Value</b> to <code>"OH"</code>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/ad861a5f0963.jpg" alt="Default Value is in the properties pane" loading="lazy"></button><figcaption>Default Value is in the properties pane</figcaption></figure></li>
+    <li class="step" data-id="1-10"><p>Click <b>HomePhone</b>, click in <b>Input Mask</b>, then click the <b>…</b> button. Click <b>Yes</b> when Access asks to save.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/f6f6f9eb1ac7.jpg" alt="Select field → Input Mask → … → Yes" loading="lazy"></button><figcaption>Select field → Input Mask → … → Yes</figcaption></figure></li>
+    <li class="step" data-id="1-11"><p>Pick <b>Phone Number</b> and click <b>Finish</b>.</p>
+      <figure class="narrow"><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/fa71f5cc2805.jpg" alt="Phone Number, then Finish" loading="lazy"></button><figcaption>Phone Number, then Finish</figcaption></figure></li>
+    <li class="step" data-id="1-12"><p>Close the Client table (just the tab, not Access) and save if asked.</p></li>
+  </ol>
+
+  <h3>Table 2: Charges</h3>
+  <ol class="steps">
+    <li class="step" data-id="1-13"><p>Go to <b>Create → Table Design</b> again and enter these fields. No primary key on this table.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Field Size / extra</th></tr>
+        <tr><td>ClientID</td><td>Short Text</td><td>5</td></tr>
+        <tr><td>Amount</td><td>Currency</td><td>none</td></tr>
+        <tr><td>ChargeDate</td><td>Date/Time</td><td>Input Mask: Short Date</td></tr>
+      </table></div>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/4876783a96ed.jpg" alt="Your Charges table should match this" loading="lazy"></button><figcaption>Your Charges table should match this</figcaption></figure></li>
+    <li class="step" data-id="1-14"><p>Click <b>ChargeDate</b>, click in <b>Input Mask</b>, then <b>…</b>, then <b>Yes</b> to save.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/9d03e04c07af.jpg" alt="Same routine as the phone mask" loading="lazy"></button><figcaption>Same routine as the phone mask</figcaption></figure></li>
+    <li class="step" data-id="1-15"><p>Name the table <code>Charges</code> and click OK. When Access asks to create a primary key, click <b>No</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/a9436d2a53a1.jpg" alt="Click No on the primary key prompt" loading="lazy"></button><figcaption>Click No on the primary key prompt</figcaption></figure></li>
+    <li class="step" data-id="1-16"><p>Choose <b>Short Date</b>, then <b>Finish</b>.</p>
+      <figure class="narrow"><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/ff353dbd9bd3.jpg" alt="Short Date, then Finish" loading="lazy"></button><figcaption>Short Date, then Finish</figcaption></figure></li>
+    <li class="step" data-id="1-17"><p>Close the table and click <b>Yes</b> to save.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/b1d4546b9f05.jpg" alt="Close the tab and save" loading="lazy"></button><figcaption>Close the tab and save</figcaption></figure></li>
+  </ol>
+
+  <h3>Tables 3 and 4: Payments and PaymentMethod</h3>
+  <ol class="steps">
+    <li class="step" data-id="1-18"><p>Build <b>Payments</b> the same way. No primary key (click No when asked). Give PaymentDate a Short Date input mask.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Field Size / extra</th></tr>
+        <tr><td>ClientID</td><td>Short Text</td><td>5</td></tr>
+        <tr><td>Amount</td><td>Currency</td><td>none</td></tr>
+        <tr><td>PaymentDate</td><td>Date/Time</td><td>Input Mask: Short Date</td></tr>
+        <tr><td>PaymentType</td><td>Short Text</td><td>2</td></tr>
+      </table></div></li>
+    <li class="step" data-id="1-19"><p>Build <b>PaymentMethod</b>. MethodID is the primary key.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Field Size / extra</th></tr>
+        <tr><td>MethodID</td><td>Short Text</td><td>2, primary key</td></tr>
+        <tr><td>MethodType</td><td>Short Text</td><td>20</td></tr>
+      </table></div>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/dc7942a1fddc.jpg" alt="You should now have these four tables" loading="lazy"></button><figcaption>You should now have these four tables</figcaption></figure></li>
+  </ol>
+
+  <h3>Relationships</h3>
+  <ol class="steps">
+    <li class="step" data-id="1-20"><p>Close every table. Go to <b>Database Tools → Relationships</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/fedfd88c2085.jpg" alt="Database Tools tab, then Relationships" loading="lazy"></button><figcaption>Database Tools tab, then Relationships</figcaption></figure></li>
+    <li class="step" data-id="1-21"><p>Double-click each of the four tables to add it, then click <b>Close</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/061de2973e5a.jpg" alt="Add all four, then Close" loading="lazy"></button><figcaption>Add all four, then Close</figcaption></figure></li>
+    <li class="step" data-id="1-22"><p>Drag the boxes into roughly this layout.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/6182a3255d5e.jpg" alt="Charges, Client, Payments, PaymentMethod" loading="lazy"></button><figcaption>Charges, Client, Payments, PaymentMethod</figcaption></figure></li>
+    <li class="step" data-id="1-23"><p><b>Link 1:</b> drag <b>ClientID</b> from Client onto <b>ClientID</b> in Charges.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/e99851dcbb3c.jpg" alt="Drag from Client to Charges" loading="lazy"></button><figcaption>Drag from Client to Charges</figcaption></figure></li>
+    <li class="step" data-id="1-24"><p>Tick all three boxes: <b>Enforce Referential Integrity</b>, <b>Cascade Update Related Fields</b>, <b>Cascade Delete Related Records</b>. Click <b>Create</b>. Do this for every link.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/63ae0d432ed7.jpg" alt="All three checkboxes, then Create" loading="lazy"></button><figcaption>All three checkboxes, then Create</figcaption></figure></li>
+    <li class="step" data-id="1-25"><p><b>Link 2:</b> drag <b>ClientID</b> from Client onto <b>ClientID</b> in Payments. Tick all three boxes, then Create.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/fc484bc925a7.jpg" alt="Client to Payments" loading="lazy"></button><figcaption>Client to Payments</figcaption></figure></li>
+    <li class="step" data-id="1-26"><p><b>Link 3:</b> drag <b>MethodID</b> from PaymentMethod onto <b>PaymentType</b> in Payments. The field names differ here, and that's correct. Tick all three boxes, then Create.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/bc4246e60a98.jpg" alt="PaymentMethod.MethodID to Payments.PaymentType" loading="lazy"></button><figcaption>PaymentMethod.MethodID to Payments.PaymentType</figcaption></figure></li>
+    <li class="step" data-id="1-27"><p>Click <b>Close</b> and <b>Yes</b> to save the layout. You should see 1 and ∞ symbols on each line.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/77d209ec02c7.jpg" alt="Finished relationships" loading="lazy"></button><figcaption>Finished relationships</figcaption></figure></li>
+  </ol>
+
+  <h3>Fill in the data</h3>
+  <ol class="steps">
+    <li class="step" data-id="1-28"><p>Double-click <b>Client</b> to open it and type these 5 records by hand. For phone numbers, type only the digits; the mask adds the brackets and dash.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/0bbd02c43dad.jpg" alt="The * row is where you type a new record" loading="lazy"></button><figcaption>The * row is where you type a new record</figcaption></figure>
+      <div class="tablewrap"><table>
+        <tr><th>ClientID</th><th>First</th><th>Last</th><th>Address</th><th>City</th><th>State</th><th>Zip</th><th>Phone</th></tr>
+        <tr><td>J7500</td><td>Nancy</td><td>Davolio</td><td>507 20th Ave. E. Apt. 2A</td><td>Seattle</td><td>WA</td><td>98122</td><td>6142923900</td></tr>
+        <tr><td>J7505</td><td>John</td><td>Smith</td><td>123 Main Street</td><td>Columbus</td><td>OH</td><td>43081</td><td>7403659192</td></tr>
+        <tr><td>J7510</td><td>Mark</td><td>Johnson</td><td>420 Broad Street</td><td>Columbus</td><td>OH</td><td>42001</td><td>7403657700</td></tr>
+        <tr><td>J7515</td><td>Jen</td><td>Griffin</td><td>500 High Street</td><td>Columbus</td><td>OH</td><td>43081</td><td>6142924566</td></tr>
+        <tr><td>J7520</td><td>Jennifer</td><td>King</td><td>400 Walnut Street</td><td>Cincinnati</td><td>OH</td><td>41098</td><td>6148889930</td></tr>
+      </table></div></li>
+    <li class="step" data-id="1-29"><p>Close the table. Go to <b>External Data → New Data Source</b>. Don't use the Excel button in the Export group.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/35c42016daaa.jpg" alt="New Data Source is on the left" loading="lazy"></button><figcaption>New Data Source is on the left</figcaption></figure></li>
+    <li class="step" data-id="1-30"><p>Choose <b>From File → Excel</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/10663c0c67c2.jpg" alt="From File, then Excel" loading="lazy"></button><figcaption>From File, then Excel</figcaption></figure></li>
+    <li class="step" data-id="1-31"><p>Browse to <b>Research Papers Excel File.xlsx</b>, pick <b>Append a copy of the records to the table</b>, choose <b>Client</b>, and click OK.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/180424acb923.jpg" alt="Append, not Import or Link" loading="lazy"></button><figcaption>Append, not Import or Link</figcaption></figure></li>
+    <li class="step" data-id="1-32"><p>Select the <b>Client</b> worksheet and click <b>Finish</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/d44d248aabbb.jpg" alt="Client sheet, then Finish" loading="lazy"></button><figcaption>Client sheet, then Finish</figcaption></figure></li>
+    <li class="step" data-id="1-33"><p>Repeat the import for the other three sheets, appending each to its matching table, <b>in this order: PaymentMethod, then Payments, then Charges</b>. Parents have to exist before the records that point to them, or referential integrity blocks them.</p></li>
+    <li class="step" data-id="1-34"><p>Open each table and check the counts:</p>
+      <div class="counts"><span>Client 16</span><span>PaymentMethod 5</span><span>Payments 11</span><span>Charges 23</span></div>
+      <p>If Client shows 11, you skipped the 5 hand-typed records. Dates may look like numbers in Excel; that's fine.</p></li>
+    <li class="step" data-id="1-35"><p>Save and close the database.</p></li>
+  </ol>
+  <div class="note"><b>Pages 36–37 are reading only.</b> They explain cascade update and delete. Don't actually delete or change those example records.</div>
+</section>
+
+
+<section class="part" id="pre-part2" data-part="pre2">
+  <div class="part-head"><div class="num">2</div><div><h2>Database Concepts</h2><p>Type a definition next to each term. No building.</p></div></div>
+  <div class="bar"><span></span></div>
+  <ol class="steps">
+    <li class="step" data-id="2-1"><p>Open <b>Database Concepts Master.accdb</b> and open the <b>Database Information</b> table. The terms are already listed; you fill the <b>Database Definition</b> column.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/4cb022e9be3c.jpg" alt="What a finished row looks like" loading="lazy"></button><figcaption>What a finished row looks like</figcaption></figure></li>
+    <li class="step" data-id="2-2"><p>Type in the definitions. These are short versions to start from. Check them against your Ch. 10–11 notes, since grading may follow the notes' wording.</p>
+      <dl class="defs">
+        <dt>Steps when creating a database</dt><dd>Design first: decide what to store, lay out the tables, normalize, draw a relationship diagram. Then build it: create the structure, create relationships, enforce referential integrity, populate the data.</dd>
+        <dt>Data</dt><dd>Raw facts with no context or meaning on their own.</dd>
+        <dt>Information</dt><dd>Data that has been processed or organized so it's meaningful.</dd>
+        <dt>Database</dt><dd>Used to store information about a person, place, or thing; a collection of related tables.</dd>
+        <dt>Table</dt><dd>A collection of related records about one subject, organized in rows and columns.</dd>
+        <dt>Record</dt><dd>All the fields for one item or person; one row in a table.</dd>
+        <dt>Fields</dt><dd>A single piece of data about a record; one column in a table.</dd>
+        <dt>Data type/Field type</dt><dd>Defines what kind of data a field can hold (Short Text, Currency, Date/Time, Yes/No, etc.).</dd>
+        <dt>Primary Key</dt><dd>The field (or fields) that uniquely identifies each record in a table.</dd>
+        <dt>Foreign key</dt><dd>A field in a child table that matches the primary key of a parent table, used to relate the two.</dd>
+        <dt>Requirements of a valid foreign key</dt><dd>Same data type and size as the primary key it links to, and every value must match an existing primary key value in the parent table.</dd>
+        <dt>Referential Data Integrity</dt><dd>A rule that every child record must have a matching parent record, so there are no orphans.</dd>
+        <dt>Cascade Updated records</dt><dd>Changing a primary key in the parent automatically updates the matching foreign keys in child tables.</dd>
+        <dt>Cascade delete records</dt><dd>Deleting a parent record automatically deletes its related child records. It only works parent to child.</dd>
+        <dt>Hierarchy of data in a database</dt><dd>Database → Table (file) → Record → Field → Character (byte) → Bit.</dd>
+        <dt>DBMS</dt><dd>Database Management System: software used to create, manage, and query databases (e.g., MS Access).</dd>
+        <dt>Structured Query Language</dt><dd>The standard language used to query and manipulate relational databases.</dd>
+        <dt>Data sheet View</dt><dd>The view that shows a table's records in rows and columns, like a spreadsheet.</dd>
+        <dt>QBE grid</dt><dd>The Query By Example grid in query Design View, where you choose fields, criteria, and sorting.</dd>
+        <dt>Dynaset</dt><dd>The dynamic set of records a query returns; it reflects the current data in the tables.</dd>
+        <dt>Report</dt><dd>A formatted, printable presentation of data from tables or queries.</dd>
+      </dl></li>
+    <li class="step" data-id="2-3"><p>Save and close.</p></li>
+  </ol>
+</section>
+
+
+<section class="part" id="pre-part3" data-part="pre3">
+  <div class="part-head"><div class="num">3</div><div><h2>CTC Consulting</h2><p>Same idea as Part 1, but you import from text files.</p></div></div>
+  <div class="bar"><span></span></div>
+
+  <h3>Build the tables</h3>
+  <div class="note"><b>Keep the fields in exactly this order.</b> The text files have no header row, so Access fills fields by position. Build everything and set up relationships <b>before</b> importing.</div>
+  <ol class="steps">
+    <li class="step" data-id="3-1"><p>Open <b>CTC Consulting Master.accdb</b> and create the <b>Customer</b> table.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>CustomerID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>FirstName</td><td>Short Text</td><td>25</td></tr>
+        <tr><td>LastName</td><td>Short Text</td><td>50</td></tr>
+        <tr><td>Address</td><td>Short Text</td><td>60</td></tr>
+        <tr><td>City</td><td>Short Text</td><td>25</td></tr>
+        <tr><td>State</td><td>Short Text</td><td>2, Default Value "OH"</td></tr>
+        <tr><td>ZipCode</td><td>Short Text</td><td>5</td></tr>
+        <tr><td>HomePhone</td><td>Short Text</td><td>10, Phone Number input mask</td></tr>
+        <tr><td>Comments</td><td>Short Text</td><td>150</td></tr>
+        <tr><td>Newsletter</td><td>Yes/No</td><td>none</td></tr>
+      </table></div></li>
+    <li class="step" data-id="3-2"><p>Create <b>ClassEnrollment</b>.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>EnrollmentID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>CustomerID</td><td>Short Text</td><td>10</td></tr>
+        <tr><td>ClassID</td><td>Short Text</td><td>10</td></tr>
+        <tr><td>Paid</td><td>Yes/No</td><td>none</td></tr>
+      </table></div></li>
+    <li class="step" data-id="3-3"><p>Create <b>Class</b>. Format is its own property, separate from Input Mask.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>ClassID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>ClassName</td><td>Short Text</td><td>50</td></tr>
+        <tr><td>Cost</td><td>Currency</td><td>none</td></tr>
+        <tr><td>Classroom</td><td>Short Text</td><td>10</td></tr>
+        <tr><td>ClassDate</td><td>Date/Time</td><td>Format: Long Date</td></tr>
+        <tr><td>ClassTime</td><td>Date/Time</td><td>Format: Medium Time, Input Mask: Medium Time</td></tr>
+        <tr><td>InstructorID</td><td>Short Text</td><td>10</td></tr>
+      </table></div></li>
+    <li class="step" data-id="3-4"><p>Create <b>Instructor</b>.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>InstructorID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>FirstName</td><td>Short Text</td><td>25</td></tr>
+        <tr><td>LastName</td><td>Short Text</td><td>50</td></tr>
+        <tr><td>Address</td><td>Short Text</td><td>60</td></tr>
+        <tr><td>City</td><td>Short Text</td><td>25</td></tr>
+        <tr><td>State</td><td>Short Text</td><td>2, Default Value "OH"</td></tr>
+        <tr><td>ZipCode</td><td>Short Text</td><td>5</td></tr>
+        <tr><td>Phone</td><td>Short Text</td><td>10, Phone Number input mask</td></tr>
+        <tr><td>Fee</td><td>Currency</td><td>none</td></tr>
+      </table></div></li>
+  </ol>
+
+  <h3>Relationships</h3>
+  <ol class="steps">
+    <li class="step" data-id="3-5"><p>Close all tables, open <b>Database Tools → Relationships</b>, add all four tables, and make three links. Tick Enforce Referential Integrity (plus both cascade boxes, like Part 1) on each.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Drag from</th><th>Onto</th></tr>
+        <tr><td>Customer.CustomerID</td><td>ClassEnrollment.CustomerID</td></tr>
+        <tr><td>Class.ClassID</td><td>ClassEnrollment.ClassID</td></tr>
+        <tr><td>Instructor.InstructorID</td><td>Class.InstructorID</td></tr>
+      </table></div>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/e84650011db2.jpg" alt="Your finished CTC relationships should look like this" loading="lazy"></button><figcaption>Your finished CTC relationships should look like this</figcaption></figure></li>
+  </ol>
+
+  <h3>Import the text files</h3>
+  <ol class="steps">
+    <li class="step" data-id="3-6"><p>Go to <b>External Data → New Data Source → From File → Text File</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/311859d2ceee.jpg" alt="Text File this time, not Excel" loading="lazy"></button><figcaption>Text File this time, not Excel</figcaption></figure></li>
+    <li class="step" data-id="3-7"><p>Browse to <b>Customer.txt</b>, choose <b>Append a copy of the records to the table</b>, pick <b>Customer</b>, click OK.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/ad10f574e40e.jpg" alt="Append to Customer" loading="lazy"></button><figcaption>Append to Customer</figcaption></figure></li>
+    <li class="step" data-id="3-8"><p>Leave <b>Delimited</b> selected and click <b>Next</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/5b26cbe19d22.jpg" alt="Delimited, then Next" loading="lazy"></button><figcaption>Delimited, then Next</figcaption></figure></li>
+    <li class="step" data-id="3-9"><p>Choose <b>Comma</b>, set Text Qualifier to <code>"</code>, leave <b>First Row Contains Field Names unchecked</b>, then click <b>Finish</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/8ccaade77e1a.jpg" alt="Comma, quote qualifier, then Finish" loading="lazy"></button><figcaption>Comma, quote qualifier, then Finish</figcaption></figure></li>
+    <li class="step" data-id="3-10"><p>Repeat for the rest, <b>in this order</b>:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Order</th><th>File</th><th>Append to</th><th>Expected rows</th></tr>
+        <tr><td>1</td><td>Customer.txt</td><td>Customer</td><td>38</td></tr>
+        <tr><td>2</td><td>Instructor.txt</td><td>Instructor</td><td>5</td></tr>
+        <tr><td>3</td><td>Class.txt</td><td>Class</td><td>13</td></tr>
+        <tr><td>4</td><td>Class_Enrollment.txt</td><td>ClassEnrollment</td><td>17</td></tr>
+      </table></div></li>
+    <li class="step" data-id="3-11"><p>Double-click each table to check the data landed, then close everything and save.</p></li>
+    <li class="step" data-id="3-12"><p>Upload all three .accdb files to SimNet.</p></li>
+  </ol>
+  <div class="note"><b>If an import fails or skips rows,</b> it's almost always a field name typo, fields in the wrong order, or importing a child table before its parent.</div>
+</section>
+
+
+  <p class="reset"><button type="button" class="reset-btn">Clear checkmarks on this page</button></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

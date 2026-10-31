@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 4 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-4">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 4</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-4">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 4</div>
+  <div class="pagehead">
+    <h1>Quiz 4 practice: Conditional Functions, LARGE, SMALL &amp; RANK</h1>
+    <p>29 original questions on COUNTIF(S), SUMIF(S), AVERAGEIF(S), criteria syntax, LARGE, SMALL, RANK.EQ, and mixed references for two-way summary tables. Many questions use the same small data table so you can compare results.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-4.html">Open the Quiz 4 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q4done">0 / 29</b><span>Answered</span></div>
+    <div class="stat"><b id="q4right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q4pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q4retry">Retry missed</button><button type="button" class="btn" id="q4reset">Start over</button></div>
+    <div class="sbbar"><span id="q4bar"></span></div>
+  </div>
+  <div id="q4list"></div>
+  <div class="finish" id="q4finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q4retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var DATA='<div class="minitable"><table><tr><th></th><th>A<br>Region</th><th>B<br>Rep</th><th>C<br>Sales</th></tr><tr><th>2</th><td>East</td><td>Kim</td><td>400</td></tr><tr><th>3</th><td>West</td><td>Lee</td><td>250</td></tr><tr><th>4</th><td>East</td><td>Ana</td><td>150</td></tr><tr><th>5</th><td>North</td><td>Kim</td><td>300</td></tr><tr><th>6</th><td>West</td><td>Ana</td><td>500</td></tr><tr><th>7</th><td>East</td><td>Lee</td><td>250</td></tr><tr><th>8</th><td>North</td><td>Ana</td><td>100</td></tr></table></div>';
+var D=function(t){return '<p>Use this data for the question:</p>'+DATA+'<p>'+t+'</p>';};
+var Q=[
+{p:"Which function counts the items in a list that meet <em>one</em> condition?",
+ o:["COUNT","COUNTA","COUNTIF","SUMIF"],a:2,
+ e:"COUNTIF(range, criteria) counts cells that match a single condition. COUNT and COUNTA count everything (numbers, or all non-empty cells) with no condition, and SUMIF adds instead of counting."},
+{p:D("What does <code>=COUNTIF(A2:A8, \"East\")</code> return?"),
+ o:["2","3","800","4"],a:1,
+ e:"Three rows have East in column A (rows 2, 4, and 7). COUNTIF counts matches, it doesn’t add the sales."},
+{p:D("What does <code>=COUNTIF(C2:C8, \"&gt;250\")</code> return?"),
+ o:["3","5","2","4"],a:0,
+ e:"Only sales strictly greater than 250 count: 400, 300, and 500. The two 250s don’t qualify for >."},
+{p:D("What does <code>=COUNTIF(C2:C8, \"&gt;=250\")</code> return?"),
+ o:["3","4","5","6"],a:2,
+ e:"Now the two 250s count too: 400, 250, 300, 500, 250. That’s 5."},
+{p:D("What does <code>=COUNTIF(A2:A8, \"&lt;&gt;East\")</code> return?"),
+ o:["3","4","7","0"],a:1,
+ e:"<code>\"&lt;&gt;East\"</code> means “not equal to East.” Seven rows minus three East rows leaves 4."},
+{p:D("Cell E1 contains <code>300</code>. Which formula counts the sales greater than the value in E1?"),
+ o:["=COUNTIF(C2:C8, \">E1\")","=COUNTIF(C2:C8, >E1)","=COUNTIF(C2:C8, \">\"&E1)","=COUNTIF(C2:C8, \">&E1\")"],a:2,
+ e:"The operator goes in quotes and the cell reference stays outside, joined with &: <code>\"&gt;\"&E1</code> becomes \">300\". Writing <code>\"&gt;E1\"</code> compares against the literal text “E1,” not the cell. (The answer here is 2: 400 and 500.)"},
+{p:"Which criteria argument is written correctly for “greater than or equal to 50”?",
+ o:["&gt;=50","\"&gt;=50\"","\"&gt;=\" 50","&gt;=\"50\""],a:1,
+ e:"Criteria with a relational operator (&gt;, &lt;, &gt;=, &lt;=, &lt;&gt;) must be inside quotes as one piece of text: <code>\"&gt;=50\"</code>. A plain equality like 100 or \"Blue\" doesn’t need an operator."},
+{p:D("What does <code>=SUMIF(A2:A8, \"East\", C2:C8)</code> return?"),
+ o:["3","800","1000","550"],a:1,
+ e:"SUMIF checks column A for East and adds the matching values from column C: 400 + 150 + 250 = 800."},
+{p:D("What does <code>=SUMIF(C2:C8, \"&gt;300\")</code> return?"),
+ o:["900","1200","2","#VALUE!"],a:0,
+ e:"When the values to add are in the same range you’re testing, you can leave out sum_range. It adds the sales over 300: 400 + 500 = 900."},
+{p:"In <code>SUMIF(range, criteria, sum_range)</code>, the sum_range argument is optional and may be left out when it’s the same as the criteria range.",
+ o:["True","False"],a:0,
+ e:"If sum_range is omitted, SUMIF adds the cells in range that meet the criteria. AVERAGEIF works the same way with average_range."},
+{p:"What’s the key difference in argument order between SUMIF and SUMIFS?",
+ o:["There’s no difference","SUMIF puts the sum range last; SUMIFS puts it first","SUMIFS puts the sum range last; SUMIF puts it first","SUMIFS doesn’t use a sum range"],a:1,
+ e:"SUMIF(range, criteria, sum_range) has it last and optional. SUMIFS(sum_range, criteria_range1, criteria1, …) has it first and required. AVERAGEIF/AVERAGEIFS follow the same pattern."},
+{p:D("What does <code>=AVERAGEIF(B2:B8, \"Ana\", C2:C8)</code> return?"),
+ o:["250","750","3","150"],a:0,
+ e:"Ana’s sales are 150, 500, and 100. Their total is 750, and 750 ÷ 3 = 250."},
+{p:D("What does <code>=AVERAGEIF(A2:A8, \"South\", C2:C8)</code> return?"),
+ o:["0","#DIV/0!","#VALUE!","A blank cell"],a:1,
+ e:"No rows match South, so there’s nothing to average. Dividing by a count of zero gives #DIV/0!."},
+{p:D("What does <code>=COUNTIFS(A2:A8, \"East\", C2:C8, \"&gt;200\")</code> return?"),
+ o:["3","1","2","4"],a:2,
+ e:"Both conditions must be true. East rows are 400, 150, and 250; of those, 400 and 250 are over 200. That’s 2."},
+{p:D("What does <code>=SUMIFS(C2:C8, A2:A8, \"West\", B2:B8, \"Ana\")</code> return?"),
+ o:["750","500","250","1250"],a:1,
+ e:"Only one row is both West and Ana (row 6), so the sum is 500."},
+{p:"Multiple criteria in COUNTIFS, SUMIFS, and AVERAGEIFS work as an “AND”: a row is included only if it meets <em>every</em> condition.",
+ o:["True","False"],a:0,
+ e:"Each extra criteria pair narrows the results. These functions don’t do “OR” logic on their own."},
+{p:"In SUMIFS, the sum range and every criteria range must be the same size (the same number of cells).",
+ o:["True","False"],a:0,
+ e:"Excel lines the ranges up row by row. If they’re different sizes, SUMIFS returns #VALUE!."},
+{p:"Like SUMIF, the COUNTIFS function has an optional range at the end that tells it which cells to count.",
+ o:["True","False"],a:1,
+ e:"COUNTIFS is only pairs: criteria_range1, criteria1, criteria_range2, criteria2, … It counts the rows where all pairs are true, so there’s no separate count range."},
+{p:"The criteria rules for SUMIF and AVERAGEIF (quotes around operators, using & with cell references) are the same as for COUNTIF.",
+ o:["True","False"],a:0,
+ e:"All the IF and IFS functions share the same criteria syntax, so learning it once covers all six."},
+{p:D("COUNTIF isn’t case-sensitive. What does <code>=COUNTIF(A2:A8, \"east\")</code> return?"),
+ o:["0","3","1","#NAME?"],a:1,
+ e:"\"east\", \"East\", and \"EAST\" all match the same cells, so it still returns 3."},
+{p:D("What does <code>=LARGE(C2:C8, 2)</code> return?"),
+ o:["500","400","300","250"],a:1,
+ e:"LARGE(array, k) returns the k-th largest value. Sorted from high to low: 500, 400, … so the 2nd largest is 400."},
+{p:D("What does <code>=SMALL(C2:C8, 3)</code> return?"),
+ o:["150","250","300","100"],a:1,
+ e:"Sorted low to high: 100, 150, 250, 250, 300, 400, 500. The 3rd smallest is 250."},
+{p:"<code>=LARGE(B2:B40, 1)</code> always returns the same result as <code>=MAX(B2:B40)</code>.",
+ o:["True","False"],a:0,
+ e:"The 1st largest value is the maximum. Likewise, SMALL(range, 1) equals MIN(range)."},
+{p:"A list of test scores is in D2:F30. Which formula returns the 15th <em>highest</em> score?",
+ o:["=SMALL(D2:F30, 15)","=RANK.EQ(D2:F30, 15)","=LARGE(D2:F30, 15)","=LARGE(15, D2:F30)"],a:2,
+ e:"LARGE takes the range first, then k. RANK.EQ goes the other way: it tells you a value’s position, not the value at a position."},
+{p:D("What does <code>=RANK.EQ(C5, C2:C8)</code> return? (C5 is 300.)"),
+ o:["3","5","4","1"],a:0,
+ e:"With order omitted, RANK.EQ ranks from largest to smallest. 500 is 1st, 400 is 2nd, and 300 is 3rd."},
+{p:D("What does <code>=RANK.EQ(C4, C2:C8, 1)</code> return? (C4 is 150.)"),
+ o:["6","1","2","7"],a:2,
+ e:"An order of 1 ranks ascending, so the smallest value is rank 1. 100 is 1st and 150 is 2nd."},
+{p:D("Ranked largest to smallest, both 250s get rank 4. What rank does 150 get?"),
+ o:["5","6","4","7"],a:1,
+ e:"RANK.EQ gives tied values the same rank and then skips. Two values share 4th, so the next one is 6th."},
+{p:"Which RANK.EQ formula ranks the value in B2 within B2:B10 so that the <em>largest</em> value is rank 1?",
+ o:["=RANK.EQ(B2:B10, B2, 0)","=RANK.EQ(B2, B2:B10, 0)","=RANK.EQ(B2, B2:B10, 1)","=RANK.EQ(B2:B10, B2, 1)"],a:1,
+ e:"The order is RANK.EQ(number, ref, order). An order of 0 (or leaving it out) means descending, so the largest is rank 1. To copy it down the list, you’d write the ref as $B$2:$B$10."},
+{p:"You’re building a summary grid with regions down column E (E3:E5) and reps across row 2 (F2:H2). F3 holds <code>=COUNTIFS($A$2:$A$8, $E3, $B$2:$B$8, F$2)</code> and is copied across and down. Why is the region reference written as <code>$E3</code>?",
+ o:["To lock it to cell E3 everywhere","To keep the column on E while letting the row change as it’s copied down","Because COUNTIFS requires a $ on every criteria","To keep the row on 3 while the column changes"],a:1,
+ e:"Copying in two directions usually needs mixed references. $E3 always reads the region from column E but moves down the rows. F$2 always reads the rep from row 2 but moves across the columns. The data ranges are fully absolute so they never shift."}
+];
+
+var KEY='cse2111-practice-quiz-4',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q4list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<div class="qprompt">'+q.p+'</div><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q4done').textContent=n+' / '+Q.length;
+  document.getElementById('q4right').textContent=c;
+  document.getElementById('q4pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q4bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q4finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q4retry').addEventListener('click',retry);
+document.getElementById('q4retry2').addEventListener('click',retry);
+document.getElementById('q4reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 8 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-8">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 8</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-8">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 8</div>
+  <div class="pagehead">
+    <h1>Quiz 8 practice: Financial Functions</h1>
+    <p>28 original questions on PV, FV, PMT, RATE, and NPER, matching the rate and number of periods to the compounding schedule, compound vs. simple interest, cash-flow signs, balloon payments, and the type argument.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-8.html">Open the Quiz 8 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q8done">0 / 28</b><span>Answered</span></div>
+    <div class="stat"><b id="q8right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q8pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q8retry">Retry missed</button><button type="button" class="btn" id="q8reset">Start over</button></div>
+    <div class="sbbar"><span id="q8bar"></span></div>
+  </div>
+  <div id="q8list"></div>
+  <div class="finish" id="q8finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q8retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var Q=[{"p": "Which Excel function returns the payment amount due each period on a loan?", "o": ["PV", "PMT", "NPER", "RATE"], "a": 1, "e": "PMT stands for payment. It answers: “How much do I pay each period?”"}, {"p": "Which function returns what an investment will be worth at the end, after all payments and interest?", "o": ["FV", "PV", "RATE", "PMT"], "a": 0, "e": "FV is future value: the amount at the end of the transaction."}, {"p": "What does the RATE function return?", "o": ["The total interest paid", "The number of payments", "The annual percentage rate, always", "The interest rate per period"], "a": 3, "e": "RATE returns the rate for one period. If the periods are months, multiply by 12 to get the annual rate."}, {"p": "The PV function returns:", "o": ["The value at the end of the loan", "The payment each period", "The amount at the beginning of the transaction, what it’s worth today", "The number of periods"], "a": 2, "e": "PV is present value: what you get or pay at the start, or what a future amount is worth today."}, {"p": "Which function tells you how many periods it will take to pay off a loan or reach a savings goal?", "o": ["RATE", "NPER", "FV", "PMT"], "a": 1, "e": "NPER is the number of periods."}, {"p": "Which of these is <em>not</em> a built-in Excel financial function?", "o": ["LOAN", "FV", "PV", "RATE"], "a": 0, "e": "Excel’s core five are PV, FV, PMT, RATE, and NPER. There’s no LOAN function."}, {"p": "Excel’s financial functions each solve for one of PV, FV, PMT, RATE, or NPER. You pick the function for the value you want and supply the others as arguments.", "o": ["True", "False"], "a": 0, "e": "They’re five views of the same equation: give Excel four of the values, and it solves for the fifth."}, {"p": "A loan has a 6% APR, compounded monthly. What should the rate argument be?", "o": ["6%", "6%*12", "6%/12", "12/6%"], "a": 2, "e": "The rate must match the period. Monthly periods need the monthly rate: 6% ÷ 12 = 0.5% per month."}, {"p": "A 5-year loan has monthly payments. What should the nper argument be?", "o": ["5", "60", "5/12", "12"], "a": 1, "e": "nper counts periods, not years: 5 years × 12 months = 60."}, {"p": "An 8-year investment compounds semiannually. How many compounding periods are there?", "o": ["16", "8", "4", "96"], "a": 0, "e": "Semiannually means twice a year: 8 × 2 = 16 periods."}, {"p": "With a 4% APR compounded monthly, you can use 4% as the rate argument as long as nper is in months.", "o": ["True", "False"], "a": 1, "e": "Rate and nper must both be per period. With months, use 4%/12 for the rate and years × 12 for nper. Mixing them gives badly wrong answers."}, {"p": "Compound interest earns interest on previously earned interest.", "o": ["True", "False"], "a": 0, "e": "That’s the difference from simple interest. Each period’s interest is added to the balance, and the next period’s interest is calculated on the larger balance."}, {"p": "$1,000 is invested at 10% per year, compounded annually. What is it worth after 2 years?", "o": ["$1,200.00", "$1,210.00", "$1,100.00", "$1,221.00"], "a": 1, "e": "Year 1: 1000 × 1.10 = 1100. Year 2: 1100 × 1.10 = 1210. The extra $10 compared with simple interest is interest on interest."}, {"p": "$1,000 is invested at a 12% APR for 1 year. Compounded monthly, what is it worth (rounded)?", "o": ["$1,126.83", "$1,120.00", "$1,144.00", "$1,012.00"], "a": 0, "e": "Monthly: 12 periods at 1% each, so 1000 × 1.01^12 ≈ 1126.83. More frequent compounding earns a bit more than the $1,120 from annual compounding."}, {"p": "You borrow $20,000. Why does <code>=PMT(6%/12, 60, 20000)</code> return a <em>negative</em> number?", "o": ["Because the formula has an error", "Because PMT always returns negatives", "Because interest rates are negative", "Because the payment is money leaving your pocket, the opposite direction of the $20,000 you received"], "a": 3, "e": "Excel uses cash-flow signs: money you receive is positive, and money you pay out is negative. You got $20,000 (+), so each payment you make is negative."}, {"p": "What does <code>=PMT(6%/12, 5*12, 20000)</code> return (rounded)?", "o": ["-$333.33", "-$1,200.00", "-$386.66", "-$4,748.08"], "a": 2, "e": "Monthly rate 0.5%, 60 payments, $20,000 borrowed: about $386.66 per month. That’s more than 20000/60 = $333.33 because of interest."}, {"p": "What does <code>=FV(5%, 3, 0, -1000)</code> return (rounded)?", "o": ["$1,150.00", "$1,157.63", "-$1,157.63", "$1,050.00"], "a": 1, "e": "$1,000 is deposited once (−1000 = money out) with no periodic payments (0). After 3 years at 5%: 1000 × 1.05³ ≈ $1,157.63, positive because you get it back."}, {"p": "What does <code>=PV(4%, 5, 0, 10000)</code> return (rounded)?", "o": ["-$8,219.27", "$10,000.00", "-$8,000.00", "$8,219.27"], "a": 0, "e": "To have $10,000 in 5 years at 4%, you’d need to invest about $8,219.27 today. It’s negative because it’s money you put in."}, {"p": "You deposit $200 at the end of each month for 10 years at a 3% APR compounded monthly. Which formula gives the ending balance?", "o": ["=FV(3%, 10, -200)", "=PV(3%/12, 10*12, -200)", "=FV(3%*12, 10/12, -200)", "=FV(3%/12, 10*12, -200)"], "a": 3, "e": "Monthly rate (3%/12), number of months (120), and −200 for the payment going out. It returns about $27,948.28."}, {"p": "You borrow $20,000 at a 6% APR compounded monthly and pay $500 a month. <code>=NPER(6%/12, -500, 20000)</code> returns about 44.74. What does that number mean?", "o": ["44.74 years", "$44.74 in interest", "44.74 months", "A 44.74% rate"], "a": 2, "e": "NPER returns the number of periods, and the periods here are months. Divide by 12 to get years: about 3.73."}, {"p": "You borrow $30,000 at a 6% APR compounded monthly and pay $600 a month. Which formula returns the number of <em>years</em> to pay it off?", "o": ["=NPER(6%, -600, 30000)", "=NPER(6%/12, -600, 30000)/12", "=NPER(6%/12, 600, 30000)/12", "=NPER(6%*12, -600, 30000)*12"], "a": 1, "e": "Monthly rate, a negative payment (money out), a positive loan amount (money in), then ÷12 to turn months into years. With both signs positive, Excel can’t find an answer."}, {"p": "What does <code>=NPER(6%/12, 600, 30000)</code> return?", "o": ["#NUM!", "About 57.7", "0", "About 4.8"], "a": 0, "e": "Both the payment and the loan are positive, as if you received the loan and also received every payment. The balance can never reach zero, so Excel returns #NUM!. Cash in and cash out need opposite signs."}, {"p": "<code>=RATE(36, -300, 9000)</code> returns about 1.02%. The payments are monthly. What’s the approximate annual rate?", "o": ["1.02%", "36%", "3.06%", "12.25%"], "a": 3, "e": "RATE gives the rate per period. Monthly × 12 ≈ 12.25% per year."}, {"p": "An additional lump sum due at the end of a loan, on top of the regular payments, is called a:", "o": ["Down payment", "Periodic payment", "Balloon payment", "Present value"], "a": 2, "e": "A balloon payment is a large final payment. Because it happens at the end, it goes in the fv argument."}, {"p": "A $25,000 car loan runs 5 years at a 7% APR with monthly payments, plus a $5,000 balloon payment at the end. Which formula gives the monthly payment?", "o": ["=PMT(7%/12, 60, 25000-5000)", "=PMT(7%/12, 60, 25000, -5000)", "=PMT(7%, 5, 25000, 5000)", "=PMT(7%/12, 60, -5000, 25000)"], "a": 1, "e": "The balloon is the amount still owed at the end, so it goes in fv as money you’ll pay (−5000). That lowers the monthly payment to about $425.19."}, {"p": "In PMT, PV, FV, and NPER, leaving out the fv argument assumes it’s 0, meaning the loan is fully paid off at the end.", "o": ["True", "False"], "a": 0, "e": "Most loans end at a zero balance, so fv defaults to 0. Only add it for a balloon payment or a savings target."}, {"p": "In the financial functions, setting the type argument to 1 means:", "o": ["Payments happen at the end of each period", "The rate is already monthly", "Interest compounds annually", "Payments happen at the beginning of each period"], "a": 3, "e": "type 0 (or left out) means the end of each period, which is typical for loans. type 1 means the beginning, like rent or saving at the start of each month."}, {"p": "Splitting a compound interest problem into compounding periods, with the matching rate per period, is essential for getting correct results.", "o": ["True", "False"], "a": 0, "e": "Rate per period and number of periods must line up. That’s the most common reason financial formulas give wrong answers."}];
+
+var KEY='cse2111-practice-quiz-8',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q8list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<div class="qprompt">'+q.p+'</div><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q8done').textContent=n+' / '+Q.length;
+  document.getElementById('q8right').textContent=c;
+  document.getElementById('q8pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q8bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q8finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q8retry').addEventListener('click',retry);
+document.getElementById('q8retry2').addEventListener('click',retry);
+document.getElementById('q8reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

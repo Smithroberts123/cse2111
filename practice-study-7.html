@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 7 study guide | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-study-7">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 7 study guide</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="practice-study-7">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 7 study guide</div>
+  <div class="pagehead">
+    <h1>Quiz 7 study guide: Reference Functions</h1>
+    <p>The core Chapter 7 ideas in one place. Read this, then <a href="practice-quiz-7.html">try the practice set</a>. Your course notes are still the official source.</p>
+  </div>
+
+  <h2>VLOOKUP and HLOOKUP</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Function</th><th>Syntax</th><th>Searches</th><th>Returns from</th></tr>
+    <tr><td>VLOOKUP</td><td><code>VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code></td><td>Down the <b>first column</b></td><td>Column number you give (1 = first column of the table)</td></tr>
+    <tr><td>HLOOKUP</td><td><code>HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])</code></td><td>Across the <b>first row</b></td><td>Row number you give (1 = first row of the table)</td></tr>
+  </table></div>
+  <p>The only real difference is <b>orientation</b>: vertical tables use VLOOKUP, horizontal tables use HLOOKUP.</p>
+
+  <h2>Exact vs. approximate match</h2>
+  <div class="tablewrap"><table>
+    <tr><th>range_lookup</th><th>Finds</th><th>Table must be sorted?</th><th>Use for</th></tr>
+    <tr><td><code>TRUE</code> or left out</td><td>Exact match, or else the <b>largest value that is less than or equal to</b> the lookup value</td><td>Yes, ascending</td><td>Brackets: grades, tax rates, shipping weights, discounts</td></tr>
+    <tr><td><code>FALSE</code></td><td>Exact match only</td><td>No</td><td>IDs, names, codes</td></tr>
+  </table></div>
+  <div class="note"><b>Remember:</b> leaving range_lookup out means TRUE, not FALSE.</div>
+
+  <h2>Worked example: shipping costs</h2>
+  <div class="minitable"><table><tr><th></th><th>F<br>Weight (lb)</th><th>G<br>Cost</th></tr><tr><th>2</th><td>0</td><td>$5</td></tr><tr><th>3</th><td>2</td><td>$8</td></tr><tr><th>4</th><td>5</td><td>$12</td></tr><tr><th>5</th><td>10</td><td>$20</td></tr><tr><th>6</th><td>20</td><td>$35</td></tr></table></div>
+  <div class="tablewrap"><table>
+    <tr><th>Formula</th><th>Result</th><th>Why</th></tr>
+    <tr><td><code>=VLOOKUP(7, $F$2:$G$6, 2, TRUE)</code></td><td>$12</td><td>Largest weight ≤ 7 is 5</td></tr>
+    <tr><td><code>=VLOOKUP(25, $F$2:$G$6, 2, TRUE)</code></td><td>$35</td><td>Above every value, so it uses the last row</td></tr>
+    <tr><td><code>=VLOOKUP(-1, $F$2:$G$6, 2, TRUE)</code></td><td>#N/A</td><td>Smaller than the smallest value</td></tr>
+    <tr><td><code>=VLOOKUP(7, $F$2:$G$6, 2, FALSE)</code></td><td>#N/A</td><td>No exact 7</td></tr>
+    <tr><td><code>=VLOOKUP(7, $F$2:$G$6, 3, TRUE)</code></td><td>#REF!</td><td>The table has only 2 columns</td></tr>
+  </table></div>
+
+  <h2>Setting up the table correctly</h2>
+  <p><b>Leave the labels out.</b> If row headings like “Qty” and “Discount” sit in column A, start the table_array at the data: use <code>$B$1:$F$2</code>, not <code>$A$1:$F$2</code>.</p>
+  <div class="minitable"><table><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr><tr><th>1</th><td>Qty</td><td>1</td><td>10</td><td>25</td><td>50</td><td>100</td></tr><tr><th>2</th><td>Discount</td><td>0%</td><td>5%</td><td>8%</td><td>12%</td><td>15%</td></tr></table></div>
+  <p><code>=HLOOKUP(H5, $B$1:$F$2, 2, TRUE)</code> returns 8% for a quantity of 30.</p>
+  <p><b>Make the table absolute.</b> When you copy a lookup down a column, the lookup value (like A2) should move, but the table shouldn’t: <code>=VLOOKUP(A2, $F$2:$G$6, 2, TRUE)</code>.</p>
+
+  <h2>Why lookups instead of nested IFs</h2>
+  <p>A long nested IF is cumbersome to write and hard to maintain. A lookup table puts the breakpoints in cells where anyone can read and update them, and the formula stays short. (Nested IFs <em>can</em> return text and numbers, so that’s not the reason.)</p>
+
+  <h2>Videos</h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+VLOOKUP+tutorial+beginners" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>VLOOKUP tutorial</b><small>Exact match lookups step by step.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+VLOOKUP+approximate+match+TRUE+grades" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>VLOOKUP approximate match</b><small>Using TRUE for grade and tax brackets.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+HLOOKUP+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>HLOOKUP tutorial</b><small>Looking up across a horizontal table.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+VLOOKUP+N%2FA+error+fix" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Fixing #N/A in VLOOKUP</b><small>Why lookups fail and how to fix them.</small><em>Search YouTube</em></span></a>
+  </div>
+  <p class="meanwhile"><a href="practice-quiz-7.html">Start the Quiz 7 practice set</a></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

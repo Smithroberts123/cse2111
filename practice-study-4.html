@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 4 study guide | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-study-4">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 4 study guide</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="practice-study-4">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 4 study guide</div>
+  <div class="pagehead">
+    <h1>Quiz 4 study guide: Conditional Functions, LARGE, SMALL &amp; RANK</h1>
+    <p>The core Chapter 4 ideas in one place. Read this, then <a href="practice-quiz-4.html">try the practice set</a>. Your course notes are still the official source.</p>
+  </div>
+
+  <h2>Sample data used below</h2>
+  <div class="minitable"><table><tr><th></th><th>A<br>Region</th><th>B<br>Rep</th><th>C<br>Sales</th></tr><tr><th>2</th><td>East</td><td>Kim</td><td>400</td></tr><tr><th>3</th><td>West</td><td>Lee</td><td>250</td></tr><tr><th>4</th><td>East</td><td>Ana</td><td>150</td></tr><tr><th>5</th><td>North</td><td>Kim</td><td>300</td></tr><tr><th>6</th><td>West</td><td>Ana</td><td>500</td></tr><tr><th>7</th><td>East</td><td>Lee</td><td>250</td></tr><tr><th>8</th><td>North</td><td>Ana</td><td>100</td></tr></table></div>
+
+  <h2>One condition: COUNTIF, SUMIF, AVERAGEIF</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Syntax</th><th>Example</th><th>Result</th></tr>
+    <tr><td><code>COUNTIF(range, criteria)</code></td><td><code>=COUNTIF(A2:A8, "East")</code></td><td>3</td></tr>
+    <tr><td><code>SUMIF(range, criteria, [sum_range])</code></td><td><code>=SUMIF(A2:A8, "East", C2:C8)</code></td><td>800</td></tr>
+    <tr><td><code>AVERAGEIF(range, criteria, [average_range])</code></td><td><code>=AVERAGEIF(B2:B8, "Ana", C2:C8)</code></td><td>250</td></tr>
+  </table></div>
+  <p>The last argument of SUMIF and AVERAGEIF is <b>optional</b>. Leave it out when you’re adding or averaging the same cells you’re testing: <code>=SUMIF(C2:C8, "&gt;300")</code> gives 900. If nothing matches, AVERAGEIF returns #DIV/0!.</p>
+
+  <h2>Several conditions: COUNTIFS, SUMIFS, AVERAGEIFS</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Syntax</th><th>Example</th><th>Result</th></tr>
+    <tr><td><code>COUNTIFS(range1, crit1, range2, crit2, …)</code></td><td><code>=COUNTIFS(A2:A8, "East", C2:C8, "&gt;200")</code></td><td>2</td></tr>
+    <tr><td><code>SUMIFS(sum_range, range1, crit1, …)</code></td><td><code>=SUMIFS(C2:C8, A2:A8, "West", B2:B8, "Ana")</code></td><td>500</td></tr>
+    <tr><td><code>AVERAGEIFS(avg_range, range1, crit1, …)</code></td><td><code>=AVERAGEIFS(C2:C8, A2:A8, "East")</code></td><td>266.67</td></tr>
+  </table></div>
+  <div class="note"><b>Watch the argument order.</b> SUMIF and AVERAGEIF put the sum/average range <b>last</b> (optional). SUMIFS and AVERAGEIFS put it <b>first</b> (required). COUNTIFS has <b>no</b> separate count range, only criteria pairs.</div>
+  <p>Multiple criteria are <b>AND</b> logic: a row counts only if every condition is true. All ranges must be the <b>same size</b>, or you get #VALUE!.</p>
+
+  <h2>Writing criteria</h2>
+  <div class="tablewrap"><table>
+    <tr><th>You want</th><th>Write</th><th>Notes</th></tr>
+    <tr><td>Equals a number</td><td><code>100</code></td><td>No quotes needed</td></tr>
+    <tr><td>Equals text</td><td><code>"Blue"</code></td><td>Not case-sensitive</td></tr>
+    <tr><td>Greater than 250</td><td><code>"&gt;250"</code></td><td>Operator and number together in quotes</td></tr>
+    <tr><td>Not equal to East</td><td><code>"&lt;&gt;East"</code></td><td></td></tr>
+    <tr><td>Greater than the value in E1</td><td><code>"&gt;"&amp;E1</code></td><td>Operator in quotes, cell outside, joined with &amp;</td></tr>
+  </table></div>
+  <p>The classic mistake is <code>"&gt;E1"</code>, which compares against the text “E1” instead of the cell’s value. These rules are identical for all six IF and IFS functions.</p>
+
+  <h2>LARGE and SMALL</h2>
+  <p><code>LARGE(array, k)</code> returns the k-th largest value and <code>SMALL(array, k)</code> the k-th smallest. The range comes first, then k. With the sample sales, <code>=LARGE(C2:C8, 2)</code> is 400 and <code>=SMALL(C2:C8, 3)</code> is 250. LARGE with k = 1 equals MAX, and SMALL with k = 1 equals MIN. The array can be a block like A1:C10.</p>
+
+  <h2>RANK.EQ</h2>
+  <p><code>RANK.EQ(number, ref, [order])</code> tells you a value’s position in a list.</p>
+  <div class="tablewrap"><table>
+    <tr><th>order</th><th>Rank 1 is</th><th>Example</th><th>Result</th></tr>
+    <tr><td>0 or left out</td><td>The largest</td><td><code>=RANK.EQ(C5, C2:C8)</code> (300)</td><td>3</td></tr>
+    <tr><td>1</td><td>The smallest</td><td><code>=RANK.EQ(C4, C2:C8, 1)</code> (150)</td><td>2</td></tr>
+  </table></div>
+  <p>Ties share a rank and the next rank is skipped: two values tied for 4th means the next is 6th. When copying a RANK.EQ formula down a list, make the list absolute: <code>=RANK.EQ(C2, $C$2:$C$8)</code>.</p>
+
+  <h2>Copying in two directions</h2>
+  <p>For a summary grid with criteria down a column and across a row, you usually need <b>mixed references</b>:</p>
+  <p><code>=COUNTIFS($A$2:$A$8, $E3, $B$2:$B$8, F$2)</code></p>
+  <p>The data ranges are fully absolute. <code>$E3</code> locks the column so it always reads row labels from E, and <code>F$2</code> locks the row so it always reads column headers from row 2.</p>
+
+  <h2>Videos</h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+COUNTIF+COUNTIFS+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>COUNTIF and COUNTIFS</b><small>Counting with one or more conditions.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+SUMIF+SUMIFS+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>SUMIF and SUMIFS</b><small>Adding values that meet conditions.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+AVERAGEIF+AVERAGEIFS+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>AVERAGEIF and AVERAGEIFS</b><small>Averaging only the rows that match.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+countif+greater+than+cell+reference+ampersand" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Criteria with cell references</b><small>Using "&gt;"&amp;A1 in COUNTIF and SUMIF.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+LARGE+SMALL+RANK.EQ+functions" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>LARGE, SMALL, and RANK.EQ</b><small>Finding the k-th value and ranking a list.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+mixed+references+countifs+two+way+table" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Mixed references for two-way tables</b><small>Copying one formula across and down.</small><em>Search YouTube</em></span></a>
+  </div>
+  <p class="meanwhile"><a href="practice-quiz-4.html">Start the Quiz 4 practice set</a></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

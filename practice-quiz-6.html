@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 6 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-6">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 6</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-6">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 6</div>
+  <div class="pagehead">
+    <h1>Quiz 6 practice: IF Functions</h1>
+    <p>28 original questions on IF syntax, what can be a logical test, quoting text results, TRUE vs. "TRUE", omitted arguments, nested IFs and why their order matters, IF with AND/OR/NOT, and IF inside a larger calculation. Several questions share a small payroll table.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-6.html">Open the Quiz 6 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q6done">0 / 28</b><span>Answered</span></div>
+    <div class="stat"><b id="q6right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q6pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q6retry">Retry missed</button><button type="button" class="btn" id="q6reset">Start over</button></div>
+    <div class="sbbar"><span id="q6bar"></span></div>
+  </div>
+  <div id="q6list"></div>
+  <div class="finish" id="q6finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q6retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var DATA='<div class="minitable"><table><tr><th></th><th>A<br>Name</th><th>B<br>Hours</th><th>C<br>Rate</th><th>D<br>Remote</th><th></th><th>F<br>Inputs</th></tr><tr><th>1</th><td></td><td></td><td></td><td></td><td>OT multiplier</td><td>1.5</td></tr><tr><th>2</th><td>Kai</td><td>45</td><td>$20</td><td>TRUE</td><td>OT threshold</td><td>40</td></tr><tr><th>3</th><td>Lu</td><td>38</td><td>$18</td><td>FALSE</td><td>Remote stipend</td><td>$25</td></tr><tr><th>4</th><td>Mo</td><td>40</td><td>$25</td><td>TRUE</td><td></td><td></td></tr></table></div><p class="tiny">Inputs: F1 = 1.5, F2 = 40, F3 = 25</p>';
+var D=function(t){return '<p>Use this data for the question:</p>'+DATA+'<p>'+t+'</p>';};
+var OT='<code>=IF(B2&gt;$F$2, $F$2*C2+(B2-$F$2)*C2*$F$1, B2*C2)</code>';
+var Q=[
+{p:"What is the correct order of the IF function’s arguments?",
+ o:["value_if_true, value_if_false, logical_test","logical_test, value_if_true, value_if_false","logical_test, value_if_false, value_if_true","value_if_true, logical_test, value_if_false"],a:1,
+ e:"IF(logical_test, value_if_true, value_if_false): first the question, then what to show if it’s TRUE, then what to show if it’s FALSE."},
+{p:"Unlike AND, OR, and NOT, which only return TRUE or FALSE, the IF function can return text, a number, the result of a calculation, or a Boolean value.",
+ o:["True","False"],a:0,
+ e:"That’s what makes IF so useful: it chooses between two results, and those results can be almost anything."},
+{p:"Which of these can serve as the logical_test in an IF function?",
+ o:["A relational expression like B2>50","The result of a Boolean function like AND(B2>50, C2)","A reference to a cell containing TRUE or FALSE","All of these"],a:3,
+ e:"The logical_test just has to reduce to TRUE or FALSE, and all three do."},
+{p:"What does <code>=IF(7&lt;3, \"Low\", \"High\")</code> return?",
+ o:["Low","High","FALSE","TRUE"],a:1,
+ e:"7<3 is FALSE, so IF returns value_if_false: “High.”"},
+{p:"B2 contains <code>59.5</code>. What does <code>=IF(B2&gt;=60, \"Pass\", \"Fail\")</code> return?",
+ o:["Pass","Fail","60","TRUE"],a:1,
+ e:"59.5 is not greater than or equal to 60, so the test is FALSE and IF returns “Fail.” IF doesn’t round."},
+{p:"D2 contains the logical value <code>TRUE</code>. What does <code>=IF(D2=\"TRUE\", \"Yes\", \"No\")</code> return?",
+ o:["Yes","No","#VALUE!","TRUE"],a:1,
+ e:"\"TRUE\" in quotes is text, and D2 holds the logical value TRUE. They’re different types, so D2=\"TRUE\" is FALSE and you get “No,” which is a sneaky wrong answer."},
+{p:"D2 contains a logical value (TRUE or FALSE). Which formula correctly shows “Yes” when D2 is TRUE?",
+ o:["=IF(D2=\"TRUE\", \"Yes\", \"No\")","=IF(\"D2\", \"Yes\", \"No\")","=IF(D2, \"Yes\", \"No\")","=IF(D2, Yes, No)"],a:2,
+ e:"A cell that already holds TRUE or FALSE can be the logical_test by itself. The other options compare against text, put the reference in quotes, or leave the results unquoted."},
+{p:"There are no named ranges in the workbook. What does <code>=IF(A1&gt;0, approved, denied)</code> show?",
+ o:["approved or denied, depending on A1","#NAME?","0","Excel adds the quotes automatically"],a:1,
+ e:"Without quotes, Excel reads approved and denied as range names. If those names don’t exist, you get #NAME?. Text results always need quotes: \"approved\"."},
+{p:"In <code>=IF(B4&gt;100, \"Over\", \"Under\")</code>, the quotation marks around Over and Under are required.",
+ o:["True","False"],a:0,
+ e:"Text you want IF to display must be in quotes. Numbers, cell references, and formulas don’t need them."},
+{p:"What does <code>=IF(5&gt;9, \"Yes\")</code> return? (value_if_false is left out.)",
+ o:["Yes","A blank cell","FALSE","#VALUE!"],a:2,
+ e:"When value_if_false is omitted and the test is FALSE, IF returns the logical value FALSE. Use \"\" as the third argument if you want a blank-looking cell."},
+{p:"B2 contains <code>150</code>. What does <code>=IF(B2&gt;100, \"\", B2*2)</code> display?",
+ o:["300","A cell that looks blank","0","FALSE"],a:1,
+ e:"\"\" is empty text, so the cell looks blank. It’s a common way to hide a result when a condition is met."},
+{p:"According to the course notes, how many levels of IF functions can be nested inside one another?",
+ o:["4","8","64","Unlimited"],a:2,
+ e:"Modern Excel allows up to 64 nested IFs, though a formula that deep is very hard to read."},
+{p:"What does <code>=IF(AND(4&gt;1, 6&lt;=6, 2&lt;&gt;2), \"Go\", \"Stop\")</code> return?",
+ o:["Go","Stop","TRUE","FALSE"],a:1,
+ e:"2<>2 (“2 is not equal to 2”) is FALSE, so the AND is FALSE and IF returns “Stop.”"},
+{p:"What does <code>=IF(OR(1&gt;5, 3=3), 10, A1*2)</code> return?",
+ o:["10","A1*2","TRUE","20"],a:0,
+ e:"3=3 is TRUE, so the OR is TRUE and IF returns 10. The A1*2 branch is never used."},
+{p:"What does <code>=IF(NOT(9&gt;4), \"A\", \"B\")</code> return?",
+ o:["A","B","TRUE","FALSE"],a:1,
+ e:"9>4 is TRUE, and NOT flips it to FALSE, so IF returns the value_if_false: “B.”"},
+{p:"C4 contains <code>80</code>. What does <code>=IF(C4&lt;50, \"Low\", IF(C4&lt;80, \"Medium\", \"High\"))</code> return?",
+ o:["Low","Medium","High","FALSE"],a:2,
+ e:"80<50 is FALSE, so Excel moves to the inner IF. 80<80 is also FALSE (it’s equal, not less), so the result is “High.”"},
+{p:"Same formula, <code>=IF(C4&lt;50, \"Low\", IF(C4&lt;80, \"Medium\", \"High\"))</code>, but C4 is <code>49.9</code>. What does it return?",
+ o:["Low","Medium","High","#VALUE!"],a:0,
+ e:"49.9<50 is TRUE on the very first test, so IF returns “Low” and never looks at the inner IF."},
+{p:"C4 is <code>2500</code> and C$1 is <code>10000</code>. The formula <code>=IF(C4&lt;1000, 0, IF(C4&lt;2000, 0.02, 0.05))*C$1</code> returns 500.",
+ o:["True","False"],a:0,
+ e:"2500 fails both tests, so the nested IF returns 0.05. That rate is multiplied by C$1: 0.05 × 10000 = 500."},
+{p:"A student scored <code>95</code>. What does <code>=IF(G2&gt;=60, \"D\", IF(G2&gt;=70, \"C\", IF(G2&gt;=80, \"B\", \"A\")))</code> return?",
+ o:["A","B","C","D"],a:3,
+ e:"95>=60 is TRUE on the first test, so IF returns “D” immediately. Order matters in nested IFs: when using >=, test the highest cutoff first (or the lowest first when using <)."},
+{p:"An employee gets a base salary (B4) plus a commission (B5) only if her sales in B2 are at least $10,000. Which formula(s) calculate her total pay?",
+ o:["=B4+IF(B2>=10000, B5, 0)","=IF(B2>=10000, B4+B5, B4)","Both of the above","=IF(B2>=10000, B5, B4)"],a:2,
+ e:"Both work. The first always adds the base and uses IF only to decide whether to add the commission (B5 or 0). The second puts the full total in each branch. The last option would pay only the commission when she hits the target."},
+{p:D("Kai worked 45 hours. What does "+OT+" return for Kai?"),
+ o:["900","950","1350","800"],a:1,
+ e:"45>40, so the overtime branch runs: 40 × 20 = 800 for regular hours, plus (45 − 40) × 20 × 1.5 = 150 for overtime. Total: 950."},
+{p:D("Copied down to row 3, the overtime formula becomes <code>=IF(B3&gt;$F$2, $F$2*C3+(B3-$F$2)*C3*$F$1, B3*C3)</code>. What does it return for Lu?"),
+ o:["684","720","0","702"],a:0,
+ e:"38 isn’t greater than 40, so the value_if_false branch runs: 38 × 18 = 684."},
+{p:D("What does the overtime formula return for Mo, who worked exactly 40 hours at $25?"),
+ o:["1000","1050","1500","0"],a:0,
+ e:"40>40 is FALSE (not more than 40), so Mo gets straight pay: 40 × 25 = 1000."},
+{p:D("Why do the overtime formulas use <code>$F$2</code> and <code>$F$1</code> instead of F2 and F1?"),
+ o:["IF functions require absolute references","So every row still points to the same input cells when the formula is copied down","To make the inputs display as currency","So Excel treats them as text"],a:1,
+ e:"The threshold and multiplier live in one input cell each. Absolute references keep every copied formula pointing at them, while B2 and C2 stay relative and move with each row."},
+{p:D("What does <code>=IF(D3, $F$3, 0)</code> return for Lu?"),
+ o:["25","0","FALSE","#VALUE!"],a:1,
+ e:"D3 is FALSE (Lu isn’t remote), so IF returns value_if_false: 0. No stipend."},
+{p:D("What does <code>=IF(AND(D2, B2&gt;40), \"Review\", \"\")</code> return for Kai?"),
+ o:["Review","A blank-looking cell","TRUE","FALSE"],a:0,
+ e:"Kai is remote (D2 is TRUE) and worked 45 hours, so both conditions are TRUE and IF returns “Review.”"},
+{p:D("What does <code>=IF(C2&gt;19, C2*1.1, C2)</code> return for Kai?"),
+ o:["20","22","19","TRUE"],a:1,
+ e:"Kai’s rate of 20 is greater than 19, so IF returns the calculation C2*1.1 = 22. IF arguments can be full calculations, not just text."},
+{p:"The logical_test argument of IF must evaluate to TRUE or FALSE.",
+ o:["True","False"],a:0,
+ e:"Everything about IF depends on that one TRUE/FALSE answer: it decides which of the other two arguments gets returned."}
+];
+
+var KEY='cse2111-practice-quiz-6',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q6list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<div class="qprompt">'+q.p+'</div><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q6done').textContent=n+' / '+Q.length;
+  document.getElementById('q6right').textContent=c;
+  document.getElementById('q6pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q6bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q6finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q6retry').addEventListener('click',retry);
+document.getElementById('q6retry2').addEventListener('click',retry);
+document.getElementById('q6reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

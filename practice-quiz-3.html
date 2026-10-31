@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 3 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-3">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 3</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-3">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 3</div>
+  <div class="pagehead">
+    <h1>Quiz 3 practice: Spreadsheet Design</h1>
+    <p>28 original questions on good spreadsheet design, inputs vs. outputs, keeping data in one place, what-if analysis and Goal Seek, multiple worksheets and 3-D references, Freeze Panes, Paste Special (Values and Transpose), and references.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-3.html">Open the Quiz 3 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q3done">0 / 28</b><span>Answered</span></div>
+    <div class="stat"><b id="q3right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q3pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q3retry">Retry missed</button><button type="button" class="btn" id="q3reset">Start over</button></div>
+    <div class="sbbar"><span id="q3bar"></span></div>
+  </div>
+  <div id="q3list"></div>
+  <div class="finish" id="q3finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q3retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var Q=[
+{p:"Your forecast workbook gives correct answers, but adding a new sales region means rewriting a dozen formulas by hand. Which design goal is it failing?",
+ o:["Easy to extend with new variables or cases","Correct results","Attractive formatting","Using 3-D references"],a:0,
+ e:"A good design is easy to extend. If adding a new region or variable means rewriting formulas, the layout wasn’t built with growth in mind."},
+{p:"A coworker opens your budget and can’t tell which cells she’s supposed to change and which hold formulas. Which design goal is it failing?",
+ o:["Extensibility","Easy to read and use","Precision","Data appearing only once"],a:1,
+ e:"Clear labels, a separate input area, and consistent formatting make a sheet readable and usable by someone other than the person who built it."},
+{p:"Planning a workbook’s layout before you build it saves time, because fixing a poor design later can mean rewriting many formulas.",
+ o:["True","False"],a:0,
+ e:"Design first, build second. Restructuring a finished workbook often breaks or forces you to redo the formulas that depend on the old layout."},
+{p:"Where should a sales tax rate of 7.25% go in a well-designed spreadsheet?",
+ o:["Typed into every formula that needs it, like =B4*0.0725","In its own labeled input cell that formulas reference","In a cell comment","In the column header text"],a:1,
+ e:"Put assumptions in their own labeled input cells and reference them (for example with $B$1 or a named range). When the rate changes, you update one cell and everything recalculates."},
+{p:"Typing a constant such as <code>0.0725</code> directly into many formulas is good design because it saves a cell.",
+ o:["True","False"],a:1,
+ e:"Hard-coded constants are hidden and scattered. When the value changes, you have to find and fix every formula, and it’s easy to miss one."},
+{p:"In a well-designed spreadsheet, each input value is entered in only one place, and every other cell that needs it refers back to that cell.",
+ o:["True","False"],a:0,
+ e:"Data should appear only once. Entering the same value in two places invites them to drift apart when one gets updated and the other doesn’t."},
+{p:"The loan interest rate is typed into both <code>Inputs!B2</code> and <code>Loan!C4</code>. The rate changes and someone updates only Inputs!B2. What happens?",
+ o:["Excel automatically syncs the two cells","Formulas using Loan!C4 still use the old rate, so results disagree","Both cells show #REF!","Nothing, because the cells are on different sheets"],a:1,
+ e:"Excel has no idea the two cells are “supposed” to match. That’s exactly why data should appear only once, with Loan!C4 containing <code>=Inputs!B2</code> instead of a typed copy."},
+{p:"What is the main benefit of separating inputs from outputs in a spreadsheet?",
+ o:["It makes the file smaller","Users can change assumptions in one place and see every result update","It prevents all errors","It lets Excel skip recalculating"],a:1,
+ e:"A clear input area tells users exactly what they can change, and formulas in the output area respond automatically."},
+{p:"Input/output (what-if) analysis means:",
+ o:["Changing input values and watching how the outputs change","Printing inputs on one page and outputs on another","Converting formulas to values","Moving data between rows and columns"],a:0,
+ e:"What-if analysis asks “what happens to the results if this assumption changes?” You change inputs and let the formulas show the effect."},
+{p:"In what-if analysis, you change the cells that contain formulas to see new results.",
+ o:["True","False"],a:1,
+ e:"You change the input values. If you type over a formula, it’s gone, and the output no longer calculates anything."},
+{p:"B10 contains a profit formula. You want profit to equal $50,000 by changing the unit price in B3. In the Goal Seek dialog, what goes in <strong>Set cell</strong>?",
+ o:["B3","B10","50000","Any empty cell"],a:1,
+ e:"Set cell is the formula whose result you want to hit, here the profit in B10. 50000 goes in “To value,” and B3 goes in “By changing cell.”"},
+{p:"Same setup: profit formula in B10, price in B3, target $50,000. What goes in <strong>By changing cell</strong>?",
+ o:["B10","50000","B3","The cell holding the cost formula"],a:2,
+ e:"By changing cell is the input Goal Seek is allowed to adjust: the price in B3."},
+{p:"Goal Seek’s “By changing cell” can be a cell that contains a formula.",
+ o:["True","False"],a:1,
+ e:"Goal Seek can only adjust a cell holding a plain value, not a formula. That’s one of its key limitations, and the Set cell must depend on that value."},
+{p:"How many input cells can a single Goal Seek run adjust?",
+ o:["Exactly one","Up to three","As many as you select","None; it only changes formulas"],a:0,
+ e:"Goal Seek changes one input cell to reach one target. Problems with several inputs to adjust at once need other tools."},
+{p:"Which tool works <em>backward</em> from a result you want to find the input value that produces it?",
+ o:["Transpose","Freeze Panes","Goal Seek","3-D reference"],a:2,
+ e:"Normal formulas go from inputs to outputs. Goal Seek reverses that: you name the output you want, and it finds the input."},
+{p:"Sheets Jan, Feb, and Mar have identical layouts. On a Summary sheet, which formula totals cell D8 across all three?",
+ o:["=SUM(Jan!D8:Mar!D8)","=SUM(Jan:Mar!D8)","=Jan+Feb+Mar!D8","=SUM(D8!Jan:Mar)"],a:1,
+ e:"A 3-D reference names the first and last sheet with a colon, then an exclamation point and the cell: <code>Jan:Mar!D8</code>. It includes every sheet between them in the tab order."},
+{p:"3-D references are most useful when:",
+ o:["All cases are stacked on one worksheet","Each case is on its own worksheet and every sheet uses the same layout","You have exactly three worksheets","Inputs are stored in a separate file"],a:1,
+ e:"3-D references aggregate the same cell position across several sheets, so they only make sense when each case sits on its own sheet with an identical layout."},
+{p:"A Summary sheet uses <code>=SUM(Jan:Mar!D8)</code>. You add a new sheet and drag its tab between Jan and Mar. Its D8 is now included in the total.",
+ o:["True","False"],a:0,
+ e:"A 3-D range covers every sheet positioned between the first and last sheet in the tab order, including ones added later. Dragging a sheet outside that span removes it."},
+{p:"Sheets are named <strong>Week 1</strong> through <strong>Week 4</strong>. Which formula correctly totals C3 across all four?",
+ o:["=SUM('Week 1':'Week 4'!C3)","=SUM(Week 1:Week 4!C3)","=SUM('Week 1:Week 4'!C3)","=SUM('Week 1!C3:Week 4!C3')"],a:2,
+ e:"Because the names have spaces, the whole sheet span goes inside one pair of single quotes: <code>'Week 1:Week 4'!C3</code>."},
+{p:"Why put each case (for example, each store or each month) on its own worksheet?",
+ o:["Excel can’t hold more than one case per sheet","Each case stays organized in an identical layout, and a summary sheet can combine them","It makes Goal Seek faster","It hides the formulas from users"],a:1,
+ e:"Matching layouts across sheets keep things organized and make it easy to aggregate with 3-D references on a summary sheet."},
+{p:"You want rows 1–2 and columns A–B to stay visible while you scroll. Which cell should you select before choosing Freeze Panes?",
+ o:["A1","B2","C3","C1"],a:2,
+ e:"Freeze Panes locks everything above and to the left of the selected cell. Selecting C3 keeps rows 1–2 and columns A–B on screen, so you can freeze rows and columns at the same time."},
+{p:"Freezing panes changes or locks the data in the frozen rows so it can’t be edited.",
+ o:["True","False"],a:1,
+ e:"Freeze Panes only affects scrolling. It keeps headers in view but doesn’t change or protect the data."},
+{p:"A list of names runs down A1:A5, and you want it to run across a row instead. Which feature does this?",
+ o:["Freeze Panes","Paste Special with Transpose","Goal Seek","AutoFill"],a:1,
+ e:"Copy the cells, then use Paste Special and check Transpose. Rows become columns and columns become rows."},
+{p:"Using Paste Special with the <strong>Values</strong> option pastes:",
+ o:["The formulas, adjusted to the new location","The results of the formulas as plain numbers or text","Only the cell formatting","A link back to the original cells"],a:1,
+ e:"Values pastes what the cells currently show, not the formulas behind them. This is handy when you want a fixed snapshot, often combined with Transpose."},
+{p:"After copying a block 3 rows tall and 5 columns wide and pasting it with Transpose, it becomes 5 rows tall and 3 columns wide.",
+ o:["True","False"],a:0,
+ e:"Transpose flips the orientation, so the row count and column count swap."},
+{p:"Which formula contains both a relative reference and an absolute reference?",
+ o:["=B4*F2","=B4*$F$2","=$B$4*$F$2","=B$4*F$2"],a:1,
+ e:"B4 has no $ signs, so it’s relative. $F$2 is fully absolute. The last option uses two mixed references, which lock only the row."},
+{p:"How do you reference cell D9 on a sheet named <strong>Tax Rates</strong>?",
+ o:["=TaxRates!D9","='Tax Rates'D9","='Tax Rates'!D9","='Tax Rates'&D9"],a:2,
+ e:"Sheet names with spaces go in single quotes, followed by an exclamation point and the cell: <code>'Tax Rates'!D9</code>. Removing the space would refer to a different (nonexistent) sheet."},
+{p:"Clear labels, units (like “$” or “hours”), and short notes in a spreadsheet mainly help:",
+ o:["Excel calculate faster","Other people understand and correctly use the sheet","Prevent #REF! errors","Shrink the file size"],a:1,
+ e:"Documentation is part of good design. It makes the sheet readable, especially for someone who didn’t build it."}
+];
+
+var KEY='cse2111-practice-quiz-3',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q3list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<p class="qprompt">'+q.p+'</p><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q3done').textContent=n+' / '+Q.length;
+  document.getElementById('q3right').textContent=c;
+  document.getElementById('q3pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q3bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q3finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q3retry').addEventListener('click',retry);
+document.getElementById('q3retry2').addEventListener('click',retry);
+document.getElementById('q3reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

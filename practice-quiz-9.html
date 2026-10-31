@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 9 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-9">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 9</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-9">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 9</div>
+  <div class="pagehead">
+    <h1>Quiz 9 practice: Database Concepts</h1>
+    <p>30 original questions on primary and foreign keys, one-to-many relationships, orphans, referential integrity with and without cascade update/delete, Access objects, indexing, and why data is split into related tables. Many questions use the Lab 6 Research Papers database as the example.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-9.html">Open the Quiz 9 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q9done">0 / 30</b><span>Answered</span></div>
+    <div class="stat"><b id="q9right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q9pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q9retry">Retry missed</button><button type="button" class="btn" id="q9reset">Start over</button></div>
+    <div class="sbbar"><span id="q9bar"></span></div>
+  </div>
+  <div id="q9list"></div>
+  <div class="finish" id="q9finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q9retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var Q=[{"p": "A(n) ________ is a field, or set of fields, that can’t be empty and whose value uniquely identifies each record in a table.", "o": ["Foreign key", "Index", "Primary key", "Relationship"], "a": 2, "e": "That’s the definition of a primary key: unique and never empty. ClientID in the Lab 6 Client table is an example."}, {"p": "A primary key can be made up of more than one field.", "o": ["True", "False"], "a": 0, "e": "A primary key made of several fields together is called a composite key. Tables don’t have to use a single-field key, as long as the combination is unique."}, {"p": "Two records in a table can share the same primary key value, as long as their other fields are different.", "o": ["True", "False"], "a": 1, "e": "The whole point of a primary key is that no two records share a value, no matter what the other fields contain."}, {"p": "When adding a new record, you can leave the primary key field blank and fill it in later.", "o": ["True", "False"], "a": 1, "e": "A primary key can’t be empty (null). Access won’t save the record until the key has a value."}, {"p": "What is a foreign key?", "o": ["Any field that has a duplicate value", "A key imported from another database", "A field in one table that matches the primary key of another table, linking the two", "The first field in every table"], "a": 2, "e": "A foreign key holds values from another table’s primary key. For example, ClientID in the Charges table points back to ClientID in the Client table."}, {"p": "Which of these is a requirement for a valid foreign key?", "o": ["It must have the same field name as the primary key", "It must have the same data type as the primary key it links to", "It must be the primary key of its own table", "Its values can never repeat"], "a": 1, "e": "The foreign key has to hold the same kind of information, with the same data type, as the primary key it matches. The name can differ, values can repeat, and it’s usually not the key of its own table."}, {"p": "A foreign key field must have exactly the same field name as the primary key field it links to.", "o": ["True", "False"], "a": 1, "e": "Names can differ. In Lab 6, PaymentMethod.MethodID links to Payments.PaymentType. What matters is matching data type and meaning."}, {"p": "Values in a foreign key field can repeat within the child table.", "o": ["True", "False"], "a": 0, "e": "That’s how one-to-many works: one client (ClientID J7500) can appear in many Charges records."}, {"p": "In the Lab 6 database, Payments.PaymentType links to PaymentMethod.MethodID. Which table is the <em>parent</em> in that relationship?", "o": ["Payments", "Client", "PaymentMethod", "Charges"], "a": 2, "e": "The parent is the table holding the primary key (MethodID). Payments holds the foreign key, so it’s the child."}, {"p": "One client can have many payments, but each payment belongs to one client. What type of relationship is Client → Payments?", "o": ["One-to-one", "One-to-many", "Many-to-many", "No relationship"], "a": 1, "e": "One parent record relates to zero or many child records. That’s the most common relationship type, shown as 1 and ∞ in Access."}, {"p": "Why can’t ClientID be the primary key of the Charges table?", "o": ["Because a client can have many charges, so ClientID repeats in that table", "Because ClientID is text", "Because foreign keys can’t be text", "Because Charges has no relationships"], "a": 0, "e": "A primary key must be unique in its table. In Charges, the same ClientID shows up once per charge, so it works as a foreign key but not as the primary key."}, {"p": "What is an orphan record?", "o": ["A record with no fields filled in", "A parent record with no children", "A table with no relationships", "A child record whose foreign key doesn’t match any record in the parent table"], "a": 3, "e": "An orphan is a child without a parent, like a charge for a ClientID that doesn’t exist in Client. Referential integrity exists to prevent these."}, {"p": "Referential integrity is enforced between Client and Charges. You try to add a Charges record for ClientID J9900, which doesn’t exist in Client. What happens?", "o": ["Access adds it and creates J9900 in Client", "Access adds it as an orphan", "Access blocks the record and shows an error", "Access deletes the record later"], "a": 2, "e": "Enforced referential integrity won’t let a child record point to a parent that doesn’t exist."}, {"p": "Referential integrity is enforced with <strong>Cascade Delete Related Records</strong> on. You delete client J7500 from the Client table. What happens?", "o": ["Only J7500 is deleted, and the charges become orphans", "J7500 and all of J7500’s related child records are deleted", "The deletion is blocked", "Nothing happens"], "a": 1, "e": "Cascade Delete removes the parent and every related child record, so no orphans are left behind."}, {"p": "Referential integrity is enforced, but Cascade Delete is <strong>off</strong>. You try to delete a client who still has payments. What happens?", "o": ["The deletion is blocked, with an error", "Only the client is deleted", "The client and payments are deleted", "The payments move to another client"], "a": 0, "e": "Without cascade delete, Access won’t let you remove a parent that still has children, because that would create orphans."}, {"p": "Referential integrity is enforced with <strong>Cascade Update Related Fields</strong> on. You change client J7500 to J9900. What happens to that client’s charges?", "o": ["The change is blocked", "They’re deleted", "They keep J7500 and become orphans", "Their ClientID changes to J9900 automatically"], "a": 3, "e": "Cascade Update copies the new primary key value to every matching foreign key."}, {"p": "Referential integrity is enforced, but Cascade Update is <strong>off</strong>. You try to change a client’s ID while that client has related payments. What happens?", "o": ["The payments update automatically", "The payments are deleted", "The change is blocked, with an error", "The change is accepted and the payments become orphans"], "a": 2, "e": "Without cascade update, changing the key would leave the children pointing at an ID that no longer exists, so Access refuses."}, {"p": "Cascade Delete is on. You delete one payment record from the Payments (child) table. What happens?", "o": ["The client who made the payment is deleted too", "Only that one payment is deleted", "All of that client’s payments are deleted", "The deletion is blocked"], "a": 1, "e": "Cascading only flows from parent to child. Deleting a child never deletes the parent."}, {"p": "Cascade Update and Cascade Delete work in both directions: changes to a child also cascade up to the parent.", "o": ["True", "False"], "a": 1, "e": "They only go one way, from parent to child."}, {"p": "Which Access object provides on-screen views for viewing and entering data?", "o": ["Report", "Query", "Macro", "Form"], "a": 3, "e": "Forms are the data-entry and viewing screens. Reports are formatted output, and queries ask questions of the data."}, {"p": "Which Access object lets you “ask questions” of the database: sort, filter, and pick out specific information?", "o": ["Table", "Form", "Query", "Report"], "a": 2, "e": "Queries select, sort, filter, and calculate. Their results come back as a dynaset."}, {"p": "Which Access object is designed for formatted, printable output?", "o": ["Form", "Report", "Query", "Table"], "a": 1, "e": "Reports present data in a polished layout for printing or sharing."}, {"p": "Which Access object actually stores the data?", "o": ["Table", "Form", "Report", "Macro"], "a": 0, "e": "Tables hold the data in records (rows) and fields (columns). Every other object works with the data stored in tables."}, {"p": "What are macros used for in Access?", "o": ["Storing data", "Defining primary keys", "Printing reports only", "Automating actions or tasks"], "a": 3, "e": "Macros run a series of actions automatically, such as opening a form or running a query."}, {"p": "Which of these is <em>not</em> an object in Microsoft Access?", "o": ["Query", "Report", "Worksheet", "Form"], "a": 2, "e": "Worksheets belong to Excel. Access objects include tables, queries, forms, reports, macros, and modules."}, {"p": "What is the main purpose of indexing a field?", "o": ["To make records easier to print", "To make searching and retrieving records faster", "To prevent typing errors", "To encrypt the data"], "a": 1, "e": "An index works like the index in a book. Combined with search methods, it lets the computer find records quickly, which matters in databases with millions of records."}, {"p": "In Access, a primary key field is automatically indexed with “Yes (No Duplicates).”", "o": ["True", "False"], "a": 0, "e": "You saw this in the Lab 6 Field Properties pane. The index speeds up searches, and “No Duplicates” enforces uniqueness."}, {"p": "Which shows the hierarchy of data in a database, from largest to smallest?", "o": ["Field, record, table, database", "Record, field, table, database", "Table, database, field, record", "Database, table, record, field"], "a": 3, "e": "A database holds tables, a table holds records (rows), and a record holds fields (columns)."}, {"p": "Why split data into several related tables instead of one big table?", "o": ["To make the database larger", "Because Access tables can only hold eight fields", "To cut down on duplicated data and the inconsistencies it causes", "So that every table needs a foreign key"], "a": 2, "e": "In one big table, a client’s name and address would be retyped on every charge, inviting typos like “Rebecca” vs. “Becky.” Related tables store each fact once."}, {"p": "What is a DBMS?", "o": ["A type of primary key", "Software used to create, manage, and query databases, such as Microsoft Access", "A printed database report", "A single database table"], "a": 1, "e": "DBMS stands for Database Management System, the software layer between you and the data."}];
+
+var KEY='cse2111-practice-quiz-9',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q9list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<div class="qprompt">'+q.p+'</div><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q9done').textContent=n+' / '+Q.length;
+  document.getElementById('q9right').textContent=c;
+  document.getElementById('q9pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q9bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q9finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q9retry').addEventListener('click',retry);
+document.getElementById('q9retry2').addEventListener('click',retry);
+document.getElementById('q9reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

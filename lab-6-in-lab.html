@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lab 6 / In-Lab | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="lab-6-in-lab">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Lab 6 / In-Lab</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="lab-6-in-lab">
+  <div class="crumbs"><a href="index.html">Home</a> / Lab 6 / In-Lab</div>
+
+<div class="intro">
+  <h1>CSE 2111 In-Lab 6, step by step</h1>
+  <p>Same routine as the Pre-Lab: build six tables, link them, then import six text files. The “how to click it” screenshots are borrowed from your Pre-Lab instructions, so the table names in them won’t match. The finished-table screenshots at the end are from the In-Lab itself. Tap any screenshot to enlarge it and tick steps as you go.</p>
+  <ul class="files">
+    <li><b>CSE 2111 In Lab 6 Events Master.accdb</b>The only file you submit</li>
+    <li><b>6 text files</b>Event Type, Location, Organizer, Workers Info, Scheduled Events, Worker Assignments</li>
+  </ul>
+</div>
+<div class="jump"><span>Jump to</span><button data-go="in-build">Tables</button><button data-go="in-rels">Relationships</button><button data-go="in-import">Import</button></div>
+
+<section class="part" id="in-build" data-part="in1">
+  <div class="part-head"><div class="num">1</div><div><h2>Build the six tables</h2><p>Create → Table Design for each one.</p></div></div>
+  <div class="bar"><span></span></div>
+
+  <div class="note"><b>Big difference from the Pre-Lab: this lab uses spaces.</b> Table names like <code>Event Type</code> and field names like <code>First Name</code> have a space in them. Type them exactly as shown, spaces included.</div>
+
+  <ol class="steps">
+    <li class="step" data-id="b-1"><p>Open <b>CSE 2111 In Lab 6 Events Master.accdb</b> from your SimNet download and close the pink security bar. If you want it in your Lab 6 folder, do File → Save As → diskette button, like the Pre-Lab.</p></li>
+    <li class="step" data-id="b-2"><p>The routine for every table: <b>Create → Table Design</b>, type the field names, set the Data Type, set <b>Field Size</b> in the bottom pane, click the first field and hit <b>Primary Key</b>, then save with the table name.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/c798cf8d4177.jpg" alt="Create → Table Design" loading="lazy"></button><figcaption>Create → Table Design</figcaption></figure>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/2517c6d0d2fb.jpg" alt="Select the ID field, then click Primary Key (Pre-Lab example)" loading="lazy"></button><figcaption>Select the ID field, then click Primary Key (Pre-Lab example)</figcaption></figure>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/aca631a666d8.jpg" alt="Field Size is in the lower properties pane (Pre-Lab example)" loading="lazy"></button><figcaption>Field Size is in the lower properties pane (Pre-Lab example)</figcaption></figure></li>
+
+    <li class="step" data-id="b-3"><p class="tname">Event Type</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>TypeID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>Type Description</td><td>Short Text</td><td>150</td></tr>
+      </table></div></li>
+
+    <li class="step" data-id="b-4"><p class="tname">Location</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>LocationID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>Location Name</td><td>Short Text</td><td>175</td></tr>
+      </table></div></li>
+
+    <li class="step" data-id="b-5"><p class="tname">Organizer</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>OrganizerID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>First Name</td><td>Short Text</td><td>50</td></tr>
+        <tr><td>Last Name</td><td>Short Text</td><td>100</td></tr>
+      </table></div>
+      <p>The PDF says “1 100” for Last Name. That’s a typo; use 100.</p></li>
+
+    <li class="step" data-id="b-6"><p class="tname">Workers Info</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>WorkerID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>First Name</td><td>Short Text</td><td>50</td></tr>
+        <tr><td>Last Name</td><td>Short Text</td><td>100</td></tr>
+        <tr><td>Address</td><td>Short Text</td><td>150</td></tr>
+        <tr><td>City</td><td>Short Text</td><td>25</td></tr>
+        <tr><td>State</td><td>Short Text</td><td>2, Default Value "OH"</td></tr>
+        <tr><td>Zipcode</td><td>Short Text</td><td>5</td></tr>
+      </table></div>
+      <p>Note it’s <code>Zipcode</code> with a lowercase c this time. No input masks in this lab.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/ad861a5f0963.jpg" alt="Setting the OH default (Pre-Lab example, same steps)" loading="lazy"></button><figcaption>Setting the OH default (Pre-Lab example, same steps)</figcaption></figure></li>
+
+    <li class="step" data-id="b-7"><p class="tname">Scheduled Events</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>EventID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>OrganizerID</td><td>Short Text</td><td>10</td></tr>
+        <tr><td>LocationID</td><td>Short Text</td><td>10</td></tr>
+        <tr><td>TypeID</td><td>Short Text</td><td>10</td></tr>
+      </table></div></li>
+
+    <li class="step" data-id="b-8"><p class="tname">Worker Assignments</p>
+      <div class="tablewrap"><table>
+        <tr><th>Field</th><th>Type</th><th>Size / extra</th></tr>
+        <tr><td>AssignID</td><td>Short Text</td><td>10, primary key</td></tr>
+        <tr><td>WorkerID</td><td>Short Text</td><td>10</td></tr>
+        <tr><td>EventID</td><td>Short Text</td><td>10</td></tr>
+      </table></div>
+      <p>The PDF says “1 10” for EventID. Also a typo; use 10.</p></li>
+  </ol>
+  <div class="note"><b>Every table gets a primary key here,</b> unlike Charges and Payments in the Pre-Lab. If Access asks “create a primary key now?”, you forgot to set one. Click Cancel and set it yourself.</div>
+</section>
+
+
+<section class="part" id="in-rels" data-part="in2">
+  <div class="part-head"><div class="num">2</div><div><h2>Relationships</h2><p>Five links. Scheduled Events is the hub.</p></div></div>
+  <div class="bar"><span></span></div>
+  <ol class="steps">
+    <li class="step" data-id="r-1"><p>Close every table, then go to <b>Database Tools → Relationships</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/fedfd88c2085.jpg" alt="Database Tools → Relationships" loading="lazy"></button><figcaption>Database Tools → Relationships</figcaption></figure></li>
+    <li class="step" data-id="r-2"><p>Click <b>Add Tables</b> (or Show Table) and double-click all six tables, then close the list. You should see six boxes.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/061de2973e5a.jpg" alt="Double-click each table to add it (Pre-Lab example)" loading="lazy"></button><figcaption>Double-click each table to add it (Pre-Lab example)</figcaption></figure></li>
+    <li class="step" data-id="r-3"><p>Drag the boxes into a layout you can read. Something like this keeps the lines from crossing:</p>
+      <div class="tablewrap"><pre class="mono" style="margin:0;padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;line-height:1.5">Event Type ─┐
+Location  ──┼──► Scheduled Events ──► Worker Assignments ◄── Workers Info
+Organizer ──┘</pre></div></li>
+    <li class="step" data-id="r-4"><p>Make each link by <b>dragging</b> (press, hold, move, release) the field from the first table onto the matching field in the second. Always drag <b>from the table where the field is the primary key</b>.</p>
+      <div class="tablewrap"><table>
+        <tr><th>#</th><th>Drag from</th><th>Onto</th></tr>
+        <tr><td>1</td><td>Event Type → TypeID</td><td>Scheduled Events → TypeID</td></tr>
+        <tr><td>2</td><td>Location → LocationID</td><td>Scheduled Events → LocationID</td></tr>
+        <tr><td>3</td><td>Organizer → OrganizerID</td><td>Scheduled Events → OrganizerID</td></tr>
+        <tr><td>4</td><td>Scheduled Events → EventID</td><td>Worker Assignments → EventID</td></tr>
+        <tr><td>5</td><td>Workers Info → WorkerID</td><td>Worker Assignments → WorkerID</td></tr>
+      </table></div>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/e99851dcbb3c.jpg" alt="Dragging a field from one table onto another (Pre-Lab example)" loading="lazy"></button><figcaption>Dragging a field from one table onto another (Pre-Lab example)</figcaption></figure>
+      <p>Dragging not cooperating? Click <b>Edit Relationships → Create New…</b> and pick the tables and fields from the dropdowns.</p></li>
+    <li class="step" data-id="r-5"><p>In each Edit Relationships box, tick <b>Enforce Referential Integrity</b> (and both cascade boxes, like the Pre-Lab), make sure it says <b>One-To-Many</b>, then click <b>Create</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/63ae0d432ed7.jpg" alt="Tick the boxes, then Create (Pre-Lab example)" loading="lazy"></button><figcaption>Tick the boxes, then Create (Pre-Lab example)</figcaption></figure></li>
+    <li class="step" data-id="r-6"><p>Check that all five lines show a <b>1</b> on the parent side and <b>∞</b> on the other. Then click <b>Close</b> and <b>Yes</b> to save.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/77d209ec02c7.jpg" alt="What finished links look like (Pre-Lab example)" loading="lazy"></button><figcaption>What finished links look like (Pre-Lab example)</figcaption></figure></li>
+  </ol>
+  <div class="note"><b>Says “One-To-One” or “Indeterminate”?</b> You dragged the wrong direction or a primary key isn’t set. Cancel, check the key icons, and drag again from the table where that field is the key.</div>
+</section>
+
+
+<section class="part" id="in-import" data-part="in3">
+  <div class="part-head"><div class="num">3</div><div><h2>Import the text files</h2><p>Same wizard as Pre-Lab Part 3, six times.</p></div></div>
+  <div class="bar"><span></span></div>
+  <ol class="steps">
+    <li class="step" data-id="i-1"><p>Close all tables. Go to <b>External Data → New Data Source → From File → Text File</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/311859d2ceee.jpg" alt="Text File" loading="lazy"></button><figcaption>Text File</figcaption></figure></li>
+    <li class="step" data-id="i-2"><p>Browse to the file, choose <b>Append a copy of the records to the table</b>, pick the matching table from the dropdown, and click OK.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/ad10f574e40e.jpg" alt="Append to the matching table (this example says Customer; you’ll pick Event Type, Location, etc.)" loading="lazy"></button><figcaption>Append to the matching table (this example says Customer; you’ll pick Event Type, Location, etc.)</figcaption></figure></li>
+    <li class="step" data-id="i-3"><p>Leave <b>Delimited</b> selected, click <b>Next</b>.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/5b26cbe19d22.jpg" alt="Delimited, then Next" loading="lazy"></button><figcaption>Delimited, then Next</figcaption></figure></li>
+    <li class="step" data-id="i-4"><p>Choose <b>Comma</b>, Text Qualifier <code>"</code>, leave <b>First Row Contains Field Names</b> unchecked, click <b>Finish</b>. Don’t save the import steps.</p>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/8ccaade77e1a.jpg" alt="Comma, quote qualifier, Finish" loading="lazy"></button><figcaption>Comma, quote qualifier, Finish</figcaption></figure></li>
+    <li class="step" data-id="i-5"><p>Do all six <b>in this exact order</b> (parents before the tables that point to them):</p>
+      <div class="tablewrap"><table>
+        <tr><th>Order</th><th>File</th><th>Append to</th><th>Rows</th></tr>
+        <tr><td>a</td><td>Event_Type.txt</td><td>Event Type</td><td>6</td></tr>
+        <tr><td>b</td><td>Location.txt</td><td>Location</td><td>6</td></tr>
+        <tr><td>c</td><td>Organizer.txt</td><td>Organizer</td><td>6</td></tr>
+        <tr><td>d</td><td>Workers_Info.txt</td><td>Workers Info</td><td>16</td></tr>
+        <tr><td>e</td><td>Scheduled_Events.txt</td><td>Scheduled Events</td><td>12</td></tr>
+        <tr><td>f</td><td>Worker_Assignments.txt</td><td>Worker Assignments</td><td>21</td></tr>
+      </table></div></li>
+  </ol>
+  <div class="note"><b>Heads up on Location.txt:</b> the apostrophe in “Skully’s Music-Diner” is a special curly character. If it shows up as a weird symbol after importing, either fix it by hand in the table, or redo that import and in the wizard click <b>Advanced…</b> and set <b>Code Page</b> to <b>Western European (Windows)</b>.</div>
+
+  <h3>Check your work against the lab’s screenshots</h3>
+  <ol class="steps">
+    <li class="step" data-id="i-6"><p>Open each table and compare. The little + signs on the left just mean the table has related records; that’s a good sign your relationships worked.</p>
+      <figure class="narrow"><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/edcbc79c6328.jpg" alt="Event Type" loading="lazy"></button><figcaption>Event Type</figcaption></figure>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/89383de257be.jpg" alt="Location" loading="lazy"></button><figcaption>Location</figcaption></figure>
+      <figure class="narrow"><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/3391fd0d9d50.jpg" alt="Organizer" loading="lazy"></button><figcaption>Organizer</figcaption></figure>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/0f284bffb15f.jpg" alt="Scheduled Events" loading="lazy"></button><figcaption>Scheduled Events</figcaption></figure>
+      <figure class="narrow"><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/903880157744.jpg" alt="Worker Assignments" loading="lazy"></button><figcaption>Worker Assignments</figcaption></figure>
+      <figure><button type="button" aria-label="Enlarge screenshot"><img loading="lazy" src="assets/img/57b32db53d13.jpg" alt="Workers Info" loading="lazy"></button><figcaption>Workers Info</figcaption></figure>
+      <p>The typos in worker data (“Cicinnati”, “Tacom”, “Matther”) are in the original file. Leave them.</p></li>
+    <li class="step" data-id="i-7"><p>Close all tables, save, and upload <b>CSE 2111 In Lab 6 Events Master.accdb</b> to SimNet.</p></li>
+  </ol>
+  <div class="note"><b>Import error or missing rows?</b> Usually a field name that doesn’t match exactly (watch the spaces), fields in the wrong order, or a file imported before its parent table.</div>
+</section>
+
+
+  <p class="reset"><button type="button" class="reset-btn">Clear checkmarks on this page</button></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

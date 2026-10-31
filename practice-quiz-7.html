@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 7 | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-quiz-7">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 7</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page" data-page="practice-quiz-7">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 7</div>
+  <div class="pagehead">
+    <h1>Quiz 7 practice: Reference Functions</h1>
+    <p>29 original questions on VLOOKUP and HLOOKUP: syntax, exact vs. approximate match, sorting rules, #N/A and #REF! errors, leaving labels out of the table, absolute table references, and why lookups beat long nested IFs. Questions use three small tables: shipping rates, products, and a sideways discount table.</p>
+  </div>
+  <p class="quiznote">These aren’t the real quiz questions. They test the same skills with new numbers and scenarios, so focus on the explanations. Your answers are saved in this browser. Need a refresher first? <a href="practice-study-7.html">Open the Quiz 7 study guide</a>.</p>
+  <div class="scoreboard" aria-live="polite">
+    <div class="stat"><b id="q7done">0 / 29</b><span>Answered</span></div>
+    <div class="stat"><b id="q7right">0</b><span>Correct</span></div>
+    <div class="stat"><b id="q7pct">–</b><span>Score so far</span></div>
+    <div class="sb-actions"><button type="button" class="btn" id="q7retry">Retry missed</button><button type="button" class="btn" id="q7reset">Start over</button></div>
+    <div class="sbbar"><span id="q7bar"></span></div>
+  </div>
+  <div id="q7list"></div>
+  <div class="finish" id="q7finish" hidden>
+    <h2>Set complete: <b></b></h2>
+    <p>Read the explanations on anything you missed, then retry just those questions.</p>
+    <button type="button" class="btn primary" id="q7retry2">Retry missed questions</button>
+  </div>
+</div>
+<script>
+(function(){
+var T1='<div class="minitable"><table><tr><th></th><th>F<br>Weight (lb)</th><th>G<br>Cost</th></tr><tr><th>2</th><td>0</td><td>$5</td></tr><tr><th>3</th><td>2</td><td>$8</td></tr><tr><th>4</th><td>5</td><td>$12</td></tr><tr><th>5</th><td>10</td><td>$20</td></tr><tr><th>6</th><td>20</td><td>$35</td></tr></table></div>';
+var T2='<div class="minitable"><table><tr><th></th><th>A<br>ID</th><th>B<br>Item</th><th>C<br>Price</th></tr><tr><th>2</th><td>P30</td><td>Lamp</td><td>$30</td></tr><tr><th>3</th><td>P10</td><td>Stapler</td><td>$12</td></tr><tr><th>4</th><td>P40</td><td>Tape</td><td>$3</td></tr><tr><th>5</th><td>P20</td><td>Binder</td><td>$4</td></tr></table></div>';
+var T3='<div class="minitable"><table><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr><tr><th>1</th><td>Qty</td><td>1</td><td>10</td><td>25</td><td>50</td><td>100</td></tr><tr><th>2</th><td>Discount</td><td>0%</td><td>5%</td><td>8%</td><td>12%</td><td>15%</td></tr></table></div>';
+var W=function(tbl,name,t){return '<p>Use the '+name+' table:</p>'+tbl+'<p>'+t+'</p>';};
+var S=function(t){return W(T1,'shipping (F2:G6)',t);};
+var P=function(t){return W(T2,'product (A2:C5)',t);};
+var H=function(t){return W(T3,'discount (labels in column A, data in B1:F2)',t);};
+var Q=[
+{p:"What is the correct syntax for VLOOKUP?",
+ o:["VLOOKUP(table_array, lookup_value, col_index_num, [range_lookup])","VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])","VLOOKUP(lookup_value, col_index_num, table_array, [range_lookup])","VLOOKUP(col_index_num, lookup_value, table_array, [range_lookup])"],a:1,
+ e:"What you’re looking for, where to look, which column to return, and (optionally) exact or approximate. HLOOKUP has the same order with row_index_num."},
+{p:"In HLOOKUP, what is the third argument?",
+ o:["lookup_value","range_lookup","row_index_num","table_array"],a:2,
+ e:"HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup]). Since the table runs sideways, you pick a row number instead of a column number."},
+{p:"VLOOKUP searches for the lookup_value in which part of the table_array?",
+ o:["The last column","The first column","The column named in col_index_num","Every column"],a:1,
+ e:"VLOOKUP always searches down the first column of the table, then returns the value from the column you specify in that same row."},
+{p:"HLOOKUP searches for the lookup_value across the first row of the table_array.",
+ o:["True","False"],a:0,
+ e:"H is for horizontal: HLOOKUP searches across the top row, then goes down to the row you specify."},
+{p:"In VLOOKUP, a col_index_num of 1 returns:",
+ o:["A value from the first column of the table, the same column being searched","A value from column A of the worksheet","The row number of the match","An error, because counting starts at 0"],a:0,
+ e:"Columns are counted within the table_array, starting at 1. Column 1 is the search column itself, so col_index_num 2 is usually what you want."},
+{p:"Leaving out the range_lookup argument is the same as setting it to FALSE.",
+ o:["True","False"],a:1,
+ e:"If you leave it out, Excel uses TRUE (approximate match). That’s a common source of surprise results when you really needed an exact match."},
+{p:"For an approximate match (range_lookup TRUE), what must be true about the table?",
+ o:["The first column (or row, for HLOOKUP) must be sorted in ascending order","The table must have exactly two columns","The lookup column must contain text","Nothing; order doesn’t matter"],a:0,
+ e:"Approximate match finds the largest value that is less than or equal to the lookup value, which only works if the values run from smallest to largest."},
+{p:"For an exact match (range_lookup FALSE), the first column must be sorted in ascending order.",
+ o:["True","False"],a:1,
+ e:"Exact match checks for an identical value wherever it is, so sorting isn’t required."},
+{p:S("What does <code>=VLOOKUP(7, $F$2:$G$6, 2, TRUE)</code> return?"),
+ o:["$8","$12","$20","#N/A"],a:1,
+ e:"There’s no 7 in the first column, so approximate match takes the largest value that is less than or equal to 7, which is 5. That row’s cost is $12."},
+{p:S("What does <code>=VLOOKUP(2, $F$2:$G$6, 2, TRUE)</code> return?"),
+ o:["$5","$8","$12","#N/A"],a:1,
+ e:"2 is in the table exactly, and an approximate match still uses an exact hit when there is one. The cost is $8."},
+{p:S("What does <code>=VLOOKUP(25, $F$2:$G$6, 2, TRUE)</code> return?"),
+ o:["$35","#N/A","$20","0"],a:0,
+ e:"25 is bigger than every weight, so the largest value that’s less than or equal to it is the last one, 20. That gives $35."},
+{p:S("What does <code>=VLOOKUP(-1, $F$2:$G$6, 2, TRUE)</code> return?"),
+ o:["$5","0","#N/A","#VALUE!"],a:2,
+ e:"−1 is smaller than the smallest value in the first column (0), so nothing is less than or equal to it. Approximate match returns #N/A."},
+{p:S("What does <code>=VLOOKUP(7, $F$2:$G$6, 2, FALSE)</code> return?"),
+ o:["$12","$8","#N/A","$20"],a:2,
+ e:"FALSE demands an exact match, and there’s no 7 in the first column, so the result is #N/A."},
+{p:S("What does <code>=VLOOKUP(7, $F$2:$G$6, 3, TRUE)</code> return?"),
+ o:["#REF!","$12","#N/A","#VALUE!"],a:0,
+ e:"The table is only 2 columns wide, so there’s no column 3 to return from. A col_index_num larger than the table gives #REF!."},
+{p:P("What does <code>=VLOOKUP(\"P40\", $A$2:$C$5, 3, FALSE)</code> return?"),
+ o:["Tape","$3","$30","#N/A"],a:1,
+ e:"P40 is found in row 4. Column 3 of the table is Price, so the result is $3."},
+{p:P("What does <code>=VLOOKUP(\"P40\", $A$2:$C$5, 2, FALSE)</code> return?"),
+ o:["$3","Tape","P40","Lamp"],a:1,
+ e:"Same row, but column 2 of the table is Item, so the result is Tape."},
+{p:P("What does <code>=VLOOKUP(\"p10\", $A$2:$C$5, 2, FALSE)</code> return? (Note the lowercase p.)"),
+ o:["#N/A","Stapler","Lamp","#NAME?"],a:1,
+ e:"VLOOKUP isn’t case-sensitive, so \"p10\" matches P10 and returns Stapler."},
+{p:P("What does <code>=VLOOKUP(\"P50\", $A$2:$C$5, 2, FALSE)</code> return?"),
+ o:["Binder","#N/A","Tape","#REF!"],a:1,
+ e:"There’s no P50 and the formula requires an exact match, so it returns #N/A. (Even if the IDs were sorted, approximate match would wrongly return a nearby product.)"},
+{p:P("Why should a product-ID lookup like this use FALSE for range_lookup?"),
+ o:["Product IDs are codes, so you need the exact one, not the closest","FALSE makes the formula run faster","VLOOKUP can’t use TRUE with text","FALSE sorts the table automatically"],a:0,
+ e:"Use FALSE when you need the exact item: IDs, names, codes. Use TRUE for brackets and ranges such as tax rates, shipping weights, and grade cutoffs. (Note this table isn’t even sorted, which is fine for exact match.)"},
+{p:H("What does <code>=HLOOKUP(30, $B$1:$F$2, 2, TRUE)</code> return?"),
+ o:["5%","8%","12%","#N/A"],a:1,
+ e:"Across row 1, the largest quantity less than or equal to 30 is 25. Row 2 under it is 8%."},
+{p:H("What does <code>=HLOOKUP(100, $B$1:$F$2, 2, TRUE)</code> return?"),
+ o:["12%","15%","#N/A","100"],a:1,
+ e:"100 is an exact match in the top row, so you get the 15% directly below it."},
+{p:H("What does <code>=HLOOKUP(9, $B$1:$F$2, 2, TRUE)</code> return?"),
+ o:["0%","5%","#N/A","9"],a:0,
+ e:"9 isn’t in the row, so approximate match takes the largest quantity that’s less than or equal to 9, which is 1. That gives 0%."},
+{p:H("The quantity ordered is in H5 and may not exactly match a breakpoint. Which formula returns the correct discount?"),
+ o:["=HLOOKUP(H5, $A$1:$F$2, 2, TRUE)","=VLOOKUP(H5, $B$1:$F$2, 2, TRUE)","=HLOOKUP(H5, $B$1:$F$2, 2, TRUE)","=HLOOKUP(H5, $B$1:$F$2, 2, FALSE)"],a:2,
+ e:"The table runs sideways, so use HLOOKUP. Use TRUE because the value may fall between breakpoints. Start the table at B1, leaving out the labels in column A, since the text “Qty” would sit in the search row."},
+{p:"When you set up a lookup table, the table_array should include the label cells (like “Qty” or “Score”) that sit next to the data.",
+ o:["True","False"],a:1,
+ e:"The table_array should hold only the data. A text label in the first column or row ends up in the values being searched and can produce wrong results or errors."},
+{p:"You type <code>=VLOOKUP(A2, F2:G6, 2, TRUE)</code> in row 2 and copy it down a column. What goes wrong, and how do you fix it?",
+ o:["Nothing; lookup functions don’t shift when copied","The table range shifts down each row (F3:G7, F4:G8, …), so make it absolute: $F$2:$G$6","The 2 changes to 3, 4, …, so use $2","A2 should be absolute: $A$2"],a:1,
+ e:"Absolute references matter for lookups. The table must stay put, so lock it with $F$2:$G$6. A2 should stay relative so each row looks up its own value."},
+{p:"Your table has categories across row 1 and their values in row 2. Which function fits?",
+ o:["VLOOKUP","HLOOKUP","COUNTIF","RANK.EQ"],a:1,
+ e:"The main difference between the two is orientation. Data that runs across rows (horizontal) needs HLOOKUP; data that runs down columns (vertical) needs VLOOKUP."},
+{p:"Which of these is <em>not</em> a reason to use a lookup table instead of a long nested IF?",
+ o:["Nested IFs get long and hard to read","Changing a breakpoint in a table is easier than editing a formula","A table is easier to maintain and extend","Nested IFs can’t return text"],a:3,
+ e:"Nested IFs can return text just fine. The real reasons are that long nested IFs are cumbersome and hard to maintain, while a table is easy to read and update."},
+{p:"A grade table has cutoffs 0%, 60%, 70%, 80%, 90% (sorted) with letters E, D, C, B, A. What does an approximate-match VLOOKUP return for a score of 89.9%?",
+ o:["A","B","C","#N/A"],a:1,
+ e:"The largest cutoff that is less than or equal to 89.9% is 80%, which is a B. Approximate match never rounds up."},
+{p:"With an approximate match, if the lookup value is larger than every value in the first column, VLOOKUP returns the result from the last row of the table.",
+ o:["True","False"],a:0,
+ e:"The largest value that is less than or equal to it is the last one. Only values smaller than the first entry produce #N/A."}
+];
+
+var KEY='cse2111-practice-quiz-7',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+var box=document.getElementById('q7list');
+function paint(card,i){
+  var q=Q[i],ch=st[i],ex=card.querySelector('.explain');
+  card.classList.remove('right','wrong');
+  card.querySelectorAll('.opt').forEach(function(b){
+    var j=+b.dataset.j,ans=ch!==undefined;
+    b.disabled=ans;
+    b.classList.toggle('is-correct',ans&&j===q.a);
+    b.classList.toggle('is-wrong',ans&&j===ch&&j!==q.a);
+  });
+  if(ch===undefined){ex.hidden=true;ex.innerHTML='';return;}
+  var ok=ch===q.a;
+  card.classList.add(ok?'right':'wrong');
+  ex.hidden=false;
+  ex.innerHTML='<b>'+(ok?'Correct.':'Not quite.')+'</b> '+q.e;
+}
+Q.forEach(function(q,i){
+  var tf=q.o.length===2&&q.o[0]==='True';
+  var card=document.createElement('div');
+  card.className='qcard';
+  card.innerHTML='<div class="qhead"><span class="qnum">'+(i+1)+'</span><span class="qtype">'+(tf?'True or false':'Multiple choice')+'</span></div>'+
+    '<div class="qprompt">'+q.p+'</div><div class="opts'+(tf?' tf':'')+'">'+
+    q.o.map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'"><span class="mark" aria-hidden="true"></span><span>'+o+'</span></button>';}).join('')+
+    '</div><div class="explain" hidden></div>';
+  box.appendChild(card);
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(st[i]!==undefined)return;
+      st[i]=+b.dataset.j;save();paint(card,i);tally();
+    });
+  });
+  paint(card,i);
+});
+function tally(){
+  var n=0,c=0;
+  Q.forEach(function(q,i){if(st[i]!==undefined){n++;if(st[i]===q.a)c++;}});
+  document.getElementById('q7done').textContent=n+' / '+Q.length;
+  document.getElementById('q7right').textContent=c;
+  document.getElementById('q7pct').textContent=n?Math.round(c/n*100)+'%':'–';
+  document.getElementById('q7bar').style.width=(n/Q.length*100)+'%';
+  var fin=document.getElementById('q7finish');
+  fin.hidden=n<Q.length;
+  if(n===Q.length)fin.querySelector('h2 b').textContent=c+' of '+Q.length+' ('+Math.round(c/Q.length*100)+'%)';
+}
+function repaintAll(){box.querySelectorAll('.qcard').forEach(function(card,i){paint(card,i);});tally();}
+function retry(){
+  var first=-1;
+  Q.forEach(function(q,i){if(st[i]!==undefined&&st[i]!==q.a){delete st[i];if(first<0)first=i;}});
+  save();repaintAll();
+  if(first>=0)box.children[first].scrollIntoView({block:'center'});
+}
+document.getElementById('q7retry').addEventListener('click',retry);
+document.getElementById('q7retry2').addEventListener('click',retry);
+document.getElementById('q7reset').addEventListener('click',function(){st={};save();repaintAll();window.scrollTo(0,0);});
+tally();
+})();
+</script>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>

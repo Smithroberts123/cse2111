@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice quizzes / Quiz 3 study guide | CSE 2111 Project Database</title>
+<meta name="description" content="A student-built study hub for CSE 2111 at Ohio State: lab walkthroughs, practice quizzes, and exam help for Excel and Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="practice-study-3">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Labs</button>
+  <a class="brand" href="index.html"><span class="blk">2111</span>CSE 2111 Project Database</a>
+  <span class="crumb" id="crumb">Practice quizzes / Quiz 3 study guide</span>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Site navigation">
+  <p class="group-label">Start</p>
+  <ul><li><a class="nav-item" href="index.html" data-view="home"><span class="ico" id="homeIco"></span><span class="lbl">Home</span></a></li></ul>
+  <p class="group-label">Course work</p>
+  <button class="nav-item group-toggle" id="labsToggle" aria-expanded="false" aria-controls="labsPanel"><span class="ico" id="labsIco"></span><span class="lbl">Labs</span><span class="pill">9</span><span class="chev" id="labsChev"></span></button>
+  <div class="collapse" id="labsPanel"><div class="collapse-inner"><ul id="labNav"></ul></div></div>
+  <a class="nav-item" href="practice-quizzes.html" data-view="practice-quizzes" id="quizLink"><span class="ico" data-ic="quiz"></span><span class="lbl" style="font-weight:700">Practice quizzes</span></a>
+  <button class="nav-item group-toggle" id="examToggle" aria-expanded="false" aria-controls="examPanel"><span class="ico" data-ic="exam"></span><span class="lbl">Exam help</span><span class="pill">3</span><span class="chev" data-ic="chev"></span></button>
+  <div class="collapse" id="examPanel"><div class="collapse-inner"><ul class="grouplist">
+    <li style="--i:0"><a class="nav-item" href="exam-1.html" data-view="exam-1"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 1</span></a></li>
+    <li style="--i:1"><a class="nav-item" href="exam-2.html" data-view="exam-2"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 2</span><span class="soon">Soon</span></a></li>
+    <li style="--i:2"><a class="nav-item" href="exam-3.html" data-view="exam-3"><span class="ico" data-ic="flag"></span><span class="lbl">Exam 3</span><span class="soon">Soon</span></a></li>
+  </ul></div></div>
+  <a class="nav-item" href="resources.html" data-view="resources" id="resLink"><span class="ico" data-ic="book"></span><span class="lbl" style="font-weight:700">Resources</span></a>
+</aside>
+
+<main class="view" id="view">
+<div class="page study" data-page="practice-study-3">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="practice-quizzes.html">Practice quizzes</a> / Quiz 3 study guide</div>
+  <div class="pagehead">
+    <h1>Quiz 3 study guide: Spreadsheet Design</h1>
+    <p>The core Chapter 3 ideas in one place. Read this, then <a href="practice-quiz-3.html">try the practice set</a>. Your course notes are still the official source.</p>
+  </div>
+
+  <h2>What makes a good spreadsheet design</h2>
+  <p>A spreadsheet that gives the right answer can still need redesigning. Good designs are:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Goal</th><th>What it means</th><th>Sign it’s missing</th></tr>
+    <tr><td>Correct</td><td>Formulas produce the right results</td><td>Totals don’t match hand checks</td></tr>
+    <tr><td>Easy to read and use</td><td>Clear labels, units, and an obvious input area</td><td>Others can’t tell what to change</td></tr>
+    <tr><td>Easy to change</td><td>Values can be updated in one spot</td><td>Constants are typed inside formulas</td></tr>
+    <tr><td>Easy to extend</td><td>New variables or cases fit without rewriting</td><td>Adding a region means redoing formulas</td></tr>
+  </table></div>
+  <p><b>Plan first.</b> Sketching the layout before building avoids time-consuming changes later.</p>
+
+  <h2>Inputs, outputs, and keeping data in one place</h2>
+  <p>Put assumptions (tax rates, prices, growth rates) in a labeled <b>input area</b>, and have formulas in the <b>output area</b> reference those cells. Don’t type constants like <code>0.0725</code> into formulas.</p>
+  <div class="note"><b>Data should appear only once.</b> If a value is needed elsewhere, reference it (<code>=Inputs!B2</code>) instead of retyping it. Two typed copies will eventually disagree.</div>
+
+  <h2>What-if analysis and Goal Seek</h2>
+  <p><b>Input/output (what-if) analysis:</b> change the input values and watch the outputs recalculate. You change values, never the formula cells.</p>
+  <p><b>Goal Seek</b> (Data, What-If Analysis, Goal Seek) works backward: you name the result you want and it finds the input that produces it.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Dialog box</th><th>What goes there</th><th>Example</th></tr>
+    <tr><td>Set cell</td><td>The formula whose result you want to hit</td><td>B10 (profit)</td></tr>
+    <tr><td>To value</td><td>The target number</td><td>50000</td></tr>
+    <tr><td>By changing cell</td><td>One input cell holding a <b>value</b>, not a formula</td><td>B3 (price)</td></tr>
+  </table></div>
+  <p><b>Limitations:</b> Goal Seek adjusts only <b>one</b> cell, and that cell must contain a constant, not a formula. The Set cell has to depend on it.</p>
+
+  <h2>Multiple worksheets and 3-D references</h2>
+  <p>When each case (a month, a store, a scenario) gets its own sheet with an <b>identical layout</b>, a summary sheet can combine them with a 3-D reference: the same cell across a span of sheets.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Goal</th><th>Formula</th></tr>
+    <tr><td>Total D8 on Jan through Mar</td><td><code>=SUM(Jan:Mar!D8)</code></td></tr>
+    <tr><td>Sheet names with spaces</td><td><code>=SUM('Week 1:Week 4'!C3)</code></td></tr>
+    <tr><td>Average a range across sheets</td><td><code>=AVERAGE(Jan:Mar!B2:B10)</code></td></tr>
+  </table></div>
+  <p>The span includes every sheet positioned between the first and last tab. Drag a sheet into that span and it’s included; drag it out and it isn’t.</p>
+
+  <h2>Freeze Panes</h2>
+  <p>Freeze Panes (View tab) keeps headers on screen while you scroll. It freezes everything <b>above and to the left</b> of the selected cell, so you can freeze rows and columns at the same time. Select C3 to freeze rows 1–2 and columns A–B. It only affects the view, not the data.</p>
+
+  <h2>Paste Special: Values and Transpose</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>Values</td><td>Pastes the results as plain numbers or text, with no formulas</td></tr>
+    <tr><td>Transpose</td><td>Flips orientation: rows become columns. A 3 × 5 block becomes 5 × 3.</td></tr>
+  </table></div>
+  <p>Checking both pastes a flipped, formula-free snapshot.</p>
+
+  <h2>Reference reminders</h2>
+  <p>A formula like <code>=B4*$F$2</code> mixes a relative reference (B4) with an absolute one ($F$2), which is the classic pattern for applying one input cell to a whole column. For sheets with spaces in their names, use quotes: <code>='Tax Rates'!D9</code>.</p>
+
+  <h2>Videos</h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+goal+seek+tutorial" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Goal Seek</b><small>Working backward to find the input you need.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+3D+reference+sum+across+sheets" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>3-D references</b><small>Summing the same cell across several sheets.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+freeze+panes+rows+and+columns" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Freeze Panes</b><small>Keeping header rows and columns in view.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+paste+special+values+transpose" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Paste Special: Values and Transpose</b><small>Pasting results only, and flipping rows and columns.</small><em>Search YouTube</em></span></a>
+    <a class="vid" href="https://www.youtube.com/results?search_query=excel+spreadsheet+design+best+practices+inputs+outputs" target="_blank" rel="noopener noreferrer"><span class="play search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1a5.5 5.5 0 014.38 8.83l3.65 3.64-1.06 1.06-3.64-3.65A5.5 5.5 0 116.5 1zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><b>Spreadsheet design best practices</b><small>Input areas, labels, and avoiding hard-coded numbers.</small><em>Search YouTube</em></span></a>
+  </div>
+  <p class="meanwhile"><a href="practice-quiz-3.html">Start the Quiz 3 practice set</a></p>
+</div>
+</main>
+</div>
+<dialog id="zoom"><img alt=""><p>Tap anywhere to close</p></dialog>
+<script src="assets/site.js"></script>
+</body>
+</html>
